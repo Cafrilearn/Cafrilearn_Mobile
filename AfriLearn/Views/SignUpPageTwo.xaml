@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:sfButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             mc:Ignorable="d"
+             x:Class="AfriLearn.Views.SignUpPageTwo"
+             NavigationPage.HasBackButton="False"
+             BackgroundImageSource="GoToSchool"
+             Title="Sign Up">
+    <ContentPage.BindingContext>
+        <ViewModel:SignUpViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Grid Margin="0, 20, 0, 0">
+                <StackLayout>
+                    <Label Text="AfriLearn"
+                           VerticalOptions="Start"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="Large"/>
+                    <Label Text="Creating Account with AfriLearn"
+                           HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackLayout>
+                    <Label Text="We would want to request some more information from you to customize your preferance."
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"
+                           FontSize="16"/>
+                    <Label Text="Level of Study e.g Class 5"
+                           TextColor="White"
+                           FontSize="16"/>
+                    <Picker
+                        SelectedItem="{Binding StudyLevel}"
+                        Title="Study Level"
+                        TitleColor="White">
+                        <Picker.Items >
+                            <x:String>Pre Unit</x:String>
+                            <x:String>Class 1</x:String>
+                            <x:String>Class 2</x:String>
+                            <x:String>Class 3</x:String>
+                            <x:String>Class 4</x:String>
+                            <x:String>Class 5</x:String>
+                            <x:String>Class 6</x:String>
+                            <x:String>Class 7</x:String>
+                            <x:String>Class 8</x:String>
+                            <x:String>Form 1</x:String>
+                            <x:String>Form 2</x:String>
+                            <x:String>Form 3</x:String>
+                            <x:String>Form 4</x:String>
+                        </Picker.Items>
+                    </Picker>
+                     <Label Text="School/Institution"
+                           TextColor="White"
+                           FontSize="16"
+                           />
+                    <Entry Placeholder="e.g Lunyu Primary School" 
+                           PlaceholderColor="White"
+                           Text="{Binding Institution}"
+                           ReturnCommand="{Binding RegisterUserCommand}"
+                           ReturnCommandParameter="{Binding AppUserPageTwo}"
+                           ReturnType="Done"/>
+                    <ActivityIndicator IsVisible="{Binding IsBusy}"
+                                       IsRunning="{Binding IsBusy}"
+                                       Margin="0,20,0,20"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackLayout>
+                    <Button Text="Register"
+                         Command="{Binding  RegisterUserCommand}"
+                         CommandParameter="{Binding AppUserPageTwo}"/>
+
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand">
+                        <Label Text="Already have an account?"
+                              HorizontalOptions="Start"
+                              VerticalOptions="Center"
+                              TextColor="White"/>
+                        <sfButton:SfButton Text="Sign In"
+                                           Command="{Binding NavigateToSignInPageCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

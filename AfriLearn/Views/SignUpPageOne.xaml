@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AfriLearn.Views.SignUpPageOne"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             xmlns:sfButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:sfBoarder="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             NavigationPage.HasBackButton="False"
+             Title="Sign Up"
+             BackgroundImageSource="GoToSchool">
+    <ContentPage.BindingContext>
+        <ViewModel:SignUpViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Grid Margin="0, 20, 0, 0">
+                <StackLayout>
+                    <Label Text="AfriLearn"
+                           VerticalOptions="Start"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="Large"/>
+                    <Label Text="Create Account with AfriLearn"
+                           HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackLayout>
+                    <Entry Text="{Binding UserName}"
+                           Placeholder="User Name"
+                           PlaceholderColor="White"
+                           Keyboard="Text"
+                           ReturnType="Next"/>
+                    <Entry Text="{Binding Email}"
+                           Placeholder="Email"
+                           PlaceholderColor="White"
+                           ReturnType="Next"
+                           Keyboard="Email"/>
+                    <Entry Text="{Binding Password}"
+                           Placeholder="Password"
+                           PlaceholderColor="White"
+                           ReturnType="Next"
+                           IsPassword="True"
+                           />
+                    <Entry Text="{Binding ConfirmPassword}"
+                           Placeholder="Confirm Password"
+                           PlaceholderColor="White"
+                           ReturnType="Next"
+                           IsPassword="True"/>
+                    <StackLayout Orientation="Horizontal">
+                        <sfButton:SfSwitch/>
+                        <Label Text="Agree to Terms and Conditions"
+                               TextColor="White"
+                               VerticalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding NavigateToTermsAndConditionsPageCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackLayout>
+                    <Button Text="Next"
+                         Command="{Binding NavigateToSignUpPageTwoCommand}"
+                         CommandParameter="{Binding AppUser}"/>
+
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand">
+                        <Label Text="Already have an account?"
+                              HorizontalOptions="Start"
+                              VerticalOptions="Center"
+                               TextColor="White"/>
+                        <sfButton:SfButton Text="Sign In"
+                                           Command="{Binding NavigateToSignInPageCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

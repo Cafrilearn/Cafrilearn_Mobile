@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AfriLearn.Views.IntroPageOne"
+             xmlns:ViewModel="clr-namespace:AfriLearnMobile.ViewModels"
+             xmlns:sfButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             NavigationPage.HasBackButton="False"
+             Title="Introduction"
+            >
+    <ContentPage.BindingContext>
+        <ViewModel:IntroductionViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <sfButton:SfButton Text="Skip"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="Start"
+                    Command="{Binding SkipIntroCommand}"
+                               WidthRequest="50"/>
+            <Label Text="Welcome to AfriLearn, Learn from anywhere on the Continent of Africa. We believe Learning should be accessible, affordable and free to everyone and everywhere."
+                   VerticalOptions="CenterAndExpand"
+                   FontSize="18"                  />
+            <Image Source="AfricTechImage1"
+                   Aspect="AspectFill"/>
+            <sfButton:SfButton Text="Next"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    Command="{Binding NavigateToIntroPageTwoCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

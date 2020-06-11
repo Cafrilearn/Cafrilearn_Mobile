@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:LocalViews="clr-namespace:AfriLearn.Views"
+             mc:Ignorable="d"
+             x:Class="AfriLearn.Views.HomePage"
+            NavigationPage.HasBackButton="False">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="HandsTogether"
+                   WidthRequest="32"
+                   HeightRequest="32"
+                   Margin="0,0,5,0" />
+            <Label Text="AfriLearn"
+                  VerticalOptions="CenterAndExpand" 
+                  FontSize="20"/>
+
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <TabbedPage.Children>
+        <LocalViews:ClassroomPage Title="Class"/>
+        <LocalViews:LibraryPage Title="Library"/>
+        <LocalViews:ExplorePage Title="Explore"/>
+        <LocalViews:ForumPage Title="Forum"/>
+    </TabbedPage.Children>
+</TabbedPage>

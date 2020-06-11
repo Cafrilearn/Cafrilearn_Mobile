@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AfriLearn.Views.IntroPageThree" 
+             xmlns:ViewModel="clr-namespace:AfriLearnMobile.ViewModels"
+             xmlns:sfButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             NavigationPage.HasBackButton="False"
+             Title="Introduction">
+    <ContentPage.BindingContext>
+        <ViewModel:IntroductionViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Margin="8">
+           <Label Text="We are thrillied to have you join us and thousands of other students using our platform. Enjoy your Learning."
+                  FontSize="18" 
+                  Margin="0, 40, 0, 0"/>
+            <Label Text="We are here to make sure that you are educated."
+                   FontSize="16"
+                   Margin="0, 0, 0, 20"/>
+            <Image Source="HandsTogetherTwo"
+                   Aspect="AspectFill"/>
+            <sfButton:SfButton Text="Register Account"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    Margin="0,0,0,20"
+                    Command="{Binding NavigateToIntroSignUpPageCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:sfButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             mc:Ignorable="d"
+             x:Class="AfriLearn.Views.SignInPage"
+             Title="Sign In"
+             BackgroundImageSource="GoToSchool"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.BindingContext>
+        <ViewModel:SignInViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="220"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Grid Margin="0, 20, 0, 0">
+                <StackLayout>
+                    <Label Text="AfriLearn"
+                           VerticalOptions="Start"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="Large"/>
+                    <Label Text="Sign into your AfriLearn Account"
+                           HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Entry Text="{Binding Email}"
+                           Placeholder="Email"
+                           PlaceholderColor="White"
+                           ReturnType="Next"
+                           Keyboard="Email"/>
+                    <Entry Text="{Binding Password}"
+                           Placeholder="Password"
+                           PlaceholderColor="White"
+                           ReturnType="Next"
+                           IsPassword="True"
+                           />
+                    <Label Text="Forgot Password?"
+                          HorizontalOptions="EndAndExpand"
+                          TextColor="White"
+                           Margin="0,10,0,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToForgotPasswordPage}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackLayout>
+                    <Button Text="Sign In"
+                         Command="{Binding SignInCommand}"
+                         CommandParameter="{Binding AppUserPageTwo}"/>
+                    <ActivityIndicator IsVisible="{Binding IsBusy}"
+                                       IsRunning="{Binding IsBusy}"
+                                       Margin="0,20,0,20"/>
+
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand">
+                        <Label Text="Don't have an account?"
+                              HorizontalOptions="Start"
+                              VerticalOptions="Center"
+                              TextColor="White"/>
+                        <sfButton:SfButton Text="Register"
+                                           Command="{Binding NavigateToSignUpPageOneCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
