@@ -28,9 +28,9 @@ namespace AfriLearn.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await SplashscreenImage.ScaleTo(1, 1500);
-            await SplashscreenImage.ScaleTo(0.8, 2500, Easing.Linear);
-            await SplashscreenImage.ScaleTo(150, 2200, Easing.Linear);
+            await SplashscreenImage.ScaleTo(1, 1000);
+            await SplashscreenImage.ScaleTo(0.8, 1000, Easing.Linear);
+            await SplashscreenImage.ScaleTo(150, 1000, Easing.Linear);
 
             try
             {

@@ -7,6 +7,7 @@
              x:Class="AfriLearn.Views.IntroPageOne"
              xmlns:ViewModel="clr-namespace:AfriLearnMobile.ViewModels"
              xmlns:sfButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:sfBorder="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              NavigationPage.HasBackButton="False"
              Title="Introduction"
             >
@@ -14,21 +15,44 @@
         <ViewModel:IntroductionViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Margin="20">
-            <sfButton:SfButton Text="Skip"
-                    HorizontalOptions="EndAndExpand"
-                    VerticalOptions="Start"
-                    Command="{Binding SkipIntroCommand}"
-                               WidthRequest="50"/>
-            <Label Text="Welcome to AfriLearn, Learn from anywhere on the Continent of Africa. We believe Learning should be accessible, affordable and free to everyone and everywhere."
+        <StackLayout Margin="8">
+            
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="AfriLearn"
+                           VerticalOptions="Start"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="Large"/>
+                    <Label Text="Create Account with AfriLearn"
+                           HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <Label Text="Skip"
+                       TextColor="Blue"
+                       FontSize="Large"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="EndAndExpand">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SkipIntroCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+                        
+            <Label Text="Welcome to AfriLearn, Learn from anywhere on the Continent of Africa. We believe Learning should be accessible, affordable and free to everyone, everywhere."
                    VerticalOptions="CenterAndExpand"
                    FontSize="18"                  />
-            <Image Source="AfricTechImage1"
-                   Aspect="AspectFill"/>
+            <sfBorder:SfBorder CornerRadius="14">
+                <Image Source="AfricTechImage1"
+                   Aspect="AspectFill"
+                   HeightRequest="280"
+                   />
+            </sfBorder:SfBorder>
             <sfButton:SfButton Text="Next"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="EndAndExpand"
+                    Margin="0,5"
+                    CornerRadius="20"
                     Command="{Binding NavigateToIntroPageTwoCommand}"/>
+           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

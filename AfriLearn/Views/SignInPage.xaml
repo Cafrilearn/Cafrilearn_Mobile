@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:sfButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             xmlns:sfEntry="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.SignInPage"
              Title="Sign In"
@@ -32,17 +33,26 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackLayout VerticalOptions="CenterAndExpand">
-                    <Entry Text="{Binding Email}"
+                    <sfEntry:SfTextInputLayout ContainerType="Outlined"
+                                               OutlineCornerRadius="14"
+                                               HeightRequest="60">
+                        <Entry Text="{Binding Email}"
                            Placeholder="Email"
                            PlaceholderColor="White"
                            ReturnType="Next"
                            Keyboard="Email"/>
-                    <Entry Text="{Binding Password}"
+                    </sfEntry:SfTextInputLayout>
+                    <sfEntry:SfTextInputLayout EnablePasswordVisibilityToggle="True"
+                                               ContainerType="Outlined"
+                                               OutlineCornerRadius="14"
+                                               HeightRequest="60">
+                        <Entry Text="{Binding Password}"
                            Placeholder="Password"
                            PlaceholderColor="White"
                            ReturnType="Next"
                            IsPassword="True"
                            />
+                    </sfEntry:SfTextInputLayout>
                     <Label Text="Forgot Password?"
                           HorizontalOptions="EndAndExpand"
                           TextColor="White"
@@ -56,19 +66,28 @@
             <Grid Grid.Row="2">
                 <StackLayout>
                     <Button Text="Sign In"
+                          CornerRadius="20"
+                         HeightRequest="40"
                          Command="{Binding SignInCommand}"
                          CommandParameter="{Binding AppUserPageTwo}"/>
                     <ActivityIndicator IsVisible="{Binding IsBusy}"
                                        IsRunning="{Binding IsBusy}"
                                        Margin="0,20,0,20"/>
-
+                    <Label Text="Signing in ..."
+                           TextColor="White"
+                           FontSize="14"
+                           HorizontalOptions="CenterAndExpand"
+                           IsVisible="{Binding CreateAccountTextVisibility}"/>
                     <StackLayout Orientation="Horizontal" 
-                                 HorizontalOptions="CenterAndExpand">
+                                 HorizontalOptions="CenterAndExpand"
+                                 IsVisible="{Binding RegisterAccountBlockVisibility}" >
                         <Label Text="Don't have an account?"
                               HorizontalOptions="Start"
                               VerticalOptions="Center"
                               TextColor="White"/>
                         <sfButton:SfButton Text="Register"
+                                           CornerRadius="14"
+                                            WidthRequest="70"
                                            Command="{Binding NavigateToSignUpPageOneCommand}"/>
                     </StackLayout>
                 </StackLayout>

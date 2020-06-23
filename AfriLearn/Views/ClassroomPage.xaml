@@ -3,13 +3,128 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             xmlns:Border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.ClassroomPage">
+    <ContentPage.BindingContext>
+        <ViewModel:ClassRoomViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="yummy:PancakeView">
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </Style>
+            <Style TargetType="Image">
+                <Setter Property="HeightRequest" Value="90"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Welcome back to class"
+                   HorizontalOptions="StartAndExpand"/>
+             <Grid>
+                <yummy:PancakeView
+                Padding="8,0,8,8"
+                BackgroundColor="White"
+                CornerRadius="40,0,0,40"
+                VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Grid Margin="5" 
+                              ColumnSpacing="8"
+                              RowSpacing="8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <yummy:PancakeView
+                            Grid.Row="0"
+                            Grid.Column="0">
+                                <StackLayout>
+                                    <Image Source="MathImage2" />
+                                    <Label Text="Mathematics"/>
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ReadMathCommand}"/>
+                                </yummy:PancakeView.GestureRecognizers>
+                            </yummy:PancakeView>
+                            <yummy:PancakeView
+                            Grid.Row="0"
+                            Grid.Column="1">
+                                <StackLayout>
+                                    <Image Source="ScienceImage" />
+                                    <Label  Text="Science"></Label>
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding  ReadScienceCommand}"/>
+                                </yummy:PancakeView.GestureRecognizers>
+                            </yummy:PancakeView>
+                            <yummy:PancakeView
+                            Grid.Row="1"
+                            Grid.Column="0">
+                                <StackLayout>
+                                    <Image Source="EnglishImage1" 
+                                      />
+                                    <Label
+                                    Text="English"
+                                              />
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding  ReadEnglishCommand}"/>
+                                </yummy:PancakeView.GestureRecognizers>
+                            </yummy:PancakeView>
+                            <yummy:PancakeView
+                            Grid.Row="1"
+                            Grid.Column="1">
+                                <StackLayout>
+                                    <Image Source="KiswahiliImage1" />
+                                    <Label Text="Kiswahili"></Label>
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding  ReadKiswahiliCommand}"/>
+                                </yummy:PancakeView.GestureRecognizers>
+                            </yummy:PancakeView>
+                            <yummy:PancakeView
+                            Grid.Row="2"
+                            Grid.Column="0">
+                                <StackLayout>
+                                    <Image Source="SocialStudiesImage" />
+                                    <Label Text="Social Studies"></Label>
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding  ReadSocialStudiesMathCommand}"/>
+                                </yummy:PancakeView.GestureRecognizers>
+                            </yummy:PancakeView>
+                            <yummy:PancakeView
+                            Grid.Row="2"
+                            Grid.Column="1">
+                                <StackLayout>
+                                    <Image Source="PhysicalEducationImage1" />
+                                    <Label Text="Physican Education"></Label>
+                                </StackLayout>
+                                <yummy:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding  ReadPECommand}"/>
+                                </yummy:PancakeView.GestureRecognizers>
+                            </yummy:PancakeView>
+                        </Grid>
+                    </StackLayout>
+                </yummy:PancakeView>
+            </Grid>
+            <Label Text="Explore more resources -->"
+                   TextColor="Blue"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalOptions="EndAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

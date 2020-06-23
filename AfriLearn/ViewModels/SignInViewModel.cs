@@ -18,10 +18,14 @@ namespace AfriLearn.ViewModels
         public ICommand SignInCommand => new Command(execute: async () =>
         {
             IsBusy = true;
+            CreateAccountTextVisibility = true;
+            RegisterAccountBlockVisibility = false;
             await SignIn();
             await App.Current.MainPage.Navigation.PushAsync(new HomePage());
             IsBusy = false;
-         }, canExecute: ()=> true);
+            CreateAccountTextVisibility = false;
+            RegisterAccountBlockVisibility = true;
+        }, canExecute: ()=> true);
         private async Task SignIn()
         {
             await Task.Delay(3000);
