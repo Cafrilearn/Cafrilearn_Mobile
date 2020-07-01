@@ -1,8 +1,5 @@
-﻿using AfriLearn;
-using AfriLearn.Services;
-using System.ComponentModel;
+﻿using AfriLearn.Services;
 using System.IO;
-using System.Reflection;
 
 namespace AfriLearn.ViewModels
 {

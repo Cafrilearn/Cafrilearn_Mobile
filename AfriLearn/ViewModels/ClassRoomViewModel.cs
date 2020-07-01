@@ -1,4 +1,5 @@
-﻿using AfriLearn.Dtos;
+﻿using AfriLearn.Constants;
+using AfriLearn.Services;
 using AfriLearn.Views;
 using Akavache;
 using System.Windows.Input;
@@ -12,48 +13,49 @@ namespace AfriLearn.ViewModels
         {
 
         }
+
+        /// <summary>
+        /// commands
+        /// </summary>
         public ICommand ReadMathCommand => new Command(() =>
         {
-            GetBookType("mathematics");
+            GetBookType(BookType.Mathematics);
+            NavigationService.PushAsync(new ReadBookPage());
         });
-        public ICommand ReadEnglishCommand => new Command(async () =>
+        public ICommand ReadEnglishCommand => new Command(() =>
         {
-            //GetBookType("english");
-            await App.Current.MainPage.Navigation.PushAsync(new ReadBookTest());
+             GetBookType(BookType.English);
+             NavigationService.PushAsync(new ReadBookPage());
         });
         public ICommand ReadKiswahiliCommand => new Command(() =>
         {
-            GetBookType("kiswahili");
+            GetBookType(BookType.Kiswahili);
+            NavigationService.PushAsync(new ReadBookPage());
         });
         public ICommand ReadScienceCommand => new Command(() =>
         {
-            GetBookType("science");
+            GetBookType(BookType.Science);
+            NavigationService.PushAsync(new ReadBookPage());
         });
         public ICommand ReadSocialStudiesMathCommand => new Command(() =>
         {
-             GetBookType("social-studies");
+            GetBookType(BookType.SocialStudies);
+            NavigationService.PushAsync(new  ReadBookPage());
         });
-        public ICommand ReadPECommand => new Command(() =>
+        public ICommand ReadReligiousEducationCommand => new Command(() =>
         {
-            GetBookType("physical-education");
+            GetBookType(BookType.ReligiousEducation);
+            NavigationService.PushAsync(new ReadBookPage());
         });
 
-        public async void GetBookType(string bookName)
-        {
-            var bookToRead = new BookToReadDto();
-            bookToRead.BookTitle = bookName;
-            try
-            {
-                BlobCache.LocalMachine.InvalidateObject<string>("bookToRead");
-                BlobCache.LocalMachine.InsertObject<string>("bookToRead", bookName);
-                await App.Current.MainPage.Navigation.PushAsync(new ReadBookPage());
-            }
-            catch (System.Exception)
-            {
 
-                BlobCache.LocalMachine.InsertObject<string>("bookToRead",  bookName);
-                await App.Current.MainPage.Navigation.PushAsync(new ReadBookPage());
-            }
+        /// <summary>
+        /// methods
+        /// </summary>
+        /// <param name="bookType"></param>
+        public void GetBookType(string  bookType)
+        {
+            BlobCache.InMemory.InsertObject<string>("bookType",  bookType);
         }
     }
 }

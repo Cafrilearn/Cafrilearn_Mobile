@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
-             xmlns:Border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.ClassroomPage">
     <ContentPage.BindingContext>
@@ -14,8 +14,6 @@
         <ResourceDictionary>
             <Style TargetType="yummy:PancakeView">
                 <Setter Property="Margin" Value="3"/>
-                <Setter Property="BorderColor" Value="Black"/>
-                <Setter Property="BorderThickness" Value="2"/>
             </Style>
             <Style TargetType="Image">
                 <Setter Property="HeightRequest" Value="90"/>
@@ -27,13 +25,10 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome back to class"
-                   HorizontalOptions="StartAndExpand"/>
-             <Grid>
+            <Grid>
                 <yummy:PancakeView
-                Padding="8,0,8,8"
+                Padding="8"
                 BackgroundColor="White"
-                CornerRadius="20"
                 VerticalOptions="FillAndExpand">
                     <StackLayout>
                         <Grid Margin="5" 
@@ -110,21 +105,17 @@
                             Grid.Row="2"
                             Grid.Column="1">
                                 <StackLayout>
-                                    <Image Source="PhysicalEducationImage1" />
-                                    <Label Text="Physican Education"></Label>
+                                    <Image Source="ReligiousEducation" />
+                                    <Label Text="Religious Education"></Label>
                                 </StackLayout>
                                 <yummy:PancakeView.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding  ReadPECommand}"/>
+                                    <TapGestureRecognizer Command="{Binding ReadReligiousEducationCommand}"/>
                                 </yummy:PancakeView.GestureRecognizers>
                             </yummy:PancakeView>
                         </Grid>
                     </StackLayout>
                 </yummy:PancakeView>
             </Grid>
-            <Label Text="Explore more resources -->"
-                   TextColor="Blue"
-                   VerticalOptions="EndAndExpand"
-                   HorizontalOptions="EndAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

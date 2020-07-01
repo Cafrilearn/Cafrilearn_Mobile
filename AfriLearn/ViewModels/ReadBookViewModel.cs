@@ -1,23 +1,34 @@
-﻿using AfriLearn.Dtos;
+﻿using AfriLearn.Constants;
 using AfriLearn.Services;
 using AfriLearnMobile.Models;
 using Akavache;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reactive.Linq;
 
 namespace AfriLearn.ViewModels
 {
     class ReadBookViewModel : BaseViewModel
     {
+        /// <summary>
+        /// fields
+        /// </summary>
         private Stream bookSource;
         private string bookName;
 
+
+        /// <summary>
+        /// constructor(s)
+        /// </summary>
         public ReadBookViewModel()
         {
             GetBookStream();
         }
-                
+             
+        /// <summary>
+        /// properties
+        /// </summary>
         public  Stream  BookSource
         {
             get { return   bookSource; }
@@ -37,62 +48,55 @@ namespace AfriLearn.ViewModels
             }
         }
 
-
-        public void GetBookStream()
+        /// <summary>
+        /// methods
+        /// </summary>
+        public async void GetBookStream()
         {
-               var bookType = BlobCache.LocalMachine.GetObject<string>("bookToRead");
-            // List<string> allBooks = (List<string>)BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
-            // AppUser appUser = (AppUser)BlobCache.UserAccount.GetObject<AppUser>("appUser");
-            string bookName = null;
-            if (bookType.ToString() == "mathematics")
+            var bookType = await BlobCache.InMemory.GetObject<string>("bookType");
+            switch (bookType)
             {
-                //bookName = allBooks.Where(b => b.StartsWith("Mathematics".ToUpper())).LastOrDefault();
-                BookName = bookName;
-                string demoName = "MATHEMATICS REVISION NOTES STD 7 & 8-1.pdf";
-                GetBookFromAzure("mathematics",  demoName);
+                case BookType.Mathematics:
+                    GetBookFromAzure(bookType, "MATHEMATICS");
+                    break;
+                case BookType.English:
+                    GetBookFromAzure(bookType, "ENGLISH");
+                    break;
+                case BookType.Kiswahili:
+                    GetBookFromAzure(bookType, "KISWAHILI");
+                    break;
+                case BookType.Science:
+                    GetBookFromAzure(bookType, "SCIENCE");
+                    break;
+                case BookType.SocialStudies:
+                    GetBookFromAzure(bookType, "SOCIAL");
+                    break;
+                case BookType.ReligiousEducation:
+                    GetBookFromAzure(bookType, "CRE");
+                    break;
+                default:
+                    break;
             }
-            else if (bookType.ToString() == "english")
-            {
-               // bookName = allBooks.Where(b => b.StartsWith("ENGLISH".ToUpper())).LastOrDefault();
-                BookName = bookName;
-                string demoName = "ENGLISH GRAMMAR.pdf";
-                GetBookFromAzure(bookType.ToString(),  demoName);
-            }
-            else if (bookType.ToString() == "kiswahili")
-            {
-              //  bookName = allBooks.Where(b => b.StartsWith("KISWAHILI".ToUpper())).FirstOrDefault();
-                BookName = bookName;
-                string demoName = "KISWAHILI DARASA LA 4.pdf";
-                GetBookFromAzure(bookType.ToString(),  demoName);
-            }
-            else if (bookType.ToString() == "science")
-            {
-               // bookName = allBooks.Where(b => b.StartsWith("Science".ToUpper())).LastOrDefault();
-                BookName = bookName;
-                string demoName = "SCIENCE CLASS 6 NOTES.pdf";
-                GetBookFromAzure(bookType.ToString(),  demoName);
-            }
-            else if (bookType.ToString() == "social-studies")
-            {
-                //bookName = allBooks.Where(b => b.StartsWith("SOCIAL".ToUpper())).LastOrDefault();
-                BookName = bookName;
-                string demoName = "SOCIAL CLASS 6 NOTES.pdf";
-                GetBookFromAzure(bookType.ToString(), demoName);
-            }
-            else if (bookType.ToString() == "physical-education")
-            {
-                //bookName = allBooks.Where(b => b.StartsWith("PE".ToUpper())).LastOrDefault();
-                BookName = bookName;
-                string demoName = "PE CHILD RIGHTS.pdf";
-                GetBookFromAzure(bookType.ToString(),  demoName);
-            }
-           
         }
 
-        public void GetBookFromAzure(string bookType,   string bookName)
+        public async void GetBookFromAzure(string bookType, string bookFormat)
         {
-            BookSource = AzureBlobStorageService
-                               .GetBlobAsync(bookType, bookName).Result;
+            var allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
+            var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
+            var books = allBooks.Where(b => b.StartsWith(bookFormat)).ToList();
+            BookName = books.Where(c => c.Contains(appUser.StudyLevel.ToUpper())).FirstOrDefault();
+
+            try
+            {
+                BookSource = await BlobCache.LocalMachine.GetObject<Stream>(BookName);
+            }
+            catch (System.Exception)
+            {
+
+                BookSource = AzureBlobStorageService
+                               .GetBlobAsync(bookType, BookName).Result;
+            }
+            
         }
     }
 }

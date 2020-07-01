@@ -7,15 +7,14 @@
              xmlns:pdfView="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.ReadBookPage"
-             Title="{Binding BookName}">
+             Title="{Binding BookName}"
+             NavigationPage.HasBackButton="False">
     <ContentPage.BindingContext>
         <ViewModel:ReadBookViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <pdfView:SfPdfViewer InputFileStream="{Binding BookSource}">
+        <pdfView:SfPdfViewer InputFileStream="{Binding BookSource}">
 
-            </pdfView:SfPdfViewer>
-        </StackLayout>
+        </pdfView:SfPdfViewer>
     </ContentPage.Content>
 </ContentPage>
