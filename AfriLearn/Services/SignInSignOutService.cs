@@ -10,12 +10,18 @@ namespace AfriLearn.Services
       
         public static async void SignOut()
         {
-            var user = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
-            user.IsSignedIn = false;
-            await BlobCache.UserAccount.Invalidate("appUser");
-            await BlobCache.UserAccount.InsertObject<AppUser>("appUser", user);
-            await App.Current.MainPage.Navigation.PushAsync(new SignInPage ());
+            var  appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
+            appUser.IsSignedIn = false;
+            await BlobCache.UserAccount.InsertObject<AppUser>("appUser", appUser);
+            await App.Current.MainPage.Navigation.PushAsync(new SignInPage());
         }
-
+        public static async void SignIn()
+        {
+            var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
+            appUser.IsSignedIn = true;
+            await BlobCache.UserAccount.InsertObject<AppUser>("appUser", appUser);
+            await App.Current.MainPage.Navigation.PushAsync(new HomePage());
+        }
+       
     }
 }

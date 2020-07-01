@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Reactive.Linq;
 using Akavache;
+using AfriLearn.Services;
 
 namespace AfriLearn.Views
 {
@@ -17,7 +18,7 @@ namespace AfriLearn.Views
             var container = new AbsoluteLayout();
             SplashscreenImage = new Image()
             {
-                Source = "HandsTogetherRotated.jpg"
+                Source = "LibraryIcon.jpg"
             };
             AbsoluteLayout.SetLayoutFlags(SplashscreenImage, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(SplashscreenImage,
@@ -28,9 +29,9 @@ namespace AfriLearn.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await SplashscreenImage.ScaleTo(1, 1000);
-            await SplashscreenImage.ScaleTo(0.8, 1000, Easing.Linear);
-            await SplashscreenImage.ScaleTo(150, 1000, Easing.Linear);
+            await SplashscreenImage.ScaleTo(1, 1500);
+            await SplashscreenImage.ScaleTo(0.8, 2500, Easing.Linear);
+            await SplashscreenImage.ScaleTo(150, 2200, Easing.Linear);
 
             try
             {
@@ -39,17 +40,17 @@ namespace AfriLearn.Views
                 await BlobCache.InMemory.InsertObject<AppUser>("appUser", appUser);
                 if (appUser.IsSignedIn)
                 {
-                    App.Current.MainPage = new NavigationPage(new HomePage());
+                    NavigationService.PushAsync(new  HomePage());
                 }
                 else
                 {
-                    App.Current.MainPage = new NavigationPage(new SignInPage());
+                    NavigationService.PushAsync(new SignInPage());
                 }
 
             }
             catch (System.Exception)
             {
-                App.Current.MainPage = new NavigationPage(new IntroPageOne());
+                   NavigationService.PushAsync(new IntroPageOne());
             }
         }
     }}

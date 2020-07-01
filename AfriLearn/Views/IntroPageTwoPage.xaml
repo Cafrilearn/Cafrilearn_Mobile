@@ -3,14 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="AfriLearn.Views.IntroPageTwo"
              xmlns:ViewModel="clr-namespace:AfriLearnMobile.ViewModels"
              xmlns:sfButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:sfBorder="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             mc:Ignorable="d"
+             x:Class="AfriLearn.Views.IntroPageTwo"
              NavigationPage.HasBackButton="False"
-             Title="Introduction"
-            >
+             Title="Introduction">
     <ContentPage.BindingContext>
         <ViewModel:IntroductionViewModel/>
     </ContentPage.BindingContext>
@@ -39,8 +38,7 @@
                    VerticalOptions="CenterAndExpand"
                   FontSize="18"/>
             <sfBorder:SfBorder
-                CornerRadius="14"
-                >
+                CornerRadius="14">
                 <Image Source="SchoolPause"
                    Aspect="AspectFill"
                    HeightRequest="256"/>

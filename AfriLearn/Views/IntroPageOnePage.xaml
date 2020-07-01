@@ -3,20 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="AfriLearn.Views.IntroPageOne"
              xmlns:ViewModel="clr-namespace:AfriLearnMobile.ViewModels"
              xmlns:sfButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:sfBorder="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             mc:Ignorable="d"
+             x:Class="AfriLearn.Views.IntroPageOne"
              NavigationPage.HasBackButton="False"
-             Title="Introduction"
-            >
+             Title="Introduction">
     <ContentPage.BindingContext>
         <ViewModel:IntroductionViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Margin="8">
-            
             <StackLayout Orientation="Horizontal">
                 <StackLayout HorizontalOptions="CenterAndExpand">
                     <Label Text="AfriLearn"
@@ -36,7 +34,6 @@
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-                        
             <Label Text="Welcome to AfriLearn, Learn from anywhere on the Continent of Africa. We believe Learning should be accessible, affordable and free to everyone, everywhere."
                    VerticalOptions="CenterAndExpand"
                    FontSize="18"                  />
@@ -52,7 +49,6 @@
                     Margin="0,5"
                     CornerRadius="20"
                     Command="{Binding NavigateToIntroPageTwoCommand}"/>
-           
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

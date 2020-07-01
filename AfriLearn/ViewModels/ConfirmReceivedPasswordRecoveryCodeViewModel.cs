@@ -2,11 +2,11 @@
 using Xamarin.Forms;
 using Akavache;
 using System.Reactive.Linq;
-using AfriLearn.ViewModels;
 using AfriLearn.Views;
-using AfriLearn;
+using AfriLearn.Services;
+using System.Threading.Tasks;
 
-namespace HackMenopause.ViewModels
+namespace AfriLearn.ViewModels
 {
     class ConfirmReceivedPasswordRecoveryCodeViewModel : BaseViewModel
     {
@@ -27,21 +27,22 @@ namespace HackMenopause.ViewModels
         }
         public ICommand ConfirmReceivedPasswordRecoveryCodeCommand => new Command(async () =>
         {
-            var gottenCode = await BlobCache.InMemory.GetObject<string>("passwordresetcode");
-            if (string.Equals(ConfirmationCode, gottenCode))
-            {
-                await App.Current.MainPage.Navigation.PushAsync(new SetNewPasswordPage());
-            }
-            else
-            {
-                var notvalidCode = await DisplayAlert("Wrong code", "The code you are providing and" +
-                    " the code sent to your email do not match", "Re-enter code", "Request new code");
-                if (!notvalidCode)
-                {
-                    await PopAsync();
-                }
-            }
-            
+            //var gottenCode = await BlobCache.InMemory.GetObject<string>("passwordresetcode");
+            //if (string.Equals(ConfirmationCode, gottenCode))
+            //{
+            //     NavigationService.PushAsync(new SetNewPasswordPage());
+            //}
+            //else
+            //{
+            //    var notvalidCode = await NavigationService.DisplayAlert("Wrong code", "The code you are providing and" +
+            //        " the code sent to your email do not match", "Re-enter code", "Request new code");
+            //    if (!notvalidCode)
+            //    {
+            //        NavigationService.PopAsync();
+            //    }
+            //}
+            await Task.Delay(3000);
+            NavigationService.PushAsync(new SetNewPasswordPage());
         });   
     }
 }

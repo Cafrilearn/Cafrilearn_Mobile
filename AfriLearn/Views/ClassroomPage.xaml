@@ -33,7 +33,7 @@
                 <yummy:PancakeView
                 Padding="8,0,8,8"
                 BackgroundColor="White"
-                CornerRadius="40,0,0,40"
+                CornerRadius="20"
                 VerticalOptions="FillAndExpand">
                     <StackLayout>
                         <Grid Margin="5" 

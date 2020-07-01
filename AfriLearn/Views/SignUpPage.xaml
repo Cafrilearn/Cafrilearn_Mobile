@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AfriLearn.Views.SignUpPage"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             xmlns:sfButton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:sfEntry="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             NavigationPage.HasBackButton="False"
+             Title="Sign Up"
+             BackgroundImageSource="GoToSchool">
+    <ContentPage.BindingContext>
+        <ViewModel:SignUpViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="sfEntry:SfTextInputLayout">
+                <Setter Property="ContainerType" Value="Outlined"/>
+                <Setter Property="HeightRequest" Value="60"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout   Margin="8">
+                <Label     Text="AfriLearn"
+                           VerticalOptions="Start"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="Large"/>
+                <Label Text="Create Account with AfriLearn"
+                       HorizontalOptions="CenterAndExpand"/>
+                <sfEntry:SfTextInputLayout>
+                    <Entry Text="{Binding UserName}"
+                           PlaceholderColor="White"
+                           Placeholder="Name"
+                           Keyboard="Text"
+                           ReturnType="Next"
+                           VerticalOptions="CenterAndExpand"  />
+                </sfEntry:SfTextInputLayout>
+                <sfEntry:SfTextInputLayout>
+                    <Entry Text="{Binding Email}"
+                           Placeholder="Email"
+                           PlaceholderColor="White"
+                           ReturnType="Next"
+                           Keyboard="Email"/>
+                </sfEntry:SfTextInputLayout>
+                <sfEntry:SfTextInputLayout EnablePasswordVisibilityToggle="True">
+                    <Entry Text="{Binding Password}"
+                           Placeholder="Password"
+                           PlaceholderColor="White"
+                           ReturnType="Next"
+                           IsPassword="True"/>
+                </sfEntry:SfTextInputLayout>
+                <sfEntry:SfTextInputLayout EnablePasswordVisibilityToggle="True">
+                    <Entry Text="{Binding ConfirmPassword}"
+                           Placeholder="Confirm Password"
+                           PlaceholderColor="White"
+                           ReturnType="Next"
+                           IsPassword="True"/>
+                </sfEntry:SfTextInputLayout>
+                <sfEntry:SfTextInputLayout>
+                    <Picker
+                        SelectedItem="{Binding StudyLevel}"
+                        Title="Study Level"
+                        TitleColor="White">
+                        <Picker.Items >
+                            <x:String>Pre Unit</x:String>
+                            <x:String>Class 1</x:String>
+                            <x:String>Class 2</x:String>
+                            <x:String>Class 3</x:String>
+                            <x:String>Class 4</x:String>
+                            <x:String>Class 5</x:String>
+                            <x:String>Class 6</x:String>
+                            <x:String>Class 7</x:String>
+                            <x:String>Class 8</x:String>
+                            <x:String>Form 1</x:String>
+                            <x:String>Form 2</x:String>
+                            <x:String>Form 3</x:String>
+                            <x:String>Form 4</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </sfEntry:SfTextInputLayout>
+                <sfEntry:SfTextInputLayout>
+                    <Entry Placeholder="School" 
+                           PlaceholderColor="White"
+                           Text="{Binding Institution}"
+                           ReturnType="Next"/>
+                </sfEntry:SfTextInputLayout>
+                <StackLayout Orientation="Horizontal" Margin="20,8">
+                    <sfButton:SfSwitch IsOn="{Binding TermsAndConditions}"/>
+                    <Label     Text="Agree to Terms and Conditions"
+                               TextColor="White"
+                               VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToTermsAndConditionsPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <StackLayout IsVisible="{Binding AccountBlockVisibility}"
+                             Margin="0,10">
+                    <Button Text="Register"
+                          CornerRadius="20"
+                          HeightRequest="40"
+                         Command="{Binding  RegisterUserCommand}"
+                         CommandParameter="{Binding  AppUser}"/>
+                    <StackLayout Orientation="Horizontal" 
+                                 HorizontalOptions="CenterAndExpand">
+                        <Label Text="Already have an account?"
+                              HorizontalOptions="Start"
+                              VerticalOptions="Center"
+                              TextColor="White"/>
+                        <sfButton:SfButton  Text="Sign In"
+                                            CornerRadius="14"
+                                            WidthRequest="70"
+                                            Command="{Binding NavigateToSignInPageCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Margin="0,10" IsVisible="{Binding IsBusy}">
+                    <ActivityIndicator IsVisible="true"
+                                       IsRunning="True"/>
+                    <Label Text="Creating Accout ..."
+                           TextColor="White"
+                           HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

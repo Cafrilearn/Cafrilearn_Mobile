@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace AfriLearn.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SignUpPageTwo : ContentPage
+    public partial class RequestPasswordRecoveryCodePage : ContentPage
     {
-        public SignUpPageTwo()
+        public RequestPasswordRecoveryCodePage()
         {
             InitializeComponent();
         }

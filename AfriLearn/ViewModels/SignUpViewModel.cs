@@ -2,10 +2,7 @@
 using AfriLearn.Views;
 using AfriLearnMobile.Models;
 using Akavache;
-using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Reactive.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -13,29 +10,31 @@ namespace AfriLearn.ViewModels
 {
     class SignUpViewModel : BaseViewModel
     {
+        /// <summary>
+        /// fields
+        /// </summary>
         private string confirmPassword;
-        private  bool createAccountTextVisibility;
         private string email;
         private string institution;
         private string password;
-        private bool registerAccountBlockVisibility = true;
+        private bool accountBlockVisibility = true;
         private string studyLevel;
         private bool termsAndConditions;
         private string userName;
-      
         private AppUser appUser;
-        private AppUser appUserPageTwo;
-        public  List<string>  StudyLevels { get; set; }
-
+       
+        /// <summary>
+        /// constructors
+        /// </summary>
         public SignUpViewModel()
         {
             AppUser = new AppUser();
-            AppUserPageTwo = new AppUser();
-            StudyLevels = GetStudyLevels();
         }
-       
 
-        public  AppUser  AppUser
+        /// <summary>
+        /// properties
+        /// </summary>
+        public AppUser  AppUser
         {
             get { return  appUser; }
             set
@@ -44,27 +43,12 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(AppUser));
             }
         }
-        public  AppUser  AppUserPageTwo
-        {
-            get { return  appUserPageTwo; }
-            set 
-            {
-                appUserPageTwo = value;
-                OnPropertyChanged(nameof(AppUserPageTwo));
-            }
-        }
         public  string  UserName
         {
             get { return  userName; }
             set 
             {
                 userName = value;
-                AppUser = new AppUser
-                {
-                    UserName = this.userName,
-                    Email = this.Email,
-                    PasswordHash = this.Password
-                };
                 OnPropertyChanged(nameof(UserName));
             }
         }
@@ -76,9 +60,9 @@ namespace AfriLearn.ViewModels
                 email = value;
                 AppUser = new AppUser
                 {
-                    UserName = this.userName,
                     Email = this.Email,
-                    PasswordHash = this.Password
+                    PasswordHash = this.Password,
+                    StudyLevel  = this.StudyLevel
                 };
                 OnPropertyChanged(nameof(Email));
             }
@@ -91,9 +75,9 @@ namespace AfriLearn.ViewModels
                 password = value;
                 AppUser = new AppUser
                 {
-                    UserName = this.userName,
                     Email = this.Email,
-                    PasswordHash = this.Password
+                    PasswordHash = this.Password,
+                    StudyLevel = this.StudyLevel
                 };
                 OnPropertyChanged(nameof(Password));
             }
@@ -113,10 +97,11 @@ namespace AfriLearn.ViewModels
             set 
             {
                 studyLevel = value;
-                 AppUserPageTwo = new  AppUser
+                AppUser = new AppUser
                 {
-                     StudyLevel = this.StudyLevel,
-                     Institution = this.Institution,
+                    Email = this.Email,
+                    PasswordHash = this.Password,
+                    StudyLevel = this.StudyLevel
                 };
                 OnPropertyChanged(nameof(StudyLevel));
             }
@@ -127,11 +112,7 @@ namespace AfriLearn.ViewModels
             set 
             {
                 institution = value;
-                AppUserPageTwo = new AppUser
-                {
-                    StudyLevel = this.StudyLevel,
-                    Institution = this.Institution,
-                };
+                
                 OnPropertyChanged(nameof(Institution));
             }
         }
@@ -144,32 +125,26 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(TermsAndConditions));
             }
         }
-        public  bool CreateAccountTextVisibility
+        public  bool AccountBlockVisibility
         {
-            get { return  createAccountTextVisibility; }
+            get { return accountBlockVisibility; }
             set 
             {
-                createAccountTextVisibility = value;
-                OnPropertyChanged(nameof(CreateAccountTextVisibility));
-            }
-        }
-        public  bool RegisterAccountBlockVisibility
-        {
-            get { return  registerAccountBlockVisibility; }
-            set 
-            {
-                registerAccountBlockVisibility = value;
-                OnPropertyChanged(nameof(RegisterAccountBlockVisibility));
+                accountBlockVisibility = value;
+                OnPropertyChanged(nameof(AccountBlockVisibility));
             }
         }
 
-        public ICommand NavigateToSignUpPageTwoCommand => 
-            new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new SignUpPageTwo()));
+
+        /// <summary>
+        /// commands
+        /// </summary>
+           
         public ICommand NavigateToTermsAndConditionsPageCommand =>
-           new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new TermsAndConditionsPage()));
+           new Command(() => NavigationService.PushAsync(new TermsAndConditionsPage()));
         public ICommand NavigateToSignInPageCommand =>
-          new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new SignInPage()));
-        public ICommand StorePageOneDataCommand => new Command(execute:async () =>
+          new Command(() => NavigationService.PushAsync(new SignInPage()));
+        public ICommand RegisterUserCommand => new Command(execute:async () =>
         {
             if (TermsAndConditions == true)
             {
@@ -181,101 +156,59 @@ namespace AfriLearn.ViewModels
                     }
                     else
                     {
-                        if (Internet())
+                        if (InternetService.Internet())
                         {
-                            await StorePageOneData();
-                            await App.Current.MainPage.Navigation.PushAsync(new  SignUpPageTwo());
+                            IsBusy = true;
+                            AccountBlockVisibility = false;
+                            var user = new AppUser()
+                            {
+                                UserName = UserName,
+                                PasswordHash = Password,
+                                Email = Email,
+                                StudyLevel = StudyLevel,
+                                TermsAndConditionsChecked = TermsAndConditions,
+                                Institution = Institution,
+                                IsSignedIn = true
+                            };
+                            //var httpService = new HttpClientService();
+                            //var registerUser = httpService.Post(appUser, "User/register");
+                            //var user = JsonConvert.DeserializeObject<AppUser>(registerUser.Result);
+                            await BlobCache.UserAccount.InsertObject<AppUser>("appUser", user);
+                            NavigationService.PushAsync(new HomePage());
+                            IsBusy = false;
+                            AccountBlockVisibility = true;
                         }
                         else
                         {
-                            await NoInternet();
+                            await InternetService.NoInternet();
                         }
                     }
                 }
                 else
                 {
-                    await DisplayAlert("Invalid Email format", "Email should contain @outlook or @gmail", "okay");
+                   NavigationService.DisplayAlert("Invalid Email format", "Email should contain @outlook or @gmail", "okay");
                 }
             }
             else
             {
-                await  DisplayAlert("Invalid", "Please Accept the Terms and Conditions first", "Okay");
+                NavigationService.DisplayAlert("Invalid", "Please Accept the Terms and Conditions first", "Okay");
             }
 
         }
         , canExecute : () => ValidateAppUser());
-        public ICommand  RegisterUserCommand => new Command(async () => 
-           {
-               if (!string.IsNullOrEmpty(StudyLevel))
-               {
-                   if (Internet())
-                   {
-                       IsBusy = true;
-                       CreateAccountTextVisibility = true;
-                       RegisterAccountBlockVisibility = false;
-                       var appUser = await BlobCache.InMemory.GetObject<AppUser>("appUser");
-                       appUser.StudyLevel = StudyLevel;
-                       appUser.Institution = Institution;
-                       //var httpService = new HttpClientService();
-                       //var registerUser = httpService.Post(appUser, "User/register");
-                       //var user = JsonConvert.DeserializeObject<AppUser>(registerUser.Result);
-                       await BlobCache.UserAccount.InsertObject<AppUser>("appUser", appUser);
-                       await App.Current.MainPage.Navigation.PushAsync(new HomePage());
-                       IsBusy = false;
-                       CreateAccountTextVisibility = false;
-                       RegisterAccountBlockVisibility = true;
-                   }
-                   else
-                   {
-                       await NoInternet();
-                   }
-               }
-               else
-               {
-                   await DisplayAlert("Unspecified value", "Please select Level of Study", "Okay");
-               }
-              
-           });
-        private async Task StorePageOneData()
+      
+        /// <summary>
+        /// methods
+        /// </summary>
+       
+       private bool ValidateAppUser()
         {
-            var signUpPageOneData = new AppUser()
-            {
-                UserName = UserName,
-                PasswordHash = Password,
-                Email = Email,
-                TermsAndConditionsChecked = TermsAndConditions
-            };
-            await BlobCache.InMemory.InsertObject<AppUser>("appUser", signUpPageOneData);
-
-        }
-        private List<string> GetStudyLevels()
-        {
-            return
-                new List<string>()
-                {
-                      "Pre Unit",
-                      "Class 1",
-                      "Class 2",
-                      "Class 3",
-                      "Class 4",
-                      "Class 5",
-                      "Class 6",
-                      "Class 7",
-                      "Class 8",
-                      "Form 1",
-                      "Form 2",
-                      "Form 3",
-                      "Form 4"
-                 };
-        }
-        private bool ValidateAppUser()
-        {
-            if (string.IsNullOrWhiteSpace(UserName) | string.IsNullOrWhiteSpace(Email) |
-                string.IsNullOrWhiteSpace(Password))
+            if (string.IsNullOrWhiteSpace(Email) | string.IsNullOrWhiteSpace(Password) |
+                     string.IsNullOrWhiteSpace(StudyLevel))
             {
                 return false;
             }
-            return true;
+            return  true;
         }
 
     }

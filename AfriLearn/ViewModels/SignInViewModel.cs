@@ -1,5 +1,8 @@
-﻿using AfriLearn.Views;
-using System.Threading.Tasks;
+﻿using AfriLearn.Services;
+using AfriLearn.Views;
+using AfriLearnMobile.Models;
+using Akavache;
+using System.Reactive.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -7,28 +10,50 @@ namespace AfriLearn.ViewModels
 {
     class SignInViewModel :  SignUpViewModel
     {
+        /// <summary>
+        /// constructors
+        /// </summary>
         public SignInViewModel()
         {
 
         }
-        public ICommand NavigateToSignUpPageOneCommand =>
-           new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new  SignUpPageOne()));
-        public ICommand NavigateToForgotPasswordPage =>
-          new Command(async () => await App.Current.MainPage.Navigation.PushAsync(new  ForgotPasswordPage()));
-        public ICommand SignInCommand => new Command(execute: async () =>
+
+        /// <summary>
+        /// commands
+        /// </summary>
+        public ICommand NavigateToSignUpPageCommand =>
+           new Command(() => NavigationService.PushAsync(new  SignUpPage()));
+        public ICommand NavigateToRequestPasswordRecoveryCodePage =>
+          new Command(() => NavigationService.PushAsync(new RequestPasswordRecoveryCodePage()));
+        public ICommand SignInCommand => new Command(() =>
         {
-            IsBusy = true;
-            CreateAccountTextVisibility = true;
-            RegisterAccountBlockVisibility = false;
-            await SignIn();
-            await App.Current.MainPage.Navigation.PushAsync(new HomePage());
-            IsBusy = false;
-            CreateAccountTextVisibility = false;
-            RegisterAccountBlockVisibility = true;
-        }, canExecute: ()=> true);
-        private async Task SignIn()
+            SignIn();
+        });
+        
+        
+        /// <summary>
+        /// methods
+        /// </summary>
+        private async void SignIn()
         {
-            await Task.Delay(3000);
+            var appUserAccount = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
+            if ((appUserAccount.Email == Email) && (appUserAccount.PasswordHash == Password))
+            {
+                IsBusy = true;
+                AccountBlockVisibility = false;
+                SignInSignOutService.SignIn();
+                await  Navigation.PushAsync(new HomePage());
+                IsBusy = false;
+                AccountBlockVisibility = true;
+            }
+            else
+            {
+                var wrongPassword = await DisplayAlert("Error", "Wrong Password or Email", "Try Again", "Reset Password");
+                if (!wrongPassword)
+                {
+                    await Navigation.PushAsync(new RequestPasswordRecoveryCodePage());
+                }
+            }
         }
 
     }

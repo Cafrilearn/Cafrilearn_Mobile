@@ -1,7 +1,6 @@
 ﻿using AfriLearn.Constants;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-using Syncfusion.XForms.TextInputLayout;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -40,7 +39,7 @@ namespace AfriLearn.Services
             return null;
             
         }
-        public static async Task<IList<string>> GetFilesListAsync(string containerType)
+        public static async Task<List<string>> GetFilesListAsync(string containerType)
         {
             var container = GetBlobContainer(containerType);
 

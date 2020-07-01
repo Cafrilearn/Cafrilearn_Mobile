@@ -6,7 +6,9 @@
               xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
              xmlns:pdfView="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
              mc:Ignorable="d"
-             x:Class="AfriLearn.Views.ReadBookTest">
+             x:Class="AfriLearn.Views.ReadBookTest"
+             Title="Book"
+             NavigationPage.HasBackButton="False">
     <ContentPage.BindingContext>
         <ViewModel:PdfViewerViewModel/>
     </ContentPage.BindingContext>

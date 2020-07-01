@@ -25,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\RequestPasswordRecoveryCodePage.xaml.cs">
+      <DependentUpon>RequestPasswordRecoveryCodePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\IntroPageOnePage.xaml.cs">
       <DependentUpon>IntroPageOnePage.xaml</DependentUpon>
     </Compile>
@@ -33,6 +36,9 @@
     </Compile>
     <Compile Update="Views\IntroPageTwoPage.xaml.cs">
       <DependentUpon>IntroPageTwoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SignUpPagee.xaml.cs">
+      <DependentUpon>SignUpPagee.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -49,7 +55,7 @@
     <EmbeddedResource Update="Views\ExplorePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ForgotPasswordPage.xaml">
+    <EmbeddedResource Update="Views\RequestPasswordRecoveryCodePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ForumPage.xaml">
@@ -91,10 +97,10 @@
     <EmbeddedResource Update="Views\SignInPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SignUpPageOne.xaml">
+    <EmbeddedResource Update="Views\SignUpPagee.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SignUpPageTwo.xaml">
+    <EmbeddedResource Update="Views\SignUpPageeTwo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TermsAndConditionsPage.xaml">
