@@ -174,6 +174,7 @@ namespace AfriLearn.ViewModels
                             //var registerUser = httpService.Post(appUser, "User/register");
                             //var user = JsonConvert.DeserializeObject<AppUser>(registerUser.Result);
                             await BlobCache.UserAccount.InsertObject<AppUser>("appUser", user);
+                            AzureBlobStorageService.GetAllBookNames();
                             NavigationService.PushAsync(new HomePage());
                             IsBusy = false;
                             AccountBlockVisibility = true;

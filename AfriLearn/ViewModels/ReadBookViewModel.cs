@@ -81,8 +81,8 @@ namespace AfriLearn.ViewModels
 
         public async void GetBookFromAzure(string bookType, string bookFormat)
         {
-            var allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
             var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
+            var allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
             var books = allBooks.Where(b => b.StartsWith(bookFormat)).ToList();
             BookName = books.Where(c => c.Contains(appUser.StudyLevel.ToUpper())).FirstOrDefault();
 

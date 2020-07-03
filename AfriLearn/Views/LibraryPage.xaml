@@ -3,28 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.LibraryPage">
     <ContentPage.BindingContext>
-        <ViewModel:LibararyViewModel/>
+        <ViewModel:LibraryViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Margin="8">
             <Label 
                 IsVisible="{Binding HeaderTextVisibility}"
                 Text="Your saved notes will be displayed here"/>
-            <CollectionView>
+            <CollectionView ItemsSource="{Binding SavedBooks}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <Image/>
+                            <StackLayout Orientation="Horizontal">
                                 <StackLayout Orientation="Horizontal">
-                                    <Label />
-                                    <Label/>
-                                    <Label/>
+                                    <Label Text="{Binding BookTitle}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding BookSelectedCommand}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="Delete"
+                                           HorizontalOptions="EndAndExpand">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding RemoveBookCommand}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
                                 </StackLayout>
+                                <BoxView BackgroundColor="Black"
+                                          HeightRequest="4"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

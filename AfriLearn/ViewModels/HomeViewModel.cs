@@ -7,11 +7,7 @@ namespace AfriLearn.ViewModels
 {
     class HomeViewModel : BaseViewModel
     {
-		public HomeViewModel()
-		{
-			AzureBlobStorageService.GetAllBookNames();
-		}
-				
+					
 		public ICommand NavigateToSettingsPageCommand => new Command(() =>
 		{
 			NavigationService.PushAsync(new SettingPage());

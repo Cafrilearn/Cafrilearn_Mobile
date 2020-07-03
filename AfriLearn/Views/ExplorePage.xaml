@@ -3,13 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.ExplorePage">
+    <ContentPage.BindingContext>
+        <ViewModel:ExploreViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="8">
+            <Label Text="More books that will help you learn"/>
+            <CollectionView ItemsSource="{Binding Books}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding BookTitle}">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding BookSelectedCommand}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="Save Book"
+                                           HorizontalOptions="EndAndExpand">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding AddBookToLibraryCommand}"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                                <BoxView HeightRequest="4"
+                                         BackgroundColor="Black"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
