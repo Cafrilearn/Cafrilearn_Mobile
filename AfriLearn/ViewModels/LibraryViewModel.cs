@@ -64,7 +64,7 @@ namespace AfriLearn.ViewModels
         {
             try
             {
-                 withvar getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
+                 var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
                 foreach (var book in  getSavedBookS)
                 {
                     SavedBooks.Add(book);
