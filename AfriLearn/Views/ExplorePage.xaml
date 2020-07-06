@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             xmlns:LocalBehavior="clr-namespace:AfriLearn.Behaviours"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.ExplorePage">
     <ContentPage.BindingContext>
@@ -12,31 +13,27 @@
     <ContentPage.Content>
         <StackLayout Margin="8">
             <Label Text="More books that will help you learn"/>
-            <CollectionView ItemsSource="{Binding Books}">
-                <CollectionView.ItemTemplate>
+            <ListView ItemsSource="{Binding AllAfriLearnBooks}"
+                      SelectedItem="{Binding SelectedBook}">
+                <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal"
+                                             HeightRequest="24">
                                     <Label Text="{Binding BookTitle}">
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding BookSelectedCommand}"/>
-                                        </Label.GestureRecognizers>
-                                    </Label>
-                                    <Label Text="Save Book"
-                                           HorizontalOptions="EndAndExpand">
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding AddBookToLibraryCommand}"/>
-                                        </Label.GestureRecognizers>
                                     </Label>
                                 </StackLayout>
-                                <BoxView HeightRequest="4"
+                                <BoxView HeightRequest="3"
                                          BackgroundColor="Black"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <LocalBehavior:ExploreListViewBehavior/>
+                </ListView.Behaviors>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

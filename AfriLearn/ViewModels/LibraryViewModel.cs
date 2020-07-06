@@ -49,11 +49,11 @@ namespace AfriLearn.ViewModels
 
         public ICommand RemoveBookCommand => new Command(async() => 
         {
-            var book = new Book() { BookTitle = SelectedBook };
-            SavedBooks.Remove(book);
-            var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
-            getSavedBookS.Remove(book);
-            await BlobCache.LocalMachine.InsertObject<List<Book>>("savedBooks", getSavedBookS);
+            //var book = new Book() { BookTitle = SelectedBook };
+            //SavedBooks.Remove(book);
+            //var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
+            //getSavedBookS.Remove(book);
+            //await BlobCache.LocalMachine.InsertObject<List<Book>>("savedBooks", getSavedBookS);
             NavigationService.DisplayAlert("Deleted", "Book deleted, but you can always find it in explore page again", "Okay");
         });
 
@@ -64,7 +64,7 @@ namespace AfriLearn.ViewModels
         {
             try
             {
-                 var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
+                var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
                 foreach (var book in  getSavedBookS)
                 {
                     SavedBooks.Add(book);

@@ -41,7 +41,7 @@ namespace AfriLearn.ViewModels
         /// methods
         /// </summary>
         /// <param name="bookType"></param>
-        public void GetBookType(string  bookType)
+        public static void GetBookType(string  bookType)
         {
             BlobCache.InMemory.InsertObject<string>("bookType",  bookType);
             NavigationService.PushAsync(new ReadBookPage());

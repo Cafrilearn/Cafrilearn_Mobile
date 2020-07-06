@@ -1,4 +1,5 @@
 ﻿using AfriLearn.Constants;
+using AfriLearn.Models;
 using AfriLearn.Services;
 using AfriLearnMobile.Models;
 using Akavache;
@@ -6,6 +7,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace AfriLearn.ViewModels
 {
@@ -16,8 +19,7 @@ namespace AfriLearn.ViewModels
         /// </summary>
         private Stream bookSource;
         private string bookName;
-
-
+       
         /// <summary>
         /// constructor(s)
         /// </summary>
@@ -47,6 +49,11 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(BookName));
             }
         }
+
+        public ICommand SaveBookToLibraryCommand => new Command(() => 
+        {
+            AddBookToLibrary();
+        });
 
         /// <summary>
         /// methods
@@ -98,5 +105,23 @@ namespace AfriLearn.ViewModels
             }
             
         }
+        public async void AddBookToLibrary()
+        {
+            var book = new Book() { BookTitle = BookName };
+            try
+            {
+                var savedBooks = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
+                savedBooks.Add(book);
+                await BlobCache.LocalMachine.InsertObject<List<Book>>("savedBooks", savedBooks);
+                NavigationService.DisplayAlert("Book Saved", "Book added to library, keep learning!", "Okay");
+            }
+            catch (System.Exception)
+            {
+                var newBook = new List<Book>() { book };
+                await BlobCache.LocalMachine.InsertObject<List<Book>>("savedBooks", newBook);
+                NavigationService.DisplayAlert("Success", "Your first Book has been added to library, keep learning!", "Okay");
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using AfriLearn.Views;
+﻿using AfriLearn.Services;
+using AfriLearn.Views;
 using AfriLearnMobile.Constants;
 using Syncfusion.Licensing;
 using Xamarin.Forms;
