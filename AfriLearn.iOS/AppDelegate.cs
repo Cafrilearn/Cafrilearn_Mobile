@@ -1,4 +1,7 @@
-﻿using System;
+using Syncfusion.XForms.iOS.Border;
+using Syncfusion.XForms.iOS.Graphics;
+using Syncfusion.XForms.iOS.Buttons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,6 +26,9 @@ namespace AfriLearn.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            SfBorderRenderer.Init();
+            SfButtonRenderer.Init();
+            SfGradientViewRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

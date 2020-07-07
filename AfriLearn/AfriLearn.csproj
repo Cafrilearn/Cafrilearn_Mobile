@@ -14,6 +14,7 @@
     <PackageReference Include="akavache" Version="6.10.20" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.0-preview.5.20279.2" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.57" />
+    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="18.1.0.57" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.57" />
     <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.1.0.57" />
     <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.1.0.57" />
@@ -46,6 +47,9 @@
     <EmbeddedResource Update="Styles\MainStackLayout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Themes\LightTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\ClassroomPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -54,6 +58,12 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ExplorePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Profile\ContactProfilePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Profile\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\RequestPasswordRecoveryCodePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -76,17 +86,17 @@
     <EmbeddedResource Update="Views\LibraryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ProfilePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\ReadBookPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SetNewPasswordPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SettingPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    <EmbeddedResource Update="Views\Settings\SettingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Settings\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SignInPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

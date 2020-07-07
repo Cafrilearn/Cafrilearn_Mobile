@@ -8,10 +8,12 @@
              NavigationPage.HasBackButton="False"
              Title="Terms and Conditions">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Terms and Conditions will be here."
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="8">
+            <Label Text="Terms and Conditions"/>
+            <Label Text="AfriLearn helps to deliver content to students who especially are unable to access classrooms in remote areas or any other students who want to get supplimentary information other than the work they are taught in class."/>
+            <Label Text="Most of the information in AfriLearn is information obtained from different sources, some from the internet and physical books. It is not from specific source that would otherwise be responsible for it."/>
+            <Label Text="That being said, therefore, AfriLearn is not responsible for any information that is considered to be lower than the recommended standards. If at all any Teacher or student using AfriLearn resources will at any time notice or suspect a concept delivered to them by AfriLearn, its upon their responsibilty to verify the information from trusted sources like that offered officially by their Country's curricum."/>
+            <Label Text="Apart from the trivial Username, Password, Email and Institution for the students who register into AfriLearn, which is information used to help present the recommended content to the student/pupil, no other information will be collected from the AfriLearn users. The information collected during registration, again, will not be sharable to any other third party persons for whatever reasons. If any AfriLearn user would want to delete their account at any point, all their data is deleted from our Servers and not retained for any other use."/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

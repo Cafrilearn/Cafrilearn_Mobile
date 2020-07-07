@@ -6661,7 +6661,7 @@ namespace AfriLearn.Droid
 			public const int CheckableMaterialColor = 2131165321;
 			
 			// aapt resource value: 0x7F07008A
-			public const int ClasssRoomIcon = 2131165322;
+			public const int ClassRoomImageIcon = 2131165322;
 			
 			// aapt resource value: 0x7F07008B
 			public const int CoverPage = 2131165323;
@@ -6811,52 +6811,55 @@ namespace AfriLearn.Droid
 			public const int PhysicalEducationImage1 = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int PupilDesks = 2131165372;
+			public const int ProfileDemoImage = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int ReligiousEducation = 2131165373;
+			public const int PupilDesks = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int SchoolPause = 2131165374;
+			public const int ReligiousEducation = 2131165374;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int ScienceImage = 2131165375;
+			public const int SchoolPause = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int Search = 2131165376;
+			public const int ScienceImage = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int sfprogressbar_determinate_linear = 2131165377;
+			public const int Search = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int sfprogressbar_indeterminate_circular = 2131165378;
+			public const int sfprogressbar_determinate_linear = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int sfprogressbar_indeterminate_linear = 2131165379;
+			public const int sfprogressbar_indeterminate_circular = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int SignaturePadBottomCorner = 2131165380;
+			public const int sfprogressbar_indeterminate_linear = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int SignaturepadRoundedCorners = 2131165381;
+			public const int SignaturePadBottomCorner = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int SignaturePadTopCorner = 2131165382;
+			public const int SignaturepadRoundedCorners = 2131165382;
 			
 			// aapt resource value: 0x7F0700C7
-			public const int SocialStudiesImage = 2131165383;
+			public const int SignaturePadTopCorner = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int SplashScreenImage1 = 2131165384;
+			public const int SocialStudiesImage = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int tooltip_frame_dark = 2131165385;
+			public const int SplashScreenImage1 = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int tooltip_frame_light = 2131165386;
+			public const int tooltip_frame_dark = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int Viewmode = 2131165387;
+			public const int tooltip_frame_light = 2131165387;
+			
+			// aapt resource value: 0x7F0700CC
+			public const int Viewmode = 2131165388;
 			
 			static Drawable()
 			{

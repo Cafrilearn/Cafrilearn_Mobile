@@ -43,9 +43,9 @@
     </TabbedPage.ToolbarItems>
 
     <TabbedPage.Children>
-        <LocalViews:ClassroomPage Title="Class" IconImageSource="ClassRoomIcon"/>
-        <LocalViews:LibraryPage Title="Library" IconImageSource="LibraryIcon"/>
-        <LocalViews:ExplorePage Title="Explore" IconImageSource="ExploreHomeIcon"/>
-        <LocalViews:ForumPage Title="Forum" IconImageSource="DiscussionForumIcon"/>
+        <LocalViews:ClassroomPage Title="Class" IconImageSource=""/>
+        <LocalViews:LibraryPage Title="Library" IconImageSource=""/>
+        <LocalViews:ExplorePage Title="Explore" IconImageSource=""/>
+        <LocalViews:ForumPage Title="Forum" IconImageSource=""/>
     </TabbedPage.Children>
 </TabbedPage>

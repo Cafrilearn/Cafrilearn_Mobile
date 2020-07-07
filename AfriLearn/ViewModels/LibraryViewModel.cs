@@ -24,6 +24,11 @@ namespace AfriLearn.ViewModels
         {
             GetSavedBooks();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GetBooks();
+        }
 
         /// <summary>
         /// properties
@@ -64,12 +69,14 @@ namespace AfriLearn.ViewModels
         {
             try
             {
+                var books = new  ObservableCollection<Book>();
                 var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
                 foreach (var book in  getSavedBookS)
                 {
-                    SavedBooks.Add(book);
+                    books.Add(book);
                     HeaderTextVisibility = false;
                 }
+                SavedBooks = books;
             }
             catch (System.Exception)
             {

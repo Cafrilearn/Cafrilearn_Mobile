@@ -14,21 +14,17 @@
             <Label 
                 IsVisible="{Binding HeaderTextVisibility}"
                 Text="Your saved notes will be displayed here"/>
-            <CollectionView ItemsSource="{Binding SavedBooks}">
-                <CollectionView.ItemTemplate>
+            <ListView ItemsSource="{Binding SavedBooks}"
+                      IsPullToRefreshEnabled="True"
+                      >
+                <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
+                            <StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding BookTitle}">
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding BookSelectedCommand}"/>
-                                        </Label.GestureRecognizers>
-                                    </Label>
-                                    <Label Text="Delete"
-                                           HorizontalOptions="EndAndExpand">
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding RemoveBookCommand}"/>
                                         </Label.GestureRecognizers>
                                     </Label>
                                 </StackLayout>
@@ -37,8 +33,8 @@
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
