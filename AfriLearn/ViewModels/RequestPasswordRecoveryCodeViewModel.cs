@@ -44,7 +44,7 @@ namespace AfriLearn.ViewModels
                 else
                 {
                     IsBusy = true;
-                    var email = new   ChangePassword() { Email = Email };
+                    var email = new ChangePassword() { Email = Email };
                     var client = new HttpClientService();
                     // var response = await client.PostUser(email, HttpClientServiceConstants.BaseUri + "Services/ResetPassword");
 

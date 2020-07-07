@@ -19,7 +19,8 @@ namespace AfriLearn.ViewModels
         /// </summary>
         private Stream bookSource;
         private string bookName;
-       
+        private bool loadBookBlockVisibility;
+
         /// <summary>
         /// constructor(s)
         /// </summary>
@@ -49,6 +50,16 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(BookName));
             }
         }
+        public  bool LoadBookBlockVisibility
+        {
+            get { return  loadBookBlockVisibility; }
+            set 
+            {
+                loadBookBlockVisibility = value;
+                OnPropertyChanged(nameof(LoadBookBlockVisibility));
+            }
+        }
+
 
         public ICommand SaveBookToLibraryCommand => new Command(() => 
         {
@@ -60,6 +71,7 @@ namespace AfriLearn.ViewModels
         /// </summary>
         public async void GetBookStream()
         {
+            IsBusy = true;
             var bookType = await BlobCache.InMemory.GetObject<string>("bookType");
             switch (bookType)
             {
@@ -84,6 +96,7 @@ namespace AfriLearn.ViewModels
                 default:
                     break;
             }
+            IsBusy = false;
         }
 
         public async void GetBookFromAzure(string bookType, string bookFormat)
