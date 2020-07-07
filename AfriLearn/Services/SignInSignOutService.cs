@@ -13,6 +13,7 @@ namespace AfriLearn.Services
             var  appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
             appUser.IsSignedIn = false;
             await BlobCache.UserAccount.InsertObject<AppUser>("appUser", appUser);
+            await BlobCache.InMemory.InsertObject<AppUser>("appUser",  appUser);
             await App.Current.MainPage.Navigation.PushAsync(new SignInPage());
         }
         public static async void SignIn()

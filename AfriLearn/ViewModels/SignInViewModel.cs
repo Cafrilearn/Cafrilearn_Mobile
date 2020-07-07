@@ -42,7 +42,6 @@ namespace AfriLearn.ViewModels
                 IsBusy = true;
                 AccountBlockVisibility = false;
                 SignInSignOutService.SignIn();
-                await  Navigation.PushAsync(new HomePage());
                 IsBusy = false;
                 AccountBlockVisibility = true;
             }

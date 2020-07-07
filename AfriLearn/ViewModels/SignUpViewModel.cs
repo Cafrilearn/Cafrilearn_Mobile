@@ -152,7 +152,7 @@ namespace AfriLearn.ViewModels
                 {
                     if (Password != ConfirmPassword)
                     {
-                        await DisplayAlert("Error", "Password and Confirm Password must match", "Okay");
+                         NavigationService.DisplayAlert("Error", "Password and Confirm Password must match", "Okay");
                     }
                     else
                     {
@@ -174,6 +174,7 @@ namespace AfriLearn.ViewModels
                             //var registerUser = httpService.Post(appUser, "User/register");
                             //var user = JsonConvert.DeserializeObject<AppUser>(registerUser.Result);
                             await BlobCache.UserAccount.InsertObject<AppUser>("appUser", user);
+                            await BlobCache.InMemory.InsertObject<AppUser>("appUser", user);
                             AzureBlobStorageService.GetAllBookNames();
                             NavigationService.PushAsync(new HomePage());
                             IsBusy = false;

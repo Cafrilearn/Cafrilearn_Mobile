@@ -40,7 +40,7 @@
                            Keyboard="Text"
                            ReturnType="Next"
                            VerticalOptions="CenterAndExpand"
-                           WidthRequest="320"
+                           WidthRequest="280"
                            />
                 </sfBorder:SfBorder>
                 <Label Text="Send"
