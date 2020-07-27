@@ -52,7 +52,7 @@ namespace AfriLearn.ViewModels
             }
         }
 
-        public ICommand RemoveBookCommand => new Command(async() => 
+        public ICommand RemoveBookCommand => new Command(() => 
         {
             //var book = new Book() { BookTitle = SelectedBook };
             //SavedBooks.Remove(book);
