@@ -140,10 +140,8 @@ namespace AfriLearn.ViewModels
         /// commands
         /// </summary>
            
-        public ICommand NavigateToTermsAndConditionsPageCommand =>
-           new Command(() => NavigationService.PushAsync(new TermsAndConditionsPage()));
-        public ICommand NavigateToSignInPageCommand =>
-          new Command(() => NavigationService.PushAsync(new SignInPage()));
+        public ICommand NavigateToTermsAndConditionsPageCommand => new Command(() => NavigationService.PushAsync(new TermsAndConditionsPage()));
+        public ICommand NavigateToSignInPageCommand => new Command(() => NavigationService.PushAsync(new SignInPage()));
         public ICommand RegisterUserCommand => new Command(execute:async () =>
         {
             if (TermsAndConditions == true)
@@ -205,8 +203,7 @@ namespace AfriLearn.ViewModels
        
        private bool ValidateAppUser()
         {
-            if (string.IsNullOrWhiteSpace(Email) | string.IsNullOrWhiteSpace(Password) |
-                     string.IsNullOrWhiteSpace(StudyLevel))
+            if (string.IsNullOrWhiteSpace(Email) | string.IsNullOrWhiteSpace(Password) |string.IsNullOrWhiteSpace(StudyLevel))
             {
                 return false;
             }

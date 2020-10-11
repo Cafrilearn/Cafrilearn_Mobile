@@ -10,35 +10,40 @@
              x:Class="AfriLearn.Views.IntroPageThree" 
              NavigationPage.HasBackButton="False"
              Title="Introduction">
+    
     <ContentPage.BindingContext>
         <ViewModel:IntroductionViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout Margin="8">
             <StackLayout HorizontalOptions="CenterAndExpand">
-                <Label Text="AfriLearn"
+                <Label Text="FriLearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
                            FontSize="Large"/>
-                <Label Text="Create Account with AfriLearn"
+                <Label Text="Create Account with FriLearn"
                            HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
+            
             <Label Text="We are thrillied to have you join us and thousands of other students using our platform. Enjoy your Learning."
                   FontSize="18" 
                   Margin="0, 10, 0, 0"/>
+            
             <Label Text="We are here to make sure that you are educated."
                    FontSize="16"
                    Margin="0, 0, 0, 6"/>
+            
             <sfBorder:SfBorder CornerRadius="14">
                 <Image Source="ChangeTheWorld"
                    Aspect="AspectFill"
                        HeightRequest="280"/>
             </sfBorder:SfBorder>
+            
             <sfButton:SfButton Text="Register Account"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="EndAndExpand"
                     Margin="0,5"
-                    CornerRadius="20"
                     Command="{Binding NavigateSignUpPageCommand}"/>
         </StackLayout>
     </ContentPage.Content>

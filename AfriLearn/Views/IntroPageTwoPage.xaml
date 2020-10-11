@@ -10,20 +10,23 @@
              x:Class="AfriLearn.Views.IntroPageTwo"
              NavigationPage.HasBackButton="False"
              Title="Introduction">
+    
     <ContentPage.BindingContext>
         <ViewModel:IntroductionViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout Margin="8">
             <StackLayout Orientation="Horizontal">
                 <StackLayout HorizontalOptions="CenterAndExpand">
-                    <Label Text="AfriLearn"
+                    <Label Text="FriLearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
                            FontSize="Large"/>
-                    <Label Text="Create Account with AfriLearn"
+                    <Label Text="Create Account with FriLearn"
                            HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
+                
                 <Label Text="Skip"
                        TextColor="Blue"
                        FontSize="Large"
@@ -34,19 +37,21 @@
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
+            
             <Label Text="Register your level of study and read books for your class or unit, collaborate with other students online on information sharing, share your experiences and  even gauge yourself by doing online tests in your level."
                    VerticalOptions="CenterAndExpand"
                   FontSize="18"/>
+            
             <sfBorder:SfBorder
                 CornerRadius="14">
                 <Image Source="SchoolPause"
                    Aspect="AspectFill"
                    HeightRequest="256"/>
             </sfBorder:SfBorder>
+            
             <sfButton:SfButton Text="Next"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="EndAndExpand"
-                    CornerRadius="20"
                     Command="{Binding NavigateToIntroPageThreeCommand}"/>
         </StackLayout>
     </ContentPage.Content>

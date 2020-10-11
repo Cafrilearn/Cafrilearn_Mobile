@@ -11,9 +11,11 @@
              Title="Sign In"
              BackgroundImageSource="GoToSchool"
              NavigationPage.HasBackButton="False">
+    
     <ContentPage.BindingContext>
         <ViewModel:SignInViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <Grid Margin="8">
             <Grid.RowDefinitions>
@@ -21,16 +23,18 @@
                 <RowDefinition Height="220"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
+            
             <Grid Margin="0, 20, 0, 0">
                 <StackLayout>
-                    <Label Text="AfriLearn"
+                    <Label Text="FriLearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
                            FontSize="Large"/>
-                    <Label Text="Sign into your AfriLearn Account"
+                    <Label Text="Sign into your FriLearn Account"
                            HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
             </Grid>
+            
             <Grid Grid.Row="1">
                 <StackLayout VerticalOptions="CenterAndExpand">
                     <sfEntry:SfTextInputLayout ContainerType="Outlined"
@@ -42,6 +46,7 @@
                            ReturnType="Next"
                            Keyboard="Email"/>
                     </sfEntry:SfTextInputLayout>
+                    
                     <sfEntry:SfTextInputLayout EnablePasswordVisibilityToggle="True"
                                                ContainerType="Outlined"
                                                OutlineCornerRadius="14"
@@ -53,6 +58,7 @@
                            IsPassword="True"
                            />
                     </sfEntry:SfTextInputLayout>
+                    
                     <Label Text="Forgot Password?"
                           HorizontalOptions="EndAndExpand"
                           TextColor="White"
@@ -63,12 +69,12 @@
                     </Label>
                 </StackLayout>
             </Grid>
+            
             <Grid Grid.Row="2">
                 <StackLayout>
                     <Button Text="Sign In"
-                          CornerRadius="20"
-                         HeightRequest="40"
-                         Command="{Binding SignInCommand}"/>
+                            Command="{Binding SignInCommand}"/>
+                    
                     <StackLayout Orientation="Horizontal" 
                                  HorizontalOptions="CenterAndExpand"
                                  IsVisible="{Binding AccountBlockVisibility}" >
@@ -81,6 +87,7 @@
                                            WidthRequest="70"
                                            Command="{Binding NavigateToSignUpPageCommand}"/>
                     </StackLayout>
+                    
                     <StackLayout IsVisible="{Binding IsBusy}">
                         <ActivityIndicator IsVisible="True"
                                        IsRunning="True"

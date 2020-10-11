@@ -10,20 +10,23 @@
              x:Class="AfriLearn.Views.IntroPageOne"
              NavigationPage.HasBackButton="False"
              Title="Introduction">
+    
     <ContentPage.BindingContext>
         <ViewModel:IntroductionViewModel/>
     </ContentPage.BindingContext>
-    <ContentPage.Content>
+    
+    <ContentPage.Content>        
         <StackLayout Margin="8">
+            
             <StackLayout Orientation="Horizontal">
                 <StackLayout HorizontalOptions="CenterAndExpand">
-                    <Label Text="AfriLearn"
+                    <Label Text="FriLearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
                            FontSize="Large"/>
                     <Label Text="Create Account with AfriLearn"
                            HorizontalOptions="CenterAndExpand"/>
-                </StackLayout>
+                </StackLayout>                
                 <Label Text="Skip"
                        TextColor="Blue"
                        FontSize="Large"
@@ -34,7 +37,8 @@
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-            <Label Text="Welcome to AfriLearn, Learn from anywhere on the Continent of Africa. We believe Learning should be accessible, affordable and free to everyone, everywhere."
+            
+            <Label Text="Welcome to FriLearn, Learn from anywhere on the Continent of Africa. We believe Learning should be accessible, affordable and free to everyone, everywhere."
                    VerticalOptions="CenterAndExpand"
                    FontSize="18"                  />
             <sfBorder:SfBorder CornerRadius="14">
@@ -43,11 +47,11 @@
                    HeightRequest="280"
                    />
             </sfBorder:SfBorder>
+            
             <sfButton:SfButton Text="Next"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="EndAndExpand"
                     Margin="0,5"
-                    CornerRadius="20"
                     Command="{Binding NavigateToIntroPageTwoCommand}"/>
         </StackLayout>
     </ContentPage.Content>
