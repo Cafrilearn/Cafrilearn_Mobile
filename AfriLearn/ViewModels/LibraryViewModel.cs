@@ -11,15 +11,10 @@ namespace AfriLearn.ViewModels
 {
     class LibraryViewModel : ExploreViewModel
     {
-        /// <summary>
-        /// fields
-        /// </summary>
+        #region fields
         private bool headerTextVisibility = true;
-        private ObservableCollection<Book> savedBooks;
-
-        /// <summary>
-        /// constructors
-        /// </summary>
+        private  List<Book> savedBooks;
+        #endregion
         public LibraryViewModel()
         {
             GetSavedBooks();
@@ -30,9 +25,7 @@ namespace AfriLearn.ViewModels
             GetBooks();
         }
 
-        /// <summary>
-        /// properties
-        /// </summary>
+        #region properties
         public bool HeaderTextVisibility
         {
             get { return headerTextVisibility; }
@@ -42,7 +35,7 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(HeaderTextVisibility));
             }
         }
-        public  ObservableCollection<Book>  SavedBooks
+        public  List<Book>  SavedBooks
         {
             get { return savedBooks; }
             set
@@ -51,25 +44,23 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(SavedBooks));
             }
         }
+        #endregion
 
-        public ICommand RemoveBookCommand => new Command(() => 
+        public ICommand RemoveBookCommand => new Command(async() => 
         {
-            //var book = new Book() { BookTitle = SelectedBook };
-            //SavedBooks.Remove(book);
-            //var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
-            //getSavedBookS.Remove(book);
-            //await BlobCache.LocalMachine.InsertObject<List<Book>>("savedBooks", getSavedBookS);
+            var book = new Book();
+            SavedBooks.Remove(book);
+            var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
+            getSavedBookS.Remove(book);
+            await BlobCache.LocalMachine.InsertObject("savedBooks", getSavedBookS);
             NavigationService.DisplayAlert("Deleted", "Book deleted, but you can always find it in explore page again", "Okay");
         });
 
-        /// <summary>
-        /// methods
-        /// </summary>
         public async void GetSavedBooks()
         {
             try
             {
-                var books = new  ObservableCollection<Book>();
+                var books = new   List<Book>();
                 var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
                 foreach (var book in  getSavedBookS)
                 {

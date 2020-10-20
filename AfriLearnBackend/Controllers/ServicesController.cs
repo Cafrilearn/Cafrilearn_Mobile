@@ -4,9 +4,11 @@ using AfriLearnBackend.Services;
 using CMapp_Backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using System;
 using System.IO;
+using System.Text;
 
 namespace AfriLearnBackend.Controllers
 {
@@ -16,9 +18,11 @@ namespace AfriLearnBackend.Controllers
     public class ServicesController : ControllerBase
     {
         private readonly  AfriLearnDbContext _context;
-        public ServicesController(AfriLearnDbContext context)
+        private static IConfiguration Configuration;
+        public ServicesController(AfriLearnDbContext context, IConfiguration configuration)
         {
            _context = context;
+            Configuration = configuration;
         }
                 
         [HttpPost("ResetPassword")]
@@ -39,9 +43,14 @@ namespace AfriLearnBackend.Controllers
             {
                 return BadRequest("Invalid Request Parameters");
             }
-            var blobStorageService = new BlobStorageService();
-            var connectionString = blobStorageService.GetCredentials();
-            var account = CloudStorageAccount.Parse(connectionString);
+            var reaiotConfiguration = Configuration.GetSection("BlobStorageDetails");
+            var reaiotCredentials = reaiotConfiguration.Get<BlobStorageCredentials>();
+            var connectionString = Encoding.ASCII.GetBytes(reaiotCredentials.ConnectionString1).ToString();
+            var credentials = new BlobStorageCredentials()
+            {
+                ConnectionString1 = connectionString
+            };
+            var account = CloudStorageAccount.Parse(credentials.ConnectionString1);
             var blobClient = account.CreateCloudBlobClient();
             var container = blobClient.GetContainerReference(AppConstants.ContainerName);
             string uniqueName = Guid.NewGuid().ToString();

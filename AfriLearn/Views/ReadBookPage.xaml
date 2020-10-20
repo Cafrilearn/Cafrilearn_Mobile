@@ -17,16 +17,7 @@
         <ViewModel:ReadBookViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout Margin="8">
-            <StackLayout  Margin="0,200,0,0"
-                          IsVisible="{Binding LoadBookBlockVisibility}">
-                <ActivityIndicator IsVisible="True"
-                               IsRunning="True"
-                               HorizontalOptions="CenterAndExpand"
-                                Margin="0,0,0,8" />
-                <Label Text="Loading the book, kindly wait ...!"
-                   HorizontalOptions="CenterAndExpand"/>
-            </StackLayout>
+        <StackLayout Margin="8">          
             <pdfView:SfPdfViewer InputFileStream="{Binding BookSource}">
             </pdfView:SfPdfViewer>
         </StackLayout>

@@ -8,7 +8,5 @@
        public const string SocialStudies = "social-studies";
        public const string ReligiousEducation = "religious-education";
        public const string Mathematics = "mathematics";
-
-
     }
 }

@@ -35,12 +35,6 @@ namespace AfriLearn.Services
             var content = await response.Content.ReadAsStringAsync();
             return content;
         }
-        public async Task<string> GetById(int id, string theUri)
-        {
-            var response = await _httpClient.GetAsync(theUri + "/" + id.ToString()).ConfigureAwait(false);
-            var content = await response.Content.ReadAsStringAsync();
-            return content;
-        }
         public async Task<string> Post(object objectToSend, string theUri)
         {
             var jsonDataUser = JsonConvert.SerializeObject(objectToSend);
@@ -57,17 +51,9 @@ namespace AfriLearn.Services
             var response = await _httpClient.PutAsync(theUri, httpcontent);
             return response.StatusCode.ToString();
         }
-        public async Task<string> Delete(int id, string theUri)
+        public async Task Delete(string theUri)
         {
-            var result = await _httpClient.DeleteAsync(theUri +"/" + id.ToString());
-            if (result.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                return "Item deleted Succesfully";
-            }
-            else
-            {
-                return "Error, failed to delete the item";
-            }
+            var result = await _httpClient.DeleteAsync(theUri);           
         }       
     }
  }

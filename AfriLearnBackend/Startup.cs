@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using AfriLearnBackend.Hubs;
+using AfriLearnBackend.IRepositories;
 using AfriLearnBackend.Models;
+using AfriLearnBackend.Repositories;
 using AspNetCoreRateLimit;
 using CMapp_Backend.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -133,6 +135,7 @@ namespace AfriLearnBackend
                     }
                 });
             });
+            services.AddTransient<IBooksRepository, BooksRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env,  UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)

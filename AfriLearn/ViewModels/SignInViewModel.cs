@@ -10,30 +10,10 @@ namespace AfriLearn.ViewModels
 {
     class SignInViewModel :  SignUpViewModel
     {
-        /// <summary>
-        /// constructors
-        /// </summary>
-        public SignInViewModel()
-        {
-
-        }
-
-        /// <summary>
-        /// commands
-        /// </summary>
-        public ICommand NavigateToSignUpPageCommand =>
-           new Command(() => NavigationService.PushAsync(new  SignUpPage()));
-        public ICommand NavigateToRequestPasswordRecoveryCodePage =>
-          new Command(() => NavigationService.PushAsync(new RequestPasswordRecoveryCodePage()));
-        public ICommand SignInCommand => new Command(() =>
-        {
-            SignIn();
-        });
+        public ICommand NavigateToSignUpPageCommand => new Command(() => NavigationService.PushAsync(new  SignUpPage()));
+        public ICommand NavigateToRequestPasswordRecoveryCodePage =>  new Command(() => NavigationService.PushAsync(new RequestPasswordRecoveryCodePage()));
+        public ICommand SignInCommand => new Command(() => SignIn());
         
-        
-        /// <summary>
-        /// methods
-        /// </summary>
         private async void SignIn()
         {
             var appUserAccount = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
@@ -54,6 +34,5 @@ namespace AfriLearn.ViewModels
                 }
             }
         }
-
     }
 }

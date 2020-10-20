@@ -1,31 +1,24 @@
 ﻿using AfriLearn.Constants;
-using AfriLearn.Models;
+using AfriLearn.Dtos;
+using AfriLearn.Services;
 using Akavache;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 
 namespace AfriLearn.ViewModels
 {
     class ExploreViewModel :  ClassRoomViewModel
     {
-        /// <summary>
-        /// fields
-        /// </summary>
-        private ObservableCollection<Book> allAfriLearnBooks;
-
-        /// <summary>
-        /// ctr
-        /// </summary>
+      
+        private  List<string> allAfriLearnBooks;
         public ExploreViewModel()
         {
           GetBooks();
         }
 
-        /// <summary>
-        /// properties
-        /// </summary>
-        public ObservableCollection<Book> AllAfriLearnBooks
+        public List<string> AllAfriLearnBooks
         {
             get { return  allAfriLearnBooks; }
             set
@@ -34,54 +27,51 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(AllAfriLearnBooks));
             }
         }
-
-        /// <summary>
-        /// methods
-        /// </summary>
         public async  void GetBooks()
         {
             try
             {
-                var books = new  ObservableCollection<Book>();
-                var allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
-                foreach (var book in allBooks)
-                {
-                  books.Add(new Book() { BookTitle = book });
-                }
-                AllAfriLearnBooks = books;
+                
+                AllAfriLearnBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
+               
             }
-            catch (System.Exception)
+            catch (Exception)
             {
-
+                var token = await BlobCache.UserAccount.GetObject<TokenDto>("tokenDto");
+                var httpClientService = new HttpClientService(token.Token);
+                var books = await httpClientService.Get("getallbooknames");
+                var booksList = JsonConvert.DeserializeObject<List<string>>(books);
+                AllAfriLearnBooks = booksList;
+                await BlobCache.LocalMachine.InsertObject("allBookNames", booksList);
             }
         }
         public static void BookSelected(string bookSelected)
         {
+            var cvm = new ClassRoomViewModel();
             if (bookSelected.StartsWith("MATHEMATICS"))
             {
-                GetBookType(BookType.Mathematics);
+               cvm.GetBookStream(BookType.Mathematics);
             }
             else if (bookSelected.StartsWith("ENGLISH"))
             {
-                GetBookType(BookType.English); ;
+               cvm.GetBookStream(BookType.English); 
             }
             else if (bookSelected.StartsWith("KISWAHILI"))
             {
-                GetBookType(BookType.Kiswahili);
+               cvm. GetBookStream(BookType.Kiswahili);
             }
             else if (bookSelected.StartsWith("SCIENCE"))
             {
-                GetBookType(BookType.Science);
+               cvm.GetBookStream(BookType.Science);
             }
             else if (bookSelected.StartsWith("SOCIAL"))
             {
-                GetBookType(BookType.SocialStudies);
+               cvm.GetBookStream(BookType.SocialStudies);
             }
             else if (bookSelected.StartsWith("CRE"))
             {
-                GetBookType(BookType.ReligiousEducation);
+                cvm.GetBookStream(BookType.ReligiousEducation);
             }
         }
-
     }
 }

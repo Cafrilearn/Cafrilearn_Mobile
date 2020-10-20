@@ -1,7 +1,10 @@
-﻿using AfriLearn.Services;
+﻿using AfriLearn.Dtos;
+using AfriLearn.Models;
+using AfriLearn.Services;
 using AfriLearn.Views;
 using AfriLearnMobile.Models;
 using Akavache;
+using System;
 using System.Reactive.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -10,9 +13,7 @@ namespace AfriLearn.ViewModels
 {
     class SignUpViewModel : BaseViewModel
     {
-        /// <summary>
-        /// fields
-        /// </summary>
+        #region fields
         private string confirmPassword;
         private string email;
         private string institution;
@@ -22,18 +23,14 @@ namespace AfriLearn.ViewModels
         private bool termsAndConditions;
         private string userName;
         private AppUser appUser;
-       
-        /// <summary>
-        /// constructors
-        /// </summary>
+        #endregion
+              
         public SignUpViewModel()
         {
             AppUser = new AppUser();
         }
 
-        /// <summary>
-        /// properties
-        /// </summary>
+        #region properties
         public AppUser  AppUser
         {
             get { return  appUser; }
@@ -134,74 +131,67 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(AccountBlockVisibility));
             }
         }
+        #endregion
 
-
-        /// <summary>
-        /// commands
-        /// </summary>
-           
+        #region commands
         public ICommand NavigateToTermsAndConditionsPageCommand => new Command(() => NavigationService.PushAsync(new TermsAndConditionsPage()));
         public ICommand NavigateToSignInPageCommand => new Command(() => NavigationService.PushAsync(new SignInPage()));
-        public ICommand RegisterUserCommand => new Command(execute:async () =>
+        public ICommand RegisterUserCommand => new Command(execute: async () =>
         {
-            if (TermsAndConditions == true)
-            {
-                if (Email.Contains("@outlook.com") | Email.Contains("@gmail.com"))
-                {
-                    if (Password != ConfirmPassword)
-                    {
-                         NavigationService.DisplayAlert("Error", "Password and Confirm Password must match", "Okay");
-                    }
-                    else
-                    {
-                        if (InternetService.Internet())
-                        {
-                            IsBusy = true;
-                            AccountBlockVisibility = false;
-                            var user = new AppUser()
-                            {
-                                UserName = UserName,
-                                PasswordHash = Password,
-                                Email = Email,
-                                StudyLevel = StudyLevel,
-                                TermsAndConditionsChecked = TermsAndConditions,
-                                Institution = Institution,
-                                IsSignedIn = true
-                            };
-                            //var httpService = new HttpClientService();
-                            //var registerUser = httpService.Post(appUser, "User/register");
-                            //var user = JsonConvert.DeserializeObject<AppUser>(registerUser.Result);
-                            await BlobCache.UserAccount.InsertObject<AppUser>("appUser", user);
-                            await BlobCache.InMemory.InsertObject<AppUser>("appUser", user);
-                            AzureBlobStorageService.GetAllBookNames();
-                            NavigationService.PushAsync(new HomePage());
-                            IsBusy = false;
-                            AccountBlockVisibility = true;
-                        }
-                        else
-                        {
-                            await InternetService.NoInternet();
-                        }
-                    }
-                }
-                else
-                {
-                   NavigationService.DisplayAlert("Invalid Email format", "Email should contain @outlook or @gmail", "okay");
-                }
-            }
-            else
+            if (TermsAndConditions != true)
             {
                 NavigationService.DisplayAlert("Invalid", "Please Accept the Terms and Conditions first", "Okay");
+                return;
+            }           
+            if (!(Email.ToLower().Contains("@outlook.com") | Email.ToLower().Contains("@gmail.com")))
+            {
+                NavigationService.DisplayAlert("Invalid Email format", "Email should contain @outlook.com or @gmail.com", "okay");
+                return;
             }
-
-        }
-        , canExecute : () => ValidateAppUser());
-      
-        /// <summary>
-        /// methods
-        /// </summary>
-       
-       private bool ValidateAppUser()
+            if (Password != ConfirmPassword)
+            {
+                NavigationService.DisplayAlert("Error", "Password and Confirm Password must match", "Okay");
+                return;
+            }
+            if (!InternetService.Internet())
+            {
+                await InternetService.NoInternet();
+                return;
+            }
+            IsBusy = true;
+            AccountBlockVisibility = false;
+            var user = new AppUser()
+            {
+                UserName = UserName,
+                PasswordHash = Password,
+                Email = Email.ToLower(),
+                StudyLevel = StudyLevel,
+                TermsAndConditionsChecked = TermsAndConditions,
+                Institution = Institution,
+                IsSignedIn = true,
+                Setting = new Setting()
+                {
+                    AppNotificationsOn = true,
+                    MarkettingNotificationsOn = true,
+                    NightModeOn = false                    
+                }
+            };
+            var httpService = new HttpClientService();
+            var registerUser = httpService.Post(appUser, "User/register");
+            var tokenDto = new TokenDto() 
+            {
+                Token = registerUser.Result,
+                ExpiryDate = DateTime.Now.AddDays(30)
+            };
+            await BlobCache.UserAccount.InsertObject("tokenDto", tokenDto);
+            await BlobCache.UserAccount.InsertObject("appUser", user);
+            NavigationService.PushAsync(new HomePage());
+            IsBusy = false;
+            AccountBlockVisibility = true;
+        }, canExecute : () => ValidateAppUser()
+        );
+        #endregion
+        private bool ValidateAppUser()
         {
             if (string.IsNullOrWhiteSpace(Email) | string.IsNullOrWhiteSpace(Password) |string.IsNullOrWhiteSpace(StudyLevel))
             {
@@ -209,6 +199,5 @@ namespace AfriLearn.ViewModels
             }
             return  true;
         }
-
     }
 }

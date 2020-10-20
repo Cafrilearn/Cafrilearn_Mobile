@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AfriLearn.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace AfriLearnMobile.Models
 {
@@ -7,8 +8,8 @@ namespace AfriLearnMobile.Models
         public bool TermsAndConditionsChecked { get; set; }
         public string StudyLevel { get; set; }
         public bool IsSignedIn { get; set; }
-        public string School { get; set; }
         public string ProfilePhotoPath { get; set; }
         public  string  Institution { get; set; }
+        public  Setting  Setting { get; set; }
     }
 }
