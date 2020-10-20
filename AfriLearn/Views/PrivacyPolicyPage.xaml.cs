@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace AfriLearn.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TermsAndConditionsPage : ContentPage
+    public partial class  PrivacyPolicyPage : ContentPage
     {
-        public TermsAndConditionsPage()
+        public PrivacyPolicyPage()
         {
             InitializeComponent();
             var htmlSource = new HtmlWebViewSource();

@@ -9,43 +9,50 @@
              x:Class="AfriLearn.Views.HomePage"
              NavigationPage.HasBackButton="False"
              BarBackgroundColor="#2196F3"
-             BarTextColor="White"
-             >
+             BarTextColor="White">
+    
     <TabbedPage.BindingContext>
         <ViewModel:HomeViewModel/>
     </TabbedPage.BindingContext>
+    
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
-            <Image Source="SchoolPause"
-                   WidthRequest="32"
-                   HeightRequest="32"
-                   Margin="0,0,5,0" />
-            <Label Text="AfriLearn"
+             <Label Text="AfriLearn"
                   VerticalOptions="CenterAndExpand" 
                   FontSize="20"
                   TextColor="White"/>
 
         </StackLayout>
     </NavigationPage.TitleView>
+    
     <TabbedPage.ToolbarItems>
         <ToolbarItem Order="Secondary"
                      Priority="1"
                      Text="Settings"
                      Command="{Binding NavigateToSettingsPageCommand}"/>
+        
         <ToolbarItem Order="Secondary"
                      Priority="2"
                      Text="Profile"
                      Command="{Binding NavigateToProfilePageCommand}"/>
         <ToolbarItem Order="Secondary"
                      Priority="3"
+                     Text="Terms and Conditions"
+                     Command="{Binding TermsConditionsCommand}"/>
+        <ToolbarItem Order="Secondary"
+                     Priority="4"
+                     Text="Privacy Policy"
+                     Command="{Binding PrivacyPolicyCommand}"/>
+        <ToolbarItem Order="Secondary"
+                     Priority="5"
                      Text="Log Out"
                      Command="{Binding  LogOutCommand}"/>
     </TabbedPage.ToolbarItems>
 
     <TabbedPage.Children>
-        <LocalViews:ClassroomPage Title="Class" IconImageSource=""/>
-        <LocalViews:LibraryPage Title="Library" IconImageSource=""/>
-        <LocalViews:ExplorePage Title="Explore" IconImageSource=""/>
-        <LocalViews:ForumPage Title="Forum" IconImageSource=""/>
+        <LocalViews:ClassroomPage Title="Class" IconImageSource="Home.png"/>
+        <LocalViews:LibraryPage Title="Library" IconImageSource="LibraryIcon.jpg"/>
+        <LocalViews:ExplorePage Title="Explore" IconImageSource="ExploreHomeIcon.jpg"/>
+        <LocalViews:ForumPage Title="Forum" IconImageSource="tab_feed.png"/>
     </TabbedPage.Children>
 </TabbedPage>

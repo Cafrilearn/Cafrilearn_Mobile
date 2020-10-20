@@ -4,8 +4,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using AfriLearn.Constants;
-using AfriLearn.Dtos;
-using AfriLearnMobile.Models;
 
 namespace AfriLearn.Services
 {
@@ -13,20 +11,24 @@ namespace AfriLearn.Services
     {
         private protected HttpClient _httpClient;
         private protected HttpClientHandler _handler;
-        private string _token;
         public HttpClientService()
         {
-
             _handler = new HttpClientHandler();
-            _token = "";
             _handler.AllowAutoRedirect = false;
             _handler.Credentials = default;
             _httpClient = new HttpClient(_handler);
             _httpClient.BaseAddress = new Uri(HttpClientServiceConstants.BaseUri);
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-
         }
-                   
+        public HttpClientService(string token)
+        {
+            _handler = new HttpClientHandler();
+            _handler.AllowAutoRedirect = false;
+            _handler.Credentials = default;
+            _httpClient = new HttpClient(_handler);
+            _httpClient.BaseAddress = new Uri(HttpClientServiceConstants.BaseUri);
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        }
+
         public async Task<string> Get(string theUri)
         {
             var response = await _httpClient.GetAsync(theUri).ConfigureAwait(false);
@@ -66,21 +68,6 @@ namespace AfriLearn.Services
             {
                 return "Error, failed to delete the item";
             }
-        }
-        public  async Task<string> AuthenticateUser(string email, string password, AppUser appUser)
-        {
-            var userCred = new AuthDto()
-            {
-                UserName = appUser.Email,
-                Password = appUser.PasswordHash
-            };
-            var jsonDataUser = JsonConvert.SerializeObject(userCred);
-            var httpContent = new StringContent(jsonDataUser);
-            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            var response = await _httpClient.PostAsync("User/Authenticate", httpContent);
-            return response.Content.ReadAsStringAsync().Result;
-        }   
-            
+        }       
     }
-
  }

@@ -7,8 +7,9 @@
              x:Class="AfriLearn.Views.TermsAndConditionsPage"
              NavigationPage.HasBackButton="False"
              Title="Terms and Conditions">
+    
     <ContentPage.Content>
-        <ScrollView>
+        <!--<ScrollView>
             <StackLayout Margin="8">
                 <Label Text="Terms and Conditions"/>
                 <Label Text="AfriLearn helps to deliver content to students who especially are unable to access classrooms in remote areas or any other students who want to get supplimentary information other than the work they are taught in class."/>
@@ -17,5 +18,13 @@
                 <Label Text="Apart from the trivial Username, Password, Email and Institution for the students who register into AfriLearn, which is information used to help present the recommended content to the student/pupil, no other information will be collected from the AfriLearn users. The information collected during registration, again, will not be sharable to any other third party persons for whatever reasons. If any AfriLearn user would want to delete their account at any point, all their data is deleted from our Servers and not retained for any other use."/>
             </StackLayout>
         </ScrollView>
+        -->
+        <StackLayout Margin="8">
+            <ScrollView Orientation="Both">
+                <WebView x:Name="TermsWebView"
+                                 WidthRequest="1000"
+                                 HeightRequest="1000"/>
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

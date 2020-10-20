@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AfriLearn.Views.PrivacyPolicyPage"
+             Title="Privacy Policy"
+             NavigationPage.HasBackButton="False">
+    
+    <ContentPage.Content>
+        <StackLayout Margin="8">
+            <ScrollView Orientation="Both">
+                <WebView x:Name="TermsWebView"
+                                 WidthRequest="1000"
+                                 HeightRequest="1000"/>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

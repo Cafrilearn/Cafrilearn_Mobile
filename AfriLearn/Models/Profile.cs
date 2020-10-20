@@ -27,7 +27,7 @@ namespace AfriLearn.Models
         /// </summary>
         public string ImagePath
         {
-            get { return App.BaseImageUrl + this.imagePath; }
+            get { return imagePath; }
             set { this.imagePath = value; }
         }
 

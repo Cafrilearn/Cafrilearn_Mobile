@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
-
+using Xamarin.Forms;
 namespace AfriLearn.Services
 {
     static class NavigationService
     {
-        public static async void PushAsync(Xamarin.Forms.Page page)
+        public static async void PushAsync(Page page)
         {
             await App.Current.MainPage.Navigation.PushAsync(page);
         }

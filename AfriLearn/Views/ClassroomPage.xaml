@@ -7,9 +7,11 @@
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.ClassroomPage">
+    
     <ContentPage.BindingContext>
         <ViewModel:ClassRoomViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="yummy:PancakeView">
@@ -23,6 +25,7 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout>
             <Grid>
