@@ -7,29 +7,19 @@
              xmlns:LocalBehavior="clr-namespace:AfriLearn.Behaviours"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.ExplorePage">
+    
     <ContentPage.BindingContext>
         <ViewModel:ExploreViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout Margin="8">
             <Label Text="More books that will help you learn"/>
+            
             <ListView ItemsSource="{Binding AllAfriLearnBooks}"
                       SelectedItem="{Binding SelectedBook}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <StackLayout Orientation="Horizontal"
-                                             HeightRequest="24">
-                                    <Label Text="{Binding BookTitle}">
-                                    </Label>
-                                </StackLayout>
-                                <BoxView HeightRequest="3"
-                                         BackgroundColor="Black"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                
+                
                 <ListView.Behaviors>
                     <LocalBehavior:ExploreListViewBehavior/>
                 </ListView.Behaviors>

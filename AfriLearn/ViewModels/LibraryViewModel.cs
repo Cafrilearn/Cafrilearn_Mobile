@@ -1,7 +1,7 @@
 ﻿using AfriLearn.Models;
 using AfriLearn.Services;
 using Akavache;
-using System.Collections.Generic;
+using System;
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 using System.Windows.Input;
@@ -13,18 +13,13 @@ namespace AfriLearn.ViewModels
     {
         #region fields
         private bool headerTextVisibility = true;
-        private  List<Book> savedBooks;
+        private ObservableCollection<Book> savedBooks;
         #endregion
         public LibraryViewModel()
         {
             GetSavedBooks();
         }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            GetBooks();
-        }
-
+       
         #region properties
         public bool HeaderTextVisibility
         {
@@ -35,7 +30,7 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(HeaderTextVisibility));
             }
         }
-        public  List<Book>  SavedBooks
+        public  ObservableCollection<Book>  SavedBooks
         {
             get { return savedBooks; }
             set
@@ -50,9 +45,7 @@ namespace AfriLearn.ViewModels
         {
             var book = new Book();
             SavedBooks.Remove(book);
-            var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
-            getSavedBookS.Remove(book);
-            await BlobCache.LocalMachine.InsertObject("savedBooks", getSavedBookS);
+            await BlobCache.LocalMachine.InsertObject("savedBooks", SavedBooks);
             NavigationService.DisplayAlert("Deleted", "Book deleted, but you can always find it in explore page again", "Okay");
         });
 
@@ -60,20 +53,19 @@ namespace AfriLearn.ViewModels
         {
             try
             {
-                var books = new   List<Book>();
-                var getSavedBookS = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
-                foreach (var book in  getSavedBookS)
+                var books = new ObservableCollection<Book>();
+                var savedBookS = await BlobCache.LocalMachine.GetObject<ObservableCollection<Book>>("savedBooks");
+                foreach (var book in  savedBookS)
                 {
                     books.Add(book);
                     HeaderTextVisibility = false;
                 }
                 SavedBooks = books;
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 
             }
         }
-
     }
 }

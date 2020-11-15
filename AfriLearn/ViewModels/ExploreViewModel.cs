@@ -16,8 +16,9 @@ namespace AfriLearn.ViewModels
         public ExploreViewModel()
         {
           GetBooks();
-        }
+        }        
 
+        #region methods
         public List<string> AllAfriLearnBooks
         {
             get { return  allAfriLearnBooks; }
@@ -32,14 +33,17 @@ namespace AfriLearn.ViewModels
             try
             {
                 
-                AllAfriLearnBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
-               
+                var allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
+                foreach (var book in allBooks)
+                {
+                    AllAfriLearnBooks.Add(book);
+                }
             }
             catch (Exception)
             {
                 var token = await BlobCache.UserAccount.GetObject<TokenDto>("tokenDto");
                 var httpClientService = new HttpClientService(token.Token);
-                var books = await httpClientService.Get("getallbooknames");
+                var books = await httpClientService.Get("Books/getallbooknames");
                 var booksList = JsonConvert.DeserializeObject<List<string>>(books);
                 AllAfriLearnBooks = booksList;
                 await BlobCache.LocalMachine.InsertObject("allBookNames", booksList);
@@ -73,5 +77,6 @@ namespace AfriLearn.ViewModels
                 cvm.GetBook(BookType.ReligiousEducation);
             }
         }
+        #endregion
     }
 }

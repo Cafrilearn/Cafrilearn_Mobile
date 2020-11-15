@@ -15,8 +15,10 @@ namespace AfriLearn.Behaviours
         private void BindableItemTapped(object sender, ItemTappedEventArgs e)
         {
            var listView = (ListView)sender;
-            var book = (Book)listView.SelectedItem;
-           ExploreViewModel.BookSelected(book.BookTitle);
+           var bookRelativePath = listView.SelectedItem.ToString();
+           var absPathStart = bookRelativePath.LastIndexOf('/');
+           var bookName = bookRelativePath.Substring(absPathStart + 1);
+           ExploreViewModel.BookSelected(bookName);
         }
 
         protected override void OnDetachingFrom(ListView bindable)

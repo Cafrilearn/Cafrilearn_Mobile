@@ -3,20 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels" xmlns:LocalBehavior="clr-namespace:AfriLearn.Behaviours"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.LibraryPage">
+    
     <ContentPage.BindingContext>
         <ViewModel:LibraryViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout Margin="8">
             <Label 
                 IsVisible="{Binding HeaderTextVisibility}"
                 Text="Your saved notes will be displayed here"/>
+            
             <ListView ItemsSource="{Binding SavedBooks}"
-                      IsPullToRefreshEnabled="True"
-                      >
+                      IsPullToRefreshEnabled="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -34,6 +36,10 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                
+                <ListView.Behaviors>
+                    <LocalBehavior:ExploreListViewBehavior/>
+                </ListView.Behaviors>
             </ListView>
         </StackLayout>
     </ContentPage.Content>

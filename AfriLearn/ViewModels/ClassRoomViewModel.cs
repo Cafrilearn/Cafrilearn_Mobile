@@ -13,6 +13,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using System;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace AfriLearn.ViewModels
 {
@@ -101,7 +102,7 @@ namespace AfriLearn.ViewModels
                     await BlobCache.LocalMachine.InsertObject(BookName, blobBytes);
                     try
                     {
-                        var savedBooks = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
+                        var savedBooks = await BlobCache.LocalMachine.GetObject<ObservableCollection<Book>>("savedBooks");
                         savedBooks.Add(book);
                         await BlobCache.LocalMachine.InsertObject("savedBooks", savedBooks); 
                     }
