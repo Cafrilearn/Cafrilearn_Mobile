@@ -1,5 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Xamarin.Forms;
+using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Extensions;
+
 namespace AfriLearn.Services
 {
     static class NavigationService
@@ -11,6 +14,14 @@ namespace AfriLearn.Services
         public static async void PopAsync()
         {
             await App.Current.MainPage.Navigation.PopAsync();
+        }
+        public static async void PushPopUpAsync(PopupPage page)
+        {
+            await App.Current.MainPage.Navigation.PushAsync(page);
+        }
+        public static async void PopPopUpAsync()
+        {
+            await App.Current.MainPage.Navigation.PopPopupAsync();
         }
         public static async void DisplayAlert(string title, string message, string cancel)
         {

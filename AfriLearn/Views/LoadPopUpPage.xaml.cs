@@ -1,15 +1,14 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Rg.Plugins.Popup.Pages;
 using Xamarin.Forms.Xaml;
 
 namespace AfriLearn.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ClassroomPage : ContentPage
+    public partial class LoadPopUpPage :  PopupPage
     {
-        public ClassroomPage()
+        public LoadPopUpPage()
         {
             InitializeComponent();
-        }        
+        }
     }
 }

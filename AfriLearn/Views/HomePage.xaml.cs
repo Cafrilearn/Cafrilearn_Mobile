@@ -1,7 +1,5 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms.Xaml;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
-using AfriLearn.Services;
 
 namespace AfriLearn.Views
 {
@@ -15,9 +13,7 @@ namespace AfriLearn.Views
                 .SetToolbarPlacement(ToolbarPlacement.Bottom)
                 .SetOffscreenPageLimit(4)
                 .SetIsSwipePagingEnabled(true)
-                .EnableSmoothScroll();
-           
-
+                .EnableSmoothScroll();         
         }
     }
 }

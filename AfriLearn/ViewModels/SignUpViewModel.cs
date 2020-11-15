@@ -169,6 +169,7 @@ namespace AfriLearn.ViewModels
                 TermsAndConditionsChecked = TermsAndConditions,
                 Institution = Institution,
                 IsSignedIn = true,
+                Role = "Student",
                 Setting = new Setting()
                 {
                     AppNotificationsOn = true,
@@ -177,7 +178,7 @@ namespace AfriLearn.ViewModels
                 }
             };
             var httpService = new HttpClientService();
-            var registerUser = httpService.Post(appUser, "User/register");
+            var registerUser = httpService.Post(user, "User/register");
             var tokenDto = new TokenDto() 
             {
                 Token = registerUser.Result,

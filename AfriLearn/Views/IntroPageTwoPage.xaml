@@ -19,7 +19,7 @@
         <StackLayout Margin="8">
             <StackLayout Orientation="Horizontal">
                 <StackLayout HorizontalOptions="CenterAndExpand">
-                    <Label Text="FriLearn"
+                    <Label Text="AfriLearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
                            FontSize="Large"/>

@@ -2,6 +2,6 @@
 {
      static class HttpClientServiceConstants
     {
-        public  const string BaseUri = "https://afrilearn.azurewebsites.net/api/";     
+        public  const string BaseUri = "https://afrilearn.azurewebsites.net/api/";
     }
 }

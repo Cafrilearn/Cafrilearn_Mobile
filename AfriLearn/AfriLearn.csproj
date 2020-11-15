@@ -11,18 +11,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="akavache" Version="6.10.20" />
-    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.0-preview.5.20279.2" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.57" />
-    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="18.1.0.57" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.57" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.1.0.57" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.1.0.57" />
+    <PackageReference Include="akavache" Version="7.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.6" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.3.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="18.3.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.3.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.3.0.48" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.3.0.48" />
     <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-    <PackageReference Include="Xamarin.Forms" Version="4.7.0.1080" />
-    <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
   </ItemGroup>
 
   <ItemGroup>
@@ -60,6 +61,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ExplorePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoadPopUpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Profile\ContactProfilePage.xaml">

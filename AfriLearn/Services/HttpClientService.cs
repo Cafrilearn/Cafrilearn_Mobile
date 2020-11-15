@@ -40,7 +40,7 @@ namespace AfriLearn.Services
             var jsonDataUser = JsonConvert.SerializeObject(objectToSend);
             var httpContent = new StringContent(jsonDataUser);
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            var response = await _httpClient.PostAsync(theUri, httpContent);
+            var response = await _httpClient.PostAsync(theUri, httpContent).ConfigureAwait(false);
             return response.Content.ReadAsStringAsync().Result;
         }
         public  async Task<string> UpDate(object objectToUpdate, string theUri)

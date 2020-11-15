@@ -48,29 +48,29 @@ namespace AfriLearn.ViewModels
         public static void BookSelected(string bookSelected)
         {
             var cvm = new ClassRoomViewModel();
-            if (bookSelected.StartsWith("MATHEMATICS"))
+            if (bookSelected.Contains("MATHEMATICS"))
             {
-               cvm.GetBookStream(BookType.Mathematics);
+               cvm.GetBook(BookType.Mathematics);
             }
-            else if (bookSelected.StartsWith("ENGLISH"))
+            else if (bookSelected.Contains("ENGLISH"))
             {
-               cvm.GetBookStream(BookType.English); 
+               cvm.GetBook(BookType.English); 
             }
-            else if (bookSelected.StartsWith("KISWAHILI"))
+            else if (bookSelected.Contains("KISWAHILI"))
             {
-               cvm. GetBookStream(BookType.Kiswahili);
+               cvm.GetBook(BookType.Kiswahili);
             }
-            else if (bookSelected.StartsWith("SCIENCE"))
+            else if (bookSelected.Contains("SCIENCE"))
             {
-               cvm.GetBookStream(BookType.Science);
+               cvm.GetBook(BookType.Science);
             }
-            else if (bookSelected.StartsWith("SOCIAL"))
+            else if (bookSelected.Contains("SOCIAL"))
             {
-               cvm.GetBookStream(BookType.SocialStudies);
+               cvm.GetBook(BookType.SocialStudies);
             }
-            else if (bookSelected.StartsWith("CRE"))
+            else if (bookSelected.Contains("CRE"))
             {
-                cvm.GetBookStream(BookType.ReligiousEducation);
+                cvm.GetBook(BookType.ReligiousEducation);
             }
         }
     }

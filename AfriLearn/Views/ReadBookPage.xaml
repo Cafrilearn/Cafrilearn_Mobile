@@ -7,15 +7,12 @@
              xmlns:pdfView="clr-namespace:Syncfusion.SfPdfViewer.XForms;assembly=Syncfusion.SfPdfViewer.XForms"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.ReadBookPage"
-             Title="{Binding BookName}"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasNavigationBar="False">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save Book" Command="{Binding SaveBookToLibraryCommand}"/>
-    </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
         <ViewModel:ReadBookViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout Margin="8">          
             <pdfView:SfPdfViewer InputFileStream="{Binding BookSource}">

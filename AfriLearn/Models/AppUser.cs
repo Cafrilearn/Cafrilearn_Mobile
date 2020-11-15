@@ -10,6 +10,7 @@ namespace AfriLearnMobile.Models
         public bool IsSignedIn { get; set; }
         public string ProfilePhotoPath { get; set; }
         public  string  Institution { get; set; }
+        public  string  Role { get; set; }
         public  Setting  Setting { get; set; }
     }
 }
