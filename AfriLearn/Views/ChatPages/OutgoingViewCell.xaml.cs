@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace AfriLearn.Views
+namespace CMapp_Mobile.Views.ChatPages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ForumPage : ContentPage
+    public partial class OutgoingViewCell : ViewCell
     {
-        public ForumPage()
+        public OutgoingViewCell()
         {
             InitializeComponent();
         }

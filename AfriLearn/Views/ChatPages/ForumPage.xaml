@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AfriLearn.Views.ForumPage"
+             xmlns:local="clr-namespace:CMapp_Mobile.Views.ChatPages"
+             xmlns:sfEntry="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:ViewModel1="clr-namespace:AfriLearnMobile.ViewModels.ChatViewModels"
+             Title="Forum">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:MyDataTemplateSelector x:Key="MessageTemplateSelector"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <ViewModel1:ChatViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout VerticalOptions="CenterAndExpand"
+                         HeightRequest="40"
+                         IsVisible="{Binding IsBusy}"
+                         Grid.Row="0">
+            <ActivityIndicator IsVisible="True"
+                                   IsRunning="True"/>
+        </StackLayout>
+        <Grid RowSpacing="0" 
+              ColumnSpacing="0"
+              IsVisible="{Binding ContentVisibility}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--Messages in Row 0 -->
+            <ListView 
+			x:Name="MessagesListView" 
+			ItemTemplate="{StaticResource MessageTemplateSelector}" 
+			ItemsSource="{Binding Messages}" 
+			HasUnevenRows="True" 
+			SeparatorVisibility="None" />
+
+            <!-- Entry and Send button in Row 1 -->
+            <Frame CornerRadius="8"
+                Grid.Row="1" 
+                Padding="10" 
+                BackgroundColor="#EFEFEF">
+                <StackLayout Orientation="Horizontal">
+                    <sfEntry:SfTextInputLayout Grid.Row="1"
+                                       HeightRequest="50"
+                                       WidthRequest="280">
+                        <Editor Text="{Binding  OutGoingText}"
+                           Keyboard="Text"
+                           AutoSize="TextChanges"
+                           VerticalOptions="CenterAndExpand"/>
+                    </sfEntry:SfTextInputLayout>
+
+                    <Button 
+				Text="Send" 
+				Command="{Binding  SendMessageCommand}"
+                CommandParameter="{Binding  OutGoingText}"
+                HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </Grid>
+</ContentPage>

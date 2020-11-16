@@ -1,6 +1,6 @@
 ﻿namespace AfriLearn.Models
 {
-    class Message
+    public class Message : BaseModel
     {
         public  string  Date { get; set; }
         public  string  Time { get; set; }

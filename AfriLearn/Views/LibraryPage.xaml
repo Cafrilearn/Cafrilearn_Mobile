@@ -24,7 +24,7 @@
                         <ViewCell>
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding BookTitle}">
+                                    <Label Text="{Binding  BookName}">
                                         <Label.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding BookSelectedCommand}"/>
                                         </Label.GestureRecognizers>
