@@ -22,15 +22,17 @@
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="220"/>
                 <RowDefinition Height="100"/>
+                <RowDefinition Height="200"/>
             </Grid.RowDefinitions>
             
             <Grid Margin="0, 20, 0, 0">
                 <StackLayout>
-                    <Label Text="FriLearn"
+                    <Label Text="Cafrilearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
                            FontSize="Large"/>
-                    <Label Text="Sign into your FriLearn Account"
+                    
+                    <Label Text="Sign into your Cafrilearn Account"
                            HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
             </Grid>
@@ -83,22 +85,19 @@
                               VerticalOptions="Center"
                               TextColor="White"/>
                         <sfButton:SfButton Text="Register"
-                                           CornerRadius="14"
-                                           WidthRequest="70"
+                                           WidthRequest="80"
                                            Command="{Binding NavigateToSignUpPageCommand}"/>
-                    </StackLayout>
-                    
-                    <StackLayout IsVisible="{Binding IsBusy}">
-                        <ActivityIndicator IsVisible="True"
-                                       IsRunning="True"
-                                       Margin="0,20,0,20"/>
-                        <Label Text="Signing in ..."
-                           TextColor="White"
-                           FontSize="14"
-                           HorizontalOptions="CenterAndExpand"/>
-                    </StackLayout>
+                    </StackLayout>                    
+                   
                 </StackLayout>
             </Grid>
+
+            <StackLayout IsVisible="{Binding IsBusy}"
+                         Grid.Row="3">
+                <ActivityIndicator IsVisible="True"
+                                       IsRunning="True"
+                                       Margin="0,20,0,20"/>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

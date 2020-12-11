@@ -18,7 +18,7 @@ namespace AfriLearn.ViewModels
             });
         public ICommand ChangePasswordCommand => new Command(() =>
         {
-            NavigationService.PushAsync(new  RequestPasswordRecoveryCodePage());
+            NavigationService.PushAsync(new  PasswordRequstCodePage());
         });
         public ICommand HelpCommand => new Command(() =>
         {
