@@ -68,11 +68,12 @@ namespace AfriLearn.ViewModels
         {
             IsBusy = true;
             MainContentVisibility = false ;
+
             byte[] blobBytes = null;
             List<string> books;
+
             var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
-            var token = await BlobCache.UserAccount.GetObject<TokenDto>("tokenDto");
-            var httpClientService = new HttpClientService(token.Token);
+            var httpClientService = new HttpClientService(appUser.AuthKey);
             var book = new Book() 
             { 
                 ContainerType = bookFormat
@@ -121,8 +122,10 @@ namespace AfriLearn.ViewModels
                 await BlobCache.LocalMachine.InsertObject("allBookNames", allBookNames);
                 goto getbookagain;
             }
+
             await BlobCache.LocalMachine.InsertObject("currentBook", BookName);
             NavigationService.PushAsync(new ReadBookPage());
+
             IsBusy = false;
             MainContentVisibility = true;
         }        

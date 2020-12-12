@@ -8,7 +8,7 @@
              xmlns:sfBorder="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.IntroPageThree" 
-             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
              Title="Introduction">
     
     <ContentPage.BindingContext>
@@ -18,11 +18,12 @@
     <ContentPage.Content>
         <StackLayout Margin="8">
             <StackLayout HorizontalOptions="CenterAndExpand">
-                <Label Text="AfriLearn"
+                <Label Text="Cafrilearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
-                           FontSize="Large"/>
-                <Label Text="Create Account with FriLearn"
+                           FontSize="Large"
+                           TextColor="Magenta"/>
+                <Label Text="Create Account with Cafrilearn"
                            HorizontalOptions="CenterAndExpand"/>
             </StackLayout>
             

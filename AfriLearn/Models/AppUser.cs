@@ -9,8 +9,9 @@ namespace AfriLearnMobile.Models
         public string StudyLevel { get; set; }
         public bool IsSignedIn { get; set; }
         public string ProfilePhotoPath { get; set; }
-        public  string  Institution { get; set; }
-        public  string  Role { get; set; }
-        public  Setting  Setting { get; set; }
+        public string Institution { get; set; }
+        public string Role { get; set; }
+        public string AuthKey { get; set; }
+        public Setting Setting { get; set; }
     }
 }

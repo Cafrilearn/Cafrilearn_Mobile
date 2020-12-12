@@ -50,7 +50,7 @@ namespace AfriLearn.ViewModels
 
                     //start for demo
                     await Task.Delay(4000);
-                    NavigationService.PushAsync(new ConfirmReceivedPasswordRecoveryCodePage());
+                    NavigationService.PushAsync(new PasswordRecoveryConfirmPage());
                     // end for demo                   
                     IsBusy = false;
                 }

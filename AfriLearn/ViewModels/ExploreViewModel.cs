@@ -1,6 +1,6 @@
 ﻿using AfriLearn.Constants;
-using AfriLearn.Dtos;
 using AfriLearn.Services;
+using AfriLearnMobile.Models;
 using Akavache;
 using Newtonsoft.Json;
 using System;
@@ -41,10 +41,11 @@ namespace AfriLearn.ViewModels
             }
             catch (Exception)
             {
-                var token = await BlobCache.UserAccount.GetObject<TokenDto>("tokenDto");
-                var httpClientService = new HttpClientService(token.Token);
+                var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
+                var httpClientService = new HttpClientService(appUser.AuthKey);
                 var books = await httpClientService.Get("Books/getallbooknames");
                 var booksList = JsonConvert.DeserializeObject<List<string>>(books);
+                
                 AllAfriLearnBooks = booksList;
                 await BlobCache.LocalMachine.InsertObject("allBookNames", booksList);
             }

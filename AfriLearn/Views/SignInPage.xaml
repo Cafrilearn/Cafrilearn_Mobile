@@ -8,9 +8,8 @@
              xmlns:sfEntry="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.SignInPage"
-             Title="Sign In"
              BackgroundImageSource="GoToSchool"
-             NavigationPage.HasBackButton="False">
+             NavigationPage.HasNavigationBar="False">
     
     <ContentPage.BindingContext>
         <ViewModel:SignInViewModel/>
@@ -30,7 +29,8 @@
                     <Label Text="Cafrilearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
-                           FontSize="Large"/>
+                           TextColor="Magenta"
+                           FontSize="24"/>
                     
                     <Label Text="Sign into your Cafrilearn Account"
                            HorizontalOptions="CenterAndExpand"/>

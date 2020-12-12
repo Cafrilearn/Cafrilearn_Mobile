@@ -1,5 +1,5 @@
-using AfriLearn.Views;
 using AfriLearnMobile.Constants;
+using AfriLearnMobile.Views;
 using Syncfusion.Licensing;
 using Xamarin.Forms;
 
@@ -12,7 +12,7 @@ namespace AfriLearn
             InitializeComponent();
             SyncfusionLicenseProvider.RegisterLicense(SyncfusionConstants.SyncKey);
             Akavache.Registrations.Start("AfriLernMobile");
-            MainPage = new  NavigationPage(new SplashScreenPage());
+            MainPage = new  NavigationPage(new  StartPage());
         }
 
         protected override void OnStart()

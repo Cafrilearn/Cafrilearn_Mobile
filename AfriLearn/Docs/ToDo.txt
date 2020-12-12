@@ -1,0 +1,2 @@
+﻿Study level items title does not show up
+Activity indicator on sign in page when going to sign up page

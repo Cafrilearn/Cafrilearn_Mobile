@@ -1,10 +1,9 @@
-﻿using AfriLearn.Dtos;
-using AfriLearn.Models;
+﻿using AfriLearn.Models;
 using AfriLearn.Services;
 using AfriLearn.Views;
 using AfriLearnMobile.Models;
 using Akavache;
-using System;
+using Newtonsoft.Json;
 using System.Reactive.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -177,16 +176,13 @@ namespace AfriLearn.ViewModels
                     NightModeOn = false                    
                 }
             };
+
             var httpService = new HttpClientService();
-            var registerUser = httpService.Post(user, "User/register");
-            var tokenDto = new TokenDto() 
-            {
-                Token = registerUser.Result,
-                ExpiryDate = DateTime.Now.AddDays(30)
-            };
-            await BlobCache.UserAccount.InsertObject("tokenDto", tokenDto);
-            await BlobCache.UserAccount.InsertObject("appUser", user);
+            var response = await httpService.Post(user, "User/register");
+            var registerUser = JsonConvert.DeserializeObject<AppUser>(response);
+            await BlobCache.UserAccount.InsertObject("appUser", registerUser);
             NavigationService.PushAsync(new HomePage());
+
             IsBusy = false;
             AccountBlockVisibility = true;
         }, canExecute : () => ValidateAppUser()
@@ -194,7 +190,7 @@ namespace AfriLearn.ViewModels
         #endregion
         private bool ValidateAppUser()
         {
-            if (string.IsNullOrWhiteSpace(Email) | string.IsNullOrWhiteSpace(Password) |string.IsNullOrWhiteSpace(StudyLevel))
+            if (string.IsNullOrWhiteSpace(Email) | string.IsNullOrWhiteSpace(Password) | string.IsNullOrWhiteSpace(StudyLevel))
             {
                 return false;
             }

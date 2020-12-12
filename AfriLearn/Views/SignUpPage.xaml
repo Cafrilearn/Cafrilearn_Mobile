@@ -8,7 +8,7 @@
              xmlns:sfEntry="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.SignUpPage"
-             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
              Title="Sign Up"
              BackgroundImageSource="GoToSchool">
     
@@ -28,12 +28,13 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout   Margin="8">
-                <Label     Text="FriLearn"
+                <Label     Text="Cafrilearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
-                           FontSize="Large"/>
+                           FontSize="24"
+                           TextColor="Magenta"/>
                 
-                <Label Text="Create Account with FriLearn"
+                <Label Text="Create Account with Cafrilearn"
                        HorizontalOptions="CenterAndExpand"/>
                 
                 <sfEntry:SfTextInputLayout>
@@ -75,7 +76,6 @@
                         Title="Study Level"
                         TitleColor="White">
                         <Picker.Items >
-                            <x:String>Pre Unit</x:String>
                             <x:String>Class 1</x:String>
                             <x:String>Class 2</x:String>
                             <x:String>Class 3</x:String>
@@ -101,6 +101,7 @@
                 
                 <StackLayout Orientation="Horizontal" Margin="20,8">
                     <sfButton:SfSwitch IsOn="{Binding TermsAndConditions}"/>
+                    
                     <Label     Text="Agree to Terms and Conditions"
                                TextColor="White"
                                VerticalOptions="Center">
@@ -115,12 +116,14 @@
                     <Button Text="Register"
                          Command="{Binding  RegisterUserCommand}"
                          CommandParameter="{Binding  AppUser}"/>
+                    
                     <StackLayout Orientation="Horizontal" 
                                  HorizontalOptions="CenterAndExpand">
                         <Label Text="Already have an account?"
                               HorizontalOptions="Start"
                               VerticalOptions="Center"
                               TextColor="White"/>
+                        
                         <sfButton:SfButton  Text="Sign In"
                                             WidthRequest="70"
                                             Command="{Binding NavigateToSignInPageCommand}"/>
@@ -130,7 +133,7 @@
                 <StackLayout Margin="0,10" IsVisible="{Binding IsBusy}">
                     <ActivityIndicator IsVisible="true"
                                        IsRunning="True"/>
-                    <Label Text="Creating Accout ..."
+                    <Label Text="Creating Account ..."
                            TextColor="White"
                            HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>

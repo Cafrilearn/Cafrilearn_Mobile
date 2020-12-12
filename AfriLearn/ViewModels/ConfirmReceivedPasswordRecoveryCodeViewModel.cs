@@ -42,7 +42,7 @@ namespace AfriLearn.ViewModels
             //    }
             //}
             await Task.Delay(3000);
-            NavigationService.PushAsync(new SetNewPasswordPage());
+            NavigationService.PushAsync(new PasswordResetPage());
         });   
     }
 }

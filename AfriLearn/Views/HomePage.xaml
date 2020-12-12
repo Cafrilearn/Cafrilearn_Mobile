@@ -17,7 +17,7 @@
     
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
-             <Label Text="AfriLearn"
+             <Label Text="Cafrilearn"
                   VerticalOptions="CenterAndExpand" 
                   FontSize="20"
                   TextColor="White"/>
@@ -35,18 +35,22 @@
                      Priority="2"
                      Text="Profile"
                      Command="{Binding NavigateToProfilePageCommand}"/>
+        
         <ToolbarItem Order="Secondary"
                      Priority="3"
                      Text="Terms and Conditions"
                      Command="{Binding TermsConditionsCommand}"/>
+        
         <ToolbarItem Order="Secondary"
                      Priority="4"
                      Text="Privacy Policy"
                      Command="{Binding PrivacyPolicyCommand}"/>
+        
         <ToolbarItem Order="Secondary"
                      Priority="5"
                      Text="Log Out"
                      Command="{Binding  LogOutCommand}"/>
+        
     </TabbedPage.ToolbarItems>
 
     <TabbedPage.Children>

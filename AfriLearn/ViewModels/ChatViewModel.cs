@@ -12,6 +12,7 @@ using AfriLearn.Services;
 using Akavache;
 using AfriLearn.Dtos;
 using System.Reactive.Linq;
+using AfriLearnMobile.Models;
 
 namespace AfriLearnMobile.ViewModels.ChatViewModels
 {
@@ -132,10 +133,12 @@ namespace AfriLearnMobile.ViewModels.ChatViewModels
                 });
             if (InternetService.Internet())
             {
-                var token = await BlobCache.UserAccount.GetObject<TokenDto>("tokenDto");
-                var authHttpClient = new HttpClientService(token.Token);
+                var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
+                var authHttpClient = new HttpClientService(appUser.AuthKey);
+
                 var serverMessage = await authHttpClient.Get("Messages/get");
                 var messages = JsonConvert.DeserializeObject<ObservableRangeCollection<Message>>(serverMessage);
+
                 foreach (var message in messages)
                 {
                     Messages.Add(new Message()

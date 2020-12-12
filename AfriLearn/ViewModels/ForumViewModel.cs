@@ -11,23 +11,15 @@ namespace AfriLearn.ViewModels
 {
     class ForumViewModel : BaseViewModel
     {
-        /// <summary>
-        /// fields
-        /// </summary>
+        
         private ObservableCollection<Message> messages;
 
-        /// <summary>
-        /// constructors
-        /// </summary>
         public ForumViewModel()
         {
             GetMessagesAsync();
         }
 
 
-        /// <summary>
-        /// properties
-        /// </summary>
         public  string  MessageText { get; set; }
 
         public  ObservableCollection<Message>  Messages
@@ -57,7 +49,7 @@ namespace AfriLearn.ViewModels
 
         public ICommand AskQuestionCommand => new Command(async () =>
         {
-            var sender = await BlobCache.InMemory.GetObject<AppUser>("appUser");
+            var sender = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
             var localmessage = new Message
             {
                 DateAndTime = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString(), 
