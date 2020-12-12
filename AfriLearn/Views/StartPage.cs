@@ -25,7 +25,7 @@ namespace AfriLearnMobile.Views
             }
             catch (Exception)
             {
-                NavigationService.PushAsync(new  IntroPageOne());
+                NavigationService.PushAsync(new IntroPageOne());
             }
         }
     }

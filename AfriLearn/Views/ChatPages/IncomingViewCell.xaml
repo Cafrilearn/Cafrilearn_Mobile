@@ -38,8 +38,7 @@
             </Frame.HasShadow>
             <StackLayout>
                 <Image IsVisible="{Binding HasAttachement}"
-                       Aspect="AspectFit"
-                       Source="ProfileDemoImage" />
+                       Aspect="AspectFit"/>
                 <Label TextColor="White" 
                        Text="{Binding Text}"
                        />

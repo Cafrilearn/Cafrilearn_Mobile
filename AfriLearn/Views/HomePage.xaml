@@ -54,7 +54,7 @@
     </TabbedPage.ToolbarItems>
 
     <TabbedPage.Children>
-        <LocalViews:ClassroomPage Title="Class" IconImageSource="Home.png"/>
+        <LocalViews:LandingPage Title="Class" IconImageSource="Home.png"/>
         <LocalViews:LibraryPage Title="Library" IconImageSource="LibraryIcon.jpg"/>
         <LocalViews:ExplorePage Title="Explore" IconImageSource="ExploreHomeIcon.jpg"/>
         <LocalViews:ForumPage Title="Forum" IconImageSource="tab_feed.png"/>

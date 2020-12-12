@@ -13,6 +13,6 @@ namespace AfriLearn.ViewModels
 		public ICommand NavigateToProfilePageCommand => new Command(() => NavigationService.PushAsync(new  ContactProfilePage()));
 		public ICommand TermsConditionsCommand => new Command(() => NavigationService.PushAsync(new TermsAndConditionsPage()));
 		public ICommand PrivacyPolicyCommand => new Command(() => NavigationService.PushAsync(new PrivacyPolicyPage()));
-		public ICommand LogOutCommand => new Command(() => SignInSignOutService.SignOut());
+		public ICommand LogOutCommand => new Command(() => SignOutService.SignOut());
 	}
 }
