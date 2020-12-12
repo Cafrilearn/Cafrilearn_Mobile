@@ -15,7 +15,7 @@ namespace AfriLearn.ViewModels
         private  List<string> allAfriLearnBooks;
         public ExploreViewModel()
         {
-          GetBooks();
+          GetBooks();          
         }        
 
         #region methods
@@ -50,32 +50,32 @@ namespace AfriLearn.ViewModels
                 await BlobCache.LocalMachine.InsertObject("allBookNames", booksList);
             }
         }
-        public static void BookSelected(string bookSelected)
+        public async static void BookSelected(string bookSelected)
         {
             var cvm = new ClassRoomViewModel();
             if (bookSelected.Contains("MATHEMATICS"))
             {
-               cvm.GetBook(BookType.Mathematics);
+               await cvm.GetBook(BookType.Mathematics);
             }
             else if (bookSelected.Contains("ENGLISH"))
             {
-               cvm.GetBook(BookType.English); 
+               await cvm.GetBook(BookType.English); 
             }
             else if (bookSelected.Contains("KISWAHILI"))
             {
-               cvm.GetBook(BookType.Kiswahili);
+               await cvm.GetBook(BookType.Kiswahili);
             }
             else if (bookSelected.Contains("SCIENCE"))
             {
-               cvm.GetBook(BookType.Science);
+               await cvm.GetBook(BookType.Science);
             }
             else if (bookSelected.Contains("SOCIAL"))
             {
-               cvm.GetBook(BookType.SocialStudies);
+               await cvm.GetBook(BookType.SocialStudies);
             }
             else if (bookSelected.Contains("CRE"))
             {
-                cvm.GetBook(BookType.ReligiousEducation);
+               await cvm.GetBook(BookType.ReligiousEducation);
             }
         }
         #endregion

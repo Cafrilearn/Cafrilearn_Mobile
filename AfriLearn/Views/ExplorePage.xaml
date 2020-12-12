@@ -15,12 +15,20 @@
     
     <ContentPage.Content>
         <StackLayout Margin="8">
-            <Label Text="Books that will help you learn"
+               <Label Text="Books that will help you learn"
                    FontSize="16"
                    TextColor="Magenta"/>
-            
+
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         HeightRequest="40"
+                         IsVisible="{Binding IsBusy}"
+                         Grid.Row="0">
+                <ActivityIndicator IsVisible="True"
+                                   IsRunning="True"/>
+            </StackLayout>
             <ListView ItemsSource="{Binding AllAfriLearnBooks}"
-                      SelectedItem="{Binding SelectedBook}">
+                      SelectedItem="{Binding SelectedBook}"
+                      IsVisible="{Binding MainContentVisibility}">
                 
                 
                 <ListView.Behaviors>

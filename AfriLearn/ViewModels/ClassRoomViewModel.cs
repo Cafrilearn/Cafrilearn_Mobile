@@ -127,6 +127,9 @@ namespace AfriLearn.ViewModels
                         await BlobCache.LocalMachine.InsertObject("savedBooks", newBook);
                     }
                 }
+
+
+
             }
             // do this to download and store all book names locally
             catch (Exception)
@@ -136,20 +139,34 @@ namespace AfriLearn.ViewModels
                 await BlobCache.LocalMachine.InsertObject("allBookNames", allBookNames);
                 goto getbookagain;
             }
+
             var readshare = await Application.Current.MainPage.DisplayActionSheet("Select whether to read or share book","Cancel", "Okay", "Read", "Share");
+            
             if (readshare.Equals("Read"))
             {
                 await BlobCache.LocalMachine.InsertObject("currentBook", BookName);
                 NavigationService.PushAsync(new ReadBookPage());
             }
+
             if (readshare.Equals("Share"))
             {
                 var content = Convert.ToBase64String(BookBytes);
+                /*
                 await Share.RequestAsync(new ShareTextRequest() 
                 {
                     Title = BookName,
                     Text = content
-                });               
+                });     */
+
+                var testBook = "testBook.txt";
+                var bookFile = Path.Combine(FileSystem.CacheDirectory, testBook);
+                File.WriteAllText(bookFile, content);
+
+                await Share.RequestAsync(new ShareFileRequest
+                {
+                    Title = Title,
+                    File = new ShareFile(bookFile)
+                });
             }         
 
             IsBusy = false;
