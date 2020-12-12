@@ -16,11 +16,12 @@
     </TabbedPage.BindingContext>
     
     <NavigationPage.TitleView>
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="CenterAndExpand">
              <Label Text="Cafrilearn"
                   VerticalOptions="CenterAndExpand" 
-                  FontSize="20"
-                  TextColor="White"/>
+                  FontSize="24"
+                  TextColor="Magenta"/>
 
         </StackLayout>
     </NavigationPage.TitleView>

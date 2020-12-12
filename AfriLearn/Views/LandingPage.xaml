@@ -1,13 +1,129 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="AfriLearn.Views.LandingPage">
     
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout>           
+            <yummy:PancakeView
+                BackgroundColor="LightBlue"
+                CornerRadius="40,40"
+                VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label
+                        Margin="20"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="How to get started?"
+                        TextColor="#791AE5"
+                        VerticalOptions="Center" />
+                    
+                    <Grid Margin="5" ColumnSpacing="20" RowSpacing="30">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <yummy:PancakeView
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Padding="10"
+                            BackgroundColor="White"
+                            CornerRadius="15">
+                            <StackLayout>
+                                <Image Source="BluetoothIcon.png"
+                                       HeightRequest="60"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Share Content to Makini"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </yummy:PancakeView>
+                        
+                        <yummy:PancakeView
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Padding="10"
+                            BackgroundColor="White"
+                            CornerRadius="15">
+                            <StackLayout>
+                                <Image Source="ReviewsIcon.jpeg"
+                                       HeightRequest="60"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Reviews about Makini"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </yummy:PancakeView>
+                        
+                        <yummy:PancakeView
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Padding="10"
+                            BackgroundColor="White"
+                            CornerRadius="15">
+                            <StackLayout>
+                                <Image Source="ReadBook2Icon.png"
+                                       HeightRequest="60"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Read here too"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </yummy:PancakeView>
+                        
+                        <yummy:PancakeView
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Padding="10"
+                            BackgroundColor="White"
+                            CornerRadius="15">
+                            <StackLayout>
+                                <Image Source="AlwaysAskQuestions.png"
+                                       HeightRequest="60"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Ask and Respond to Questions"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </yummy:PancakeView>
+                    </Grid>
+                    
+                    <Label
+                        Margin="20"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="Education For All"
+                        TextColor="#791AE5"
+                        VerticalOptions="Center" />
+                </StackLayout>
+
+            </yummy:PancakeView>
         </StackLayout>
     </ContentPage.Content>
     

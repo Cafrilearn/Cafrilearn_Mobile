@@ -15,7 +15,9 @@
         <StackLayout Margin="8">
             <Label 
                 IsVisible="{Binding HeaderTextVisibility}"
-                Text="Your saved notes will be displayed here"/>
+                Text="Your saved notes will be displayed here"
+                FontSize="16"
+                TextColor="Magenta"/>
             
             <ListView ItemsSource="{Binding SavedBooks}"
                       IsPullToRefreshEnabled="True">

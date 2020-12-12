@@ -14,7 +14,9 @@
     
     <ContentPage.Content>
         <StackLayout Margin="8">
-            <Label Text="More books that will help you learn"/>
+            <Label Text="Books that will help you learn"
+                   FontSize="16"
+                   TextColor="Magenta"/>
             
             <ListView ItemsSource="{Binding AllAfriLearnBooks}"
                       SelectedItem="{Binding SelectedBook}">
