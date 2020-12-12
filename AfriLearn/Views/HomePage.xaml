@@ -31,24 +31,14 @@
                      Priority="1"
                      Text="Settings"
                      Command="{Binding NavigateToSettingsPageCommand}"/>
-        
+
         <ToolbarItem Order="Secondary"
                      Priority="2"
                      Text="Profile"
                      Command="{Binding NavigateToProfilePageCommand}"/>
-        
+
         <ToolbarItem Order="Secondary"
                      Priority="3"
-                     Text="Terms and Conditions"
-                     Command="{Binding TermsConditionsCommand}"/>
-        
-        <ToolbarItem Order="Secondary"
-                     Priority="4"
-                     Text="Privacy Policy"
-                     Command="{Binding PrivacyPolicyCommand}"/>
-        
-        <ToolbarItem Order="Secondary"
-                     Priority="5"
                      Text="Log Out"
                      Command="{Binding  LogOutCommand}"/>
         

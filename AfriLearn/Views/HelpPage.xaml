@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AfriLearn.Views.HelpPage"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             Title="Help">
+
+    <ContentPage.BindingContext>
+        <ViewModel:HelpPageViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Margin="8">
+            <Label Text="Hello, if you have any genuine concern, you can talk to us. You can also advise us on how we can improve the experience of Reaiot."
+                   FontSize="16"/>
+            <Label Text="Indicate type of help"/>
+            <Picker Title="---select---"
+                    SelectedItem="{Binding TypeOfHelp}">
+                <Picker.Items>
+                    <x:String>Technical</x:String>
+                    <x:String>Other</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="Please provide a description of the issues or help you need."/>
+            <Editor Placeholder="Decription"
+                    Text="{Binding Description}"
+                    MinimumHeightRequest="60"/>
+            <Label Text="Indicate how urgently you need help"/>
+            <Picker Title="---select---"
+                    SelectedItem="{Binding HelpLevel }">
+                <Picker.Items>
+                    <x:String>Critical</x:String>
+                    <x:String>Urgent</x:String>
+                    <x:String>Less Urgent</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button Text="Send"
+                    CornerRadius="14"
+                    Command="{Binding SendHelpCommand}"
+                    CommandParameter="{Binding Help}"/>
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               Margin="0,20"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
