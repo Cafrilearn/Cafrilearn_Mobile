@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             x:Class="AfriLearn.Views.ReviewsPage"
+             Title="Reviews"
+             >
+    
+    <ContentPage.BindingContext>
+        <ViewModel:ReviewsViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Margin="8">
+            <Label Text="Reviews will be displayed here from the Users for the Makini Device"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="16"
+                   TextColor="Magenta"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

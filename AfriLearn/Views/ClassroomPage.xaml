@@ -6,6 +6,7 @@
              xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
+             Title="ClassRoom"
              x:Class="AfriLearn.Views.ClassroomPage">
     
     <ContentPage.BindingContext>
