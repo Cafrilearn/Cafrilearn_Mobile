@@ -133,11 +133,11 @@ namespace AfriLearn.ViewModels
             }
             if (readshare.Equals("Share"))
             {
-               /* await Share.RequestAsync(new ShareTextRequest() 
+                await Share.RequestAsync(new ShareTextRequest() 
                 {
                     Title = BookName,
                     Text = "Hello Maxine, this is the first content am sharing with you, more content is on the way." 
-                });*/                
+                });               
             }         
 
             IsBusy = false;
