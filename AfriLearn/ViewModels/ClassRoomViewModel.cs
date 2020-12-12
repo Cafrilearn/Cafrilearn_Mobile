@@ -14,6 +14,8 @@ using Xamarin.Forms;
 using System;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
+using Xamarin.Essentials;
+using System.Threading.Tasks;
 
 namespace AfriLearn.ViewModels
 {
@@ -26,12 +28,12 @@ namespace AfriLearn.ViewModels
         #endregion
        
         #region commands
-        public ICommand ReadMathCommand => new Command(() => GetBook(BookType.Mathematics));
-        public ICommand ReadEnglishCommand => new Command(() => GetBook(BookType.English));
-        public ICommand ReadKiswahiliCommand => new Command(() => GetBook(BookType.Kiswahili));
-        public ICommand ReadScienceCommand => new Command(() => GetBook(BookType.Science));
-        public ICommand ReadSocialStudiesCommand => new Command(() => GetBook(BookType.SocialStudies));
-        public ICommand ReadReligiousEducationCommand => new Command(() => GetBook(BookType.ReligiousEducation));
+        public ICommand ReadMathCommand => new Command(async () => await GetBook(BookType.Mathematics));
+        public ICommand ReadEnglishCommand => new Command(async () => await GetBook(BookType.English));
+        public ICommand ReadKiswahiliCommand => new Command(async () => await GetBook(BookType.Kiswahili));
+        public ICommand ReadScienceCommand => new Command(async () => await GetBook(BookType.Science));
+        public ICommand ReadSocialStudiesCommand => new Command(async () => await GetBook(BookType.SocialStudies));
+        public ICommand ReadReligiousEducationCommand => new Command(async () => await GetBook(BookType.ReligiousEducation));
         public ICommand GoToExplorePage => new Command(() => NavigationService.PushAsync(new ExplorePage()));
         #endregion
 
@@ -65,7 +67,7 @@ namespace AfriLearn.ViewModels
         }
         #endregion
 
-        public async  void GetBook(string bookFormat)
+        public async  Task GetBook(string bookFormat)
         {
             IsBusy = true;
             MainContentVisibility = false ;
@@ -123,9 +125,20 @@ namespace AfriLearn.ViewModels
                 await BlobCache.LocalMachine.InsertObject("allBookNames", allBookNames);
                 goto getbookagain;
             }
-
-            await BlobCache.LocalMachine.InsertObject("currentBook", BookName);
-            NavigationService.PushAsync(new ReadBookPage());
+            var readshare = await Application.Current.MainPage.DisplayActionSheet("Select whether to read or share book","Cancel", "Okay", "Read", "Share");
+            if (readshare.Equals("Read"))
+            {
+                await BlobCache.LocalMachine.InsertObject("currentBook", BookName);
+                NavigationService.PushAsync(new ReadBookPage());
+            }
+            if (readshare.Equals("Share"))
+            {
+               /* await Share.RequestAsync(new ShareTextRequest() 
+                {
+                    Title = BookName,
+                    Text = "Hello Maxine, this is the first content am sharing with you, more content is on the way." 
+                });*/                
+            }         
 
             IsBusy = false;
             MainContentVisibility = true;

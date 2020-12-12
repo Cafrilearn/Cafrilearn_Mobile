@@ -12,6 +12,11 @@
     
     <ContentPage.Content>
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
             <Image HeightRequest="200"
                    Source="LandingPageBackGround.png">
                 
@@ -140,6 +145,7 @@
                                     Text="Ask Questions"
                                     TextColor="Black"
                                     VerticalOptions="CenterAndExpand" />
+                                
                             </StackLayout>
                             <yummy:PancakeView.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding GoToForumPage}"/>

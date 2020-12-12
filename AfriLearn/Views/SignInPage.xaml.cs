@@ -10,10 +10,9 @@ namespace AfriLearn.Views
         {
             InitializeComponent();
         }
-        protected override bool OnBackButtonPressed()
+        protected  override bool OnBackButtonPressed()
         {
-            return base.OnBackButtonPressed();
-            // if the user had logged out, it should not take them back to the app
+            return true;
         }
     }
 }
