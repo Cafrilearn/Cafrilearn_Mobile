@@ -16,7 +16,8 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <Grid Margin="8">
+        <Grid Margin="8"
+              VerticalOptions="CenterAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="220"/>

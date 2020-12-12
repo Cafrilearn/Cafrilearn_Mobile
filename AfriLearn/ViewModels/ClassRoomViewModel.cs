@@ -32,6 +32,7 @@ namespace AfriLearn.ViewModels
         public ICommand ReadScienceCommand => new Command(() => GetBook(BookType.Science));
         public ICommand ReadSocialStudiesCommand => new Command(() => GetBook(BookType.SocialStudies));
         public ICommand ReadReligiousEducationCommand => new Command(() => GetBook(BookType.ReligiousEducation));
+        public ICommand GoToExplorePage => new Command(() => NavigationService.PushAsync(new ExplorePage()));
         #endregion
 
         #region properties

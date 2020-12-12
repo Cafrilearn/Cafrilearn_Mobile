@@ -27,7 +27,8 @@
     
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout   Margin="8">
+            <StackLayout   Margin="8"
+                           VerticalOptions="CenterAndExpand">
                 <Label     Text="Cafrilearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"

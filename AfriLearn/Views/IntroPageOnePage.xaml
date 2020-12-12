@@ -16,7 +16,8 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>        
-        <StackLayout Margin="8">
+        <StackLayout Margin="8"
+                     VerticalOptions="CenterAndExpand">
             
             <StackLayout Orientation="Horizontal">
                 <StackLayout HorizontalOptions="StartAndExpand">

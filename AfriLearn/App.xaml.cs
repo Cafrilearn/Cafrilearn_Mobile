@@ -12,7 +12,9 @@ namespace AfriLearn
             InitializeComponent();
             SyncfusionLicenseProvider.RegisterLicense(SyncfusionConstants.SyncKey);
             Akavache.Registrations.Start("AfriLernMobile");
-            MainPage = new  NavigationPage(new  StartPage());
+            var page = new  NavigationPage(new  StartPage());
+            page.BarBackgroundColor = Color.FromHex("#193566");
+            MainPage = page;
         }
 
         protected override void OnStart()

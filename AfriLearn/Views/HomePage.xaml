@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.HomePage"
              NavigationPage.HasBackButton="False"
-             BarBackgroundColor="#2196F3"
+             BarBackgroundColor="#193566"
              BarTextColor="White">
     
     <TabbedPage.BindingContext>
@@ -21,7 +21,7 @@
              <Label Text="Cafrilearn"
                   VerticalOptions="CenterAndExpand" 
                   FontSize="24"
-                  TextColor="Magenta"/>
+                  TextColor="White"/>
 
         </StackLayout>
     </NavigationPage.TitleView>
@@ -36,9 +36,13 @@
                      Priority="2"
                      Text="Profile"
                      Command="{Binding NavigateToProfilePageCommand}"/>
-
         <ToolbarItem Order="Secondary"
                      Priority="3"
+                     Text="Share App"
+                     Command="{Binding NavigateToProfilePageCommand}"/>
+
+        <ToolbarItem Order="Secondary"
+                     Priority="4"
                      Text="Log Out"
                      Command="{Binding  LogOutCommand}"/>
         
@@ -46,8 +50,8 @@
 
     <TabbedPage.Children>
         <LocalViews:LandingPage Title="Class" IconImageSource="Home.png"/>
-        <LocalViews:LibraryPage Title="Library" IconImageSource="LibraryIcon.jpg"/>
-        <LocalViews:ExplorePage Title="Explore" IconImageSource="ExploreHomeIcon.jpg"/>
-        <LocalViews:ForumPage Title="Forum" IconImageSource="tab_feed.png"/>
+        <LocalViews:LibraryPage Title="Library" IconImageSource="Bookshelf.png"/>
+        <LocalViews:ExplorePage Title="Explore" IconImageSource="Explorer.png"/>
+        <LocalViews:ForumPage Title="Forum" IconImageSource="Message.png"/>
     </TabbedPage.Children>
 </TabbedPage>

@@ -6,6 +6,7 @@
              xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
              xmlns:LocalBehavior="clr-namespace:AfriLearn.Behaviours"
              mc:Ignorable="d"
+             Title="More Books"
              x:Class="AfriLearn.Views.ExplorePage">
     
     <ContentPage.BindingContext>
