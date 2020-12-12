@@ -1,5 +1,4 @@
 ﻿using AfriLearn.Constants;
-using AfriLearn.Dtos;
 using AfriLearn.Models;
 using AfriLearn.Services;
 using AfriLearn.Views;
@@ -25,8 +24,9 @@ namespace AfriLearn.ViewModels
         private Stream bookSource;
         private string bookName;
         private bool mainContentVisibility = true;
+        private byte [] bookBytes;
         #endregion
-       
+
         #region commands
         public ICommand ReadMathCommand => new Command(async () => await GetBook(BookType.Mathematics));
         public ICommand ReadEnglishCommand => new Command(async () => await GetBook(BookType.English));
@@ -45,6 +45,15 @@ namespace AfriLearn.ViewModels
             {
                 bookSource = value;
                 OnPropertyChanged(nameof(BookSource));
+            }
+        }
+        public byte [] BookBytes
+        {
+            get { return  bookBytes; }
+            set 
+            {
+                bookBytes = value;
+                OnPropertyChanged(nameof(BookBytes));
             }
         }
         public string BookName
@@ -96,6 +105,7 @@ namespace AfriLearn.ViewModels
                 try
                 {
                     blobBytes = await BlobCache.LocalMachine.GetObject<byte[]>(BookName);
+                    BookBytes = blobBytes;
                 }
 
                 //download the book, if its the first time and store the book locally as stream
@@ -103,6 +113,7 @@ namespace AfriLearn.ViewModels
                 {
                     book.BookName =  BookName;
                     blobBytes = await MediaService.GetBlobAsync(book);
+                    BookBytes = blobBytes;
                     await BlobCache.LocalMachine.InsertObject(BookName, blobBytes);
                     try
                     {
@@ -133,10 +144,11 @@ namespace AfriLearn.ViewModels
             }
             if (readshare.Equals("Share"))
             {
+                var content = Convert.ToBase64String(BookBytes);
                 await Share.RequestAsync(new ShareTextRequest() 
                 {
                     Title = BookName,
-                    Text = "Hello Maxine, this is the first content am sharing with you, more content is on the way." 
+                    Text = content
                 });               
             }         
 
