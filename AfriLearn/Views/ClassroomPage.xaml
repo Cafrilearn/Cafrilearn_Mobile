@@ -49,9 +49,9 @@
                             Grid.Row="0"
                             Grid.Column="0">
                     <StackLayout>
-                        <Image Source="MathImage2" />
-                        <Label Text="Mathematics"/>
-                    </StackLayout>
+                        <Image Source="ScienceImage" />
+                        <Label Text="Science"/>
+                    </StackLayout> 
                     <yummy:PancakeView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ReadMathCommand}"/>
                     </yummy:PancakeView.GestureRecognizers>
@@ -60,8 +60,8 @@
                 <yummy:PancakeView  Grid.Row="0"
                                     Grid.Column="1">
                     <StackLayout>
-                        <Image Source="ScienceImage" />
-                        <Label  Text="Science"></Label>
+                        <Image Source="PhysicalEducationImage1.jpg" />
+                        <Label  Text="Life Skills"></Label>
                     </StackLayout>
                     <yummy:PancakeView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding  ReadScienceCommand}"/>

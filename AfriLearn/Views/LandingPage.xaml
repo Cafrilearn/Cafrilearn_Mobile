@@ -64,7 +64,7 @@
                             CornerRadius="15">
                             <StackLayout>
                                 <Image Source="BluetoothIcon.png"
-                                       HeightRequest="40"/>
+                                       HeightRequest="100"/>
                                 <Label
                                     FontAttributes="Bold"
                                     FontSize="16"
@@ -88,7 +88,7 @@
                             CornerRadius="15">
                             <StackLayout>
                                 <Image Source="ReviewsIcon.jpeg"
-                                       HeightRequest="40"/>
+                                       HeightRequest="100"/>
                                 <Label
                                     FontAttributes="Bold"
                                     FontSize="16"
@@ -112,7 +112,7 @@
                             CornerRadius="15">
                             <StackLayout>
                                 <Image Source="ReadBook2Icon.png"
-                                       HeightRequest="40"/>
+                                       HeightRequest="100"/>
                                 <Label
                                     FontAttributes="Bold"
                                     FontSize="16"
@@ -136,7 +136,7 @@
                             CornerRadius="15">
                             <StackLayout>
                                 <Image Source="AlwaysAskQuestions.png"
-                                       HeightRequest="40"/>
+                                       HeightRequest="100"/>
                                 <Label
                                     FontAttributes="Bold"
                                     FontSize="16"
