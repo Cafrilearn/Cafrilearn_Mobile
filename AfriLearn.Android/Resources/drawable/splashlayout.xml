@@ -6,7 +6,7 @@
   <item>
     <bitmap
       
-        android:src="@drawable/libraryicon"
+        android:src="@drawable/cafrilearnsplashscreen2"
         android:tileMode="disabled"
         android:gravity="center"/>
   </item>

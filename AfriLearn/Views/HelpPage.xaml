@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AfriLearn.Views.HelpPage"
              xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             xmlns:sfEntry="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              Title="Help">
 
     <ContentPage.BindingContext>
@@ -10,34 +11,51 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout Margin="8">
-            <Label Text="Hello, if you have any genuine concern, you can talk to us. You can also advise us on how we can improve the experience of Reaiot."
-                   FontSize="16"/>
+        <StackLayout Margin="8"
+                     VerticalOptions="CenterAndExpand">
+
+            <Label Text="Hello, if you have any genuine concern, you can talk to us. You can also advise us on how we can improve the experience of CMapp."
+                   FontSize="16"
+                   Margin="0,20"/>
+
             <Label Text="Indicate type of help"/>
-            <Picker Title="---select---"
+
+            <sfEntry:SfTextInputLayout>
+                <Picker Title="---select---"
                     SelectedItem="{Binding TypeOfHelp}">
-                <Picker.Items>
-                    <x:String>Technical</x:String>
-                    <x:String>Other</x:String>
-                </Picker.Items>
-            </Picker>
+                    <Picker.Items>
+                        <x:String>Technical</x:String>
+                        <x:String>Other</x:String>
+                    </Picker.Items>
+                </Picker>
+            </sfEntry:SfTextInputLayout>
+
             <Label Text="Please provide a description of the issues or help you need."/>
-            <Editor Placeholder="Decription"
+
+            <sfEntry:SfTextInputLayout>
+                <Editor Placeholder="Decription"
                     Text="{Binding Description}"
-                    MinimumHeightRequest="60"/>
+                    AutoSize="TextChanges"/>
+            </sfEntry:SfTextInputLayout>
+
             <Label Text="Indicate how urgently you need help"/>
-            <Picker Title="---select---"
+
+            <sfEntry:SfTextInputLayout>
+                <Picker Title="---select---"
                     SelectedItem="{Binding HelpLevel }">
-                <Picker.Items>
-                    <x:String>Critical</x:String>
-                    <x:String>Urgent</x:String>
-                    <x:String>Less Urgent</x:String>
-                </Picker.Items>
-            </Picker>
+                    <Picker.Items>
+                        <x:String>A - Critical</x:String>
+                        <x:String>B - Neutral</x:String>
+                        <x:String>C - Minimal Impact</x:String>
+                    </Picker.Items>
+                </Picker>
+            </sfEntry:SfTextInputLayout>
+
             <Button Text="Send"
                     CornerRadius="14"
                     Command="{Binding SendHelpCommand}"
                     CommandParameter="{Binding Help}"/>
+
             <ActivityIndicator IsVisible="{Binding IsBusy}"
                                IsRunning="{Binding IsBusy}"
                                Margin="0,20"/>

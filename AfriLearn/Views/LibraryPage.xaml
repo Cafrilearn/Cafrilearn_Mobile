@@ -24,17 +24,12 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding  BookName}">
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding BookSelectedCommand}"/>
-                                        </Label.GestureRecognizers>
-                                    </Label>
-                                </StackLayout>
-                                <BoxView BackgroundColor="Black"
-                                          HeightRequest="4"/>
-                            </StackLayout>
+                            <Label Text="{Binding  BookName}"
+                                   VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BookSelectedCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

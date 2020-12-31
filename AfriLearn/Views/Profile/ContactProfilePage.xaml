@@ -7,8 +7,8 @@
     xmlns:button="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:helper="clr-namespace:AfriLearn.Helpers"
     xmlns:viewModel="clr-namespace:AfriLearn.ViewModels.Profile"
-    Title="Profile"
     NavigationPage.HasNavigationBar="False">
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -16,13 +16,15 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <!--  Binding context for Chat Profile Page  -->
+    
     <ContentPage.BindingContext>
         <viewModel:ContactProfileViewModel />
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout BackgroundColor="{DynamicResource Gray-White}" Spacing="0">
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="{DynamicResource Gray-White}"
+                         Spacing="0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -137,7 +139,7 @@
                     </border:SfBorder>
                 </Grid>
 
-                <BoxView Style="{StaticResource SeparatorStyle}" />
+                <BoxView Style="{StaticResource SeparatorStyle}"/>
 
                 <!--  Grid for mail id label and icon  -->
                 <Grid Padding="16" ColumnSpacing="16">
@@ -160,7 +162,7 @@
 
                 </Grid>
 
-                <BoxView Style="{StaticResource SeparatorStyle}" />
+                <BoxView Style="{StaticResource SeparatorStyle}"/>
 
                 <!--  Grid for mobile number label and icon  -->
                 <Grid Padding="16" ColumnSpacing="16">
@@ -183,64 +185,13 @@
 
                 </Grid>
 
-                <BoxView Style="{StaticResource SeparatorStyle}" />
-
-                <StackLayout Padding="16,16,8,0" Orientation="Horizontal">
-
-                    <!--  Media label  -->
-                    <Label
-                        FontFamily="{StaticResource Montserrat-SemiBold}"
-                        FontSize="12"
-                        HorizontalOptions="StartAndExpand"
-                        LineHeight="1.5"
-                        Text="AfriLearn Media"
-                        TextColor="{DynamicResource Gray-800}"
-                        VerticalOptions="Center" />
-
-                    <!--  View all label  -->
-
-                    <button:SfButton
-                        Padding="0"
-                        BackgroundColor="{DynamicResource Gray-White}"
-                        Command="{Binding ViewAllCommand}"
-                        CornerRadius="4"
-                        FontFamily="{StaticResource Montserrat-SemiBold}"
-                        FontSize="12"
-                        HorizontalOptions="End"
-                        Text="VIEW ALL"
-                        TextColor="{DynamicResource HyperLink}" />
-                </StackLayout>
-
-                <!--  ScrollView for shared media  -->
-                <!-- <ScrollView
-                    x:Name="ScrollView"
-                    Padding="16,8,16,16"
-                    HorizontalScrollBarVisibility="Never"
-                    Orientation="Horizontal">
-                    <StackLayout
-                        BindableLayout.ItemsSource="{Binding ProfileInfo}"
-                        Orientation="Horizontal"
-                        Spacing="16">
-                        <BindableLayout.ItemTemplate>
-                            <DataTemplate>
-                                <Image
-                                    BackgroundColor="{DynamicResource Gray-200}"
-                                    HeightRequest="100"
-                                    WidthRequest="100">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.MediaImageCommand, Source={x:Reference ScrollView}}" CommandParameter="{Binding .}" />
-                                    </Image.GestureRecognizers>
-                                    <Image.Source>
-                                        <UriImageSource
-                                            CacheValidity="14"
-                                            CachingEnabled="true"
-                                            Uri="{Binding ImagePath}" />
-                                    </Image.Source>
-                                </Image>
-                            </DataTemplate>
-                        </BindableLayout.ItemTemplate>
-                    </StackLayout>
-                </ScrollView>-->
+                <BoxView Style="{StaticResource SeparatorStyle}"/>
+                
+                <button:SfButton Text="Edit Profile"
+                                 Margin="5,20"
+                                 VerticalOptions="Center">
+                    
+                </button:SfButton>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -11,7 +11,6 @@ namespace CMapp_Mobile.Views.ChatPages
         #endregion
         public MyDataTemplateSelector()
         {
-            // Retain instances!
             this.incomingDataTemplate = new DataTemplate(typeof(IncomingViewCell));
             this.outgoingDataTemplate = new DataTemplate(typeof(OutgoingViewCell));
         }

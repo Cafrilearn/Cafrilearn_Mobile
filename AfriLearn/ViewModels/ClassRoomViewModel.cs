@@ -140,7 +140,7 @@ namespace AfriLearn.ViewModels
                 goto getbookagain;
             }
 
-            var readshare = await Application.Current.MainPage.DisplayActionSheet("Select whether to read or share book","Cancel", "Okay", "Read", "Share");
+            var readshare = await Application.Current.MainPage.DisplayActionSheet("Select whether to read or share this book","Cancel", "Okay", "Read", "Share");
             
             if (readshare.Equals("Read"))
             {

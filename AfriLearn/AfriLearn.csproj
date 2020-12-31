@@ -31,22 +31,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\PasswordRecoveryConfirmPage.xaml.cs">
+    <Compile Update="Views\AuthenticationPages\PasswordRecoveryConfirmPage.xaml.cs">
       <DependentUpon>PasswordRecoveryConfirmPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\PasswordRequstCodePage.xaml.cs">
+    <Compile Update="Views\AuthenticationPages\PasswordRequstCodePage.xaml.cs">
       <DependentUpon>PasswordRequstCodePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\IntroPageOnePage.xaml.cs">
+    <Compile Update="Views\WalkThroughPages\IntroPageOnePage.xaml.cs">
       <DependentUpon>IntroPageOnePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\IntroPageThreePage.xaml.cs">
+    <Compile Update="Views\WalkThroughPages\IntroPageThreePage.xaml.cs">
       <DependentUpon>IntroPageThreePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\IntroPageTwoPage.xaml.cs">
+    <Compile Update="Views\WalkThroughPages\IntroPageTwoPage.xaml.cs">
       <DependentUpon>IntroPageTwoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\PasswordResetPage.xaml.cs">
+    <Compile Update="Views\AuthenticationPages\PasswordResetPage.xaml.cs">
       <DependentUpon>PasswordResetPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SignUpPagee.xaml.cs">
@@ -76,7 +76,7 @@
     <EmbeddedResource Update="Views\LandingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PasswordRecoveryConfirmPage.xaml">
+    <EmbeddedResource Update="Views\AuthenticationPages\PasswordRecoveryConfirmPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ExplorePage.xaml">
@@ -91,19 +91,19 @@
     <EmbeddedResource Update="Views\Profile\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PasswordRequstCodePage.xaml">
+    <EmbeddedResource Update="Views\AuthenticationPages\PasswordRequstCodePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\IntroPageOnePage.xaml">
+    <EmbeddedResource Update="Views\WalkThroughPages\IntroPageOnePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\IntroPageThreePage.xaml">
+    <EmbeddedResource Update="Views\WalkThroughPages\IntroPageThreePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\IntroPageTwoPage.xaml">
+    <EmbeddedResource Update="Views\WalkThroughPages\IntroPageTwoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LibraryPage.xaml">
@@ -112,7 +112,7 @@
     <EmbeddedResource Update="Views\ReadBookPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PasswordResetPage.xaml">
+    <EmbeddedResource Update="Views\AuthenticationPages\PasswordResetPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ReviewsPage.xaml">
@@ -124,7 +124,7 @@
     <EmbeddedResource Update="Views\Settings\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SignInPage.xaml">
+    <EmbeddedResource Update="Views\AuthenticationPages\SignInPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SignUpPagee.xaml">

@@ -6,7 +6,7 @@
              xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
-             Title="ClassRoom"
+             Title="Classroom"
              x:Class="AfriLearn.Views.ClassroomPage">
     
     <ContentPage.BindingContext>
@@ -16,11 +16,14 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="yummy:PancakeView">
-                <Setter Property="Margin" Value="3"/> 
+                <Setter Property="Margin" Value="20"/> 
             </Style>
+            
             <Style TargetType="Image">
-                <Setter Property="HeightRequest" Value="90"/>
+                <Setter Property="Aspect" Value="AspectFit"/>
+                <Setter Property="MinimumHeightRequest" Value="90"/>
             </Style>
+            
             <Style TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
             </Style>
@@ -45,13 +48,16 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+                
                 <yummy:PancakeView
                             Grid.Row="0"
                             Grid.Column="0">
                     <StackLayout>
-                        <Image Source="ScienceImage" />
+                        <Image Source="ScienceImage2.jpg" />
+                        
                         <Label Text="Science"/>
                     </StackLayout> 
+                    
                     <yummy:PancakeView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ReadMathCommand}"/>
                     </yummy:PancakeView.GestureRecognizers>
@@ -60,9 +66,11 @@
                 <yummy:PancakeView  Grid.Row="0"
                                     Grid.Column="1">
                     <StackLayout>
-                        <Image Source="PhysicalEducationImage1.jpg" />
+                        <Image Source="PhysicalEducationImage2.jpg" />
+                        
                         <Label  Text="Life Skills"></Label>
                     </StackLayout>
+                    
                     <yummy:PancakeView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding  ReadScienceCommand}"/>
                     </yummy:PancakeView.GestureRecognizers>
@@ -72,9 +80,11 @@
                             Grid.Row="1"
                             Grid.Column="0">
                     <StackLayout>
-                        <Image Source="EnglishImage1"                                      />
+                        <Image Source="EnglishImage1.jpeg"      
+                               />
                         <Label Text="English"/>
                     </StackLayout>
+                    
                     <yummy:PancakeView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding  ReadEnglishCommand}"/>
                     </yummy:PancakeView.GestureRecognizers>
@@ -84,9 +94,11 @@
                             Grid.Row="1"
                             Grid.Column="1">
                     <StackLayout>
-                        <Image Source="KiswahiliImage1" />
+                        <Image Source="KiswahiliImage2.jpg" />
+                        
                         <Label Text="Kiswahili"></Label>
                     </StackLayout>
+                    
                     <yummy:PancakeView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding  ReadKiswahiliCommand}"/>
                     </yummy:PancakeView.GestureRecognizers>
@@ -96,9 +108,11 @@
                             Grid.Row="2"
                             Grid.Column="0">
                     <StackLayout>
-                        <Image Source="SocialStudiesImage" />
+                        <Image Source="SocialStudiesImage.jpeg" />
+                        
                         <Label Text="Social Studies"></Label>
                     </StackLayout>
+                    
                     <yummy:PancakeView.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding  ReadSocialStudiesCommand}"/>
                     </yummy:PancakeView.GestureRecognizers>
@@ -108,7 +122,7 @@
                             Grid.Row="2"
                             Grid.Column="1">
                     <StackLayout>
-                        <Image Source="ReligiousEducation" />
+                        <Image Source="ReligiousEducation.jpeg" />
                         <Label Text="Religious Education"></Label>
                     </StackLayout>
                     <yummy:PancakeView.GestureRecognizers>
