@@ -7,8 +7,7 @@ namespace AfriLearn.ViewModels
 {
     class LandingPageViewModel : BaseViewModel
     {
-        public ICommand GoToClassRoom => new Command(() => NavigationService.PushAsync(new ClassroomPage()));
+        public ICommand GoToClassRoom => new Command(() => NavigationService.PushAsync(new ExploreBooksPage()));
         public ICommand GoToReviewsPage => new Command(() => NavigationService.PushAsync(new ReviewsPage()));
-        public ICommand GoToForumPage => new Command(() => NavigationService.PushAsync(new ForumPage()));
     }
 }

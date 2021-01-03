@@ -14640,55 +14640,55 @@ namespace AfriLearn.Droid
 			public const int English = 2131165336;
 			
 			// aapt resource value: 0x7F070099
-			public const int ExploreHomeIcon = 2131165337;
+			public const int FormFieldCheckbox = 2131165337;
 			
 			// aapt resource value: 0x7F07009A
-			public const int FormFieldCheckbox = 2131165338;
+			public const int FormFieldCheckbox_Checked = 2131165338;
 			
 			// aapt resource value: 0x7F07009B
-			public const int FormFieldCheckbox_Checked = 2131165339;
+			public const int FormFieldCheckbox_UnChecked = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
-			public const int FormFieldCheckbox_UnChecked = 2131165340;
+			public const int formfieldradiobuttonstyle = 2131165340;
 			
 			// aapt resource value: 0x7F07009D
-			public const int formfieldradiobuttonstyle = 2131165341;
+			public const int formfieldtextboxcursorcolor = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int formfieldtextboxcursorcolor = 2131165342;
+			public const int GoToSchool = 2131165342;
 			
 			// aapt resource value: 0x7F07009F
-			public const int GoToSchool = 2131165343;
+			public const int Home = 2131165343;
 			
 			// aapt resource value: 0x7F0700A0
-			public const int Home = 2131165344;
+			public const int ic_mtrl_chip_checked_black = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int ic_mtrl_chip_checked_black = 2131165345;
+			public const int ic_mtrl_chip_checked_circle = 2131165345;
 			
 			// aapt resource value: 0x7F0700A2
-			public const int ic_mtrl_chip_checked_circle = 2131165346;
-			
-			// aapt resource value: 0x7F0700A3
-			public const int ic_mtrl_chip_close_circle = 2131165347;
-			
-			// aapt resource value: 0x7F0700A5
-			public const int inputlayout_togglecollapseicon = 2131165349;
-			
-			// aapt resource value: 0x7F0700A6
-			public const int inputlayout_togglevisibleicon = 2131165350;
+			public const int ic_mtrl_chip_close_circle = 2131165346;
 			
 			// aapt resource value: 0x7F0700A4
-			public const int input_layout_drop_down_icon = 2131165348;
+			public const int inputlayout_togglecollapseicon = 2131165348;
+			
+			// aapt resource value: 0x7F0700A5
+			public const int inputlayout_togglevisibleicon = 2131165349;
+			
+			// aapt resource value: 0x7F0700A3
+			public const int input_layout_drop_down_icon = 2131165347;
+			
+			// aapt resource value: 0x7F0700A6
+			public const int Kiswahili = 2131165350;
 			
 			// aapt resource value: 0x7F0700A7
-			public const int Kiswahili = 2131165351;
+			public const int LandingPageBackGround = 2131165351;
 			
 			// aapt resource value: 0x7F0700A8
-			public const int LandingPageBackGround = 2131165352;
+			public const int LifeSkills = 2131165352;
 			
 			// aapt resource value: 0x7F0700A9
-			public const int LifeSkills = 2131165353;
+			public const int menu = 2131165353;
 			
 			// aapt resource value: 0x7F0700AA
 			public const int More = 2131165354;
@@ -14763,7 +14763,7 @@ namespace AfriLearn.Droid
 			public const int Science = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int Search = 2131165378;
+			public const int search = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
 			public const int sfprogressbar_determinate_linear = 2131165379;

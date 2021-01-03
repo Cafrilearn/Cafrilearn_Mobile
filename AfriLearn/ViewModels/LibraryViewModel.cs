@@ -9,12 +9,13 @@ using Xamarin.Forms;
 
 namespace AfriLearn.ViewModels
 {
-    class LibraryViewModel : ExploreViewModel
+    class LibraryViewModel :  BaseViewModel
     {
         #region fields
         private bool headerTextVisibility = true;
         private ObservableCollection<Book> savedBooks;
         #endregion
+
         public LibraryViewModel()
         {
             GetSavedBooks();

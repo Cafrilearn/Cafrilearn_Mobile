@@ -31,6 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ExploreBooksPage.xaml.cs">
+      <DependentUpon>ExploreBooksPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\AuthenticationPages\PasswordRecoveryConfirmPage.xaml.cs">
       <DependentUpon>PasswordRecoveryConfirmPage.xaml</DependentUpon>
     </Compile>
@@ -64,7 +67,7 @@
     <EmbeddedResource Update="Themes\LightTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ClassroomPage.xaml">
+    <EmbeddedResource Update="Views\ExploreBooksPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\FAQPages.xaml">
@@ -77,9 +80,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AuthenticationPages\PasswordRecoveryConfirmPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ExplorePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoadPopUpPage.xaml">

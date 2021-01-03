@@ -14,7 +14,7 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout Margin="8">          
+        <StackLayout>          
             <pdfView:SfPdfViewer InputFileStream="{Binding BookSource}">
             </pdfView:SfPdfViewer>
         </StackLayout>

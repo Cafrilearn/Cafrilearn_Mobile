@@ -9,6 +9,7 @@
         public const string SocialStudies = "primary/social-studies";
         public const string ReligiousEducation = "primary/religious-education";
         public const string Mathematics = "primary/mathematics";
+        public const string PhysicalEducation = "primary/physical-education";
         public const string Agriculture = "secondary/agriculture";
         public const string Biology = "secondary/biology";
         public const string BusinessStudies = "secondary/business-studies";
@@ -23,5 +24,6 @@
         public const string Physics = "secondary/physics";
         public const string SecReligiousEducation = "secondary/religious-education";
         public const string SetBooks = "secondary/setbooks";
+        public const string Others = "morebooks/others";
     }
 }

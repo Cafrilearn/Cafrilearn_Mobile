@@ -1,5 +1,4 @@
-﻿using AfriLearn.Models;
-using AfriLearn.ViewModels;
+﻿using AfriLearn.ViewModels;
 using Xamarin.Forms;
 
 namespace AfriLearn.Behaviours
@@ -18,7 +17,8 @@ namespace AfriLearn.Behaviours
            var bookRelativePath = listView.SelectedItem.ToString();
            var absPathStart = bookRelativePath.LastIndexOf('/');
            var bookName = bookRelativePath.Substring(absPathStart + 1);
-           ExploreViewModel.BookSelected(bookName);
+           var exploreVM = new ExploreBooksViewModel();
+           exploreVM.BookSelected(bookName);
         }
 
         protected override void OnDetachingFrom(ListView bindable)
