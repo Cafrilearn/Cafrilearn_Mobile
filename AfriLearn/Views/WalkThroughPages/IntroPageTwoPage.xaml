@@ -45,7 +45,7 @@
             
             <sfBorder:SfBorder
                 CornerRadius="14">
-                <Image Source="SchoolPause"
+                <Image Source="SchoolPause.jpeg"
                    Aspect="AspectFill"
                    HeightRequest="256"/>
             </sfBorder:SfBorder>

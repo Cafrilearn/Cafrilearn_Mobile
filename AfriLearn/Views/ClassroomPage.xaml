@@ -20,8 +20,7 @@
             </Style>
             
             <Style TargetType="Image">
-                <Setter Property="Aspect" Value="AspectFit"/>
-                <Setter Property="MinimumHeightRequest" Value="90"/>
+                <Setter Property="HeightRequest" Value="70"/>
             </Style>
             
             <Style TargetType="Label">
@@ -53,7 +52,7 @@
                             Grid.Row="0"
                             Grid.Column="0">
                     <StackLayout>
-                        <Image Source="ScienceImage2.jpg" />
+                        <Image Source="Science.png" />
                         
                         <Label Text="Science"/>
                     </StackLayout> 
@@ -66,7 +65,7 @@
                 <yummy:PancakeView  Grid.Row="0"
                                     Grid.Column="1">
                     <StackLayout>
-                        <Image Source="PhysicalEducationImage2.jpg" />
+                        <Image Source="LifeSkills.png" />
                         
                         <Label  Text="Life Skills"></Label>
                     </StackLayout>
@@ -80,8 +79,7 @@
                             Grid.Row="1"
                             Grid.Column="0">
                     <StackLayout>
-                        <Image Source="EnglishImage1.jpeg"      
-                               />
+                        <Image Source="English.jpg"/>
                         <Label Text="English"/>
                     </StackLayout>
                     
@@ -94,13 +92,13 @@
                             Grid.Row="1"
                             Grid.Column="1">
                     <StackLayout>
-                        <Image Source="KiswahiliImage2.jpg" />
+                        <Image Source="Kiswahili.jpg" />
                         
                         <Label Text="Kiswahili"></Label>
                     </StackLayout>
                     
                     <yummy:PancakeView.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding  ReadKiswahiliCommand}"/>
+                        <TapGestureRecognizer Command="{Binding ReadKiswahiliCommand}"/>
                     </yummy:PancakeView.GestureRecognizers>
                 </yummy:PancakeView>
 
@@ -108,7 +106,7 @@
                             Grid.Row="2"
                             Grid.Column="0">
                     <StackLayout>
-                        <Image Source="SocialStudiesImage.jpeg" />
+                        <Image Source="SocialStudies.jpg" />
                         
                         <Label Text="Social Studies"></Label>
                     </StackLayout>

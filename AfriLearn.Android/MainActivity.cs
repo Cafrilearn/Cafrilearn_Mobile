@@ -7,7 +7,7 @@ using Plugin.CurrentActivity;
 
 namespace AfriLearn.Droid
 {
-    [Activity(Label = "AfriLearn", Icon = "@drawable/LibraryIcon", Theme = "@style/MainTheme", MainLauncher =  false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Cafrilearn", Theme = "@style/MainTheme", MainLauncher =  false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

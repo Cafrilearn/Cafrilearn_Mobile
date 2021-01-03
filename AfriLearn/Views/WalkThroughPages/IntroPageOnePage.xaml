@@ -44,7 +44,7 @@
                    VerticalOptions="CenterAndExpand"
                    FontSize="18"                  />
             <sfBorder:SfBorder CornerRadius="14">
-                <Image Source="AfricTechImage1"
+                <Image Source="AfricTechImage1.jpg"
                    Aspect="AspectFill"
                    HeightRequest="280"
                    />
