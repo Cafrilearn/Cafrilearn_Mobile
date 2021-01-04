@@ -71,7 +71,6 @@ namespace AfriLearn.ViewModels
             }
         }
         public  ObservableCollection<Subject> Subjects { get; set; }
-        public  ObservableCollection<TestString> TestStrings { get; set; }
         public  ObservableCollection<string>  BooksNames { get; set; }
         #endregion
 
@@ -208,7 +207,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Primary  Kiswahili",
-                    ImageSource = "English.jpg",
+                    ImageSource = "Kiswahili.jpg",
                     NumberSymbol = "02",
                     NumberWord = "Two",
                     //Books = books.Where(b => b.Contains(BookType.Kiswahili)).ToList()
@@ -216,7 +215,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Primary  Mathematics",
-                    ImageSource = "English.jpg",
+                    ImageSource = "Mathematics.png",
                     NumberSymbol = "03",
                     NumberWord = "Three",
                    // Books =  books.Where(b => b.Contains(BookType.Mathematics)).ToList()
@@ -224,7 +223,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Physical  Education",
-                    ImageSource = "English.jpg",
+                    ImageSource = "PhysicalEducation.jpg",
                     NumberSymbol = "04",
                     NumberWord = "Four",
                     //Books =  books.Where(b => b.Contains(BookType.PhysicalEducation)).ToList()
@@ -232,7 +231,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Primary  Religious Education",
-                    ImageSource = "English.jpg",
+                    ImageSource = "ReligiousEducation.jpeg",
                     NumberSymbol = "05",
                     NumberWord = "Five",
                    // Books = books.Where(b => b.Contains(BookType.ReligiousEducation)).ToList()
@@ -240,7 +239,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Science",
-                    ImageSource = "English.jpg",
+                    ImageSource = "Science.png",
                     NumberSymbol = "06",
                     NumberWord = "Six",
                     //Books = books.Where(b => b.Contains(BookType.Science)).ToList()
@@ -248,7 +247,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Social Studies",
-                    ImageSource = "English.jpg",
+                    ImageSource = "SocialStudies.jpg",
                     NumberSymbol = "07",
                     NumberWord = "Seven",
                    // Books = books.Where(b => b.Contains(BookType.SocialStudies)).ToList()
@@ -256,7 +255,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Agriculture",
-                    ImageSource = "English.jpg",
+                    ImageSource = "Agriculture.jpg",
                     NumberSymbol = "08",
                     NumberWord = "Eight",
                     //Books = books.Where(b => b.Contains(BookType.Agriculture)).ToList()
@@ -264,7 +263,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Biology",
-                    ImageSource = "English.jpg",
+                    ImageSource = "Biology.jpg",
                     NumberSymbol = "09",
                     NumberWord = "Nine",
                     //Books = books.Where(b => b.Contains(BookType.Biology)).ToList()
@@ -272,7 +271,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Business Studies",
-                    ImageSource = "English.jpg",
+                    ImageSource = "BusinessStudies.png",
                     NumberSymbol = "10",
                     NumberWord = "Ten",
                     //Books = books.Where(b => b.Contains(BookType.BusinessStudies)).ToList()
@@ -280,7 +279,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Chemistry",
-                    ImageSource = "English.jpg",
+                    ImageSource = "Chemistry.jpg",
                     NumberSymbol = "11",
                     NumberWord = "Eleven",
                    // Books = books.Where(b => b.Contains(BookType.Chemistry)).ToList()
@@ -288,7 +287,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Computer Studies",
-                    ImageSource = "English.jpg",
+                    ImageSource = "ComputerStudies.png",
                     NumberSymbol = "12",
                     NumberWord = "Twelve",
                     //Books = books.Where(b => b.Contains(BookType.ComputerStudies)).ToList()
@@ -296,7 +295,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Secondary English",
-                    ImageSource = "English.jpg",
+                    ImageSource = "SecondaryEnglish.jpg",
                     NumberSymbol = "13",
                     NumberWord = "Thirteen",
                     //Books = books.Where(b => b.Contains(BookType.SecEnglish)).ToList()
@@ -304,7 +303,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Geography",
-                    ImageSource = "English.jpg",
+                    ImageSource = "Geography.jpg",
                     NumberSymbol = "14",
                     NumberWord = "Fourteen",
                     //Books = books.Where(b => b.Contains(BookType.Geography)).ToList()
@@ -312,7 +311,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "History",
-                    ImageSource = "English.jpg",
+                    ImageSource = "History.png",
                     NumberSymbol = "15",
                     NumberWord = "Fifteen",
                     //Books = books.Where(b => b.Contains(BookType.History)).ToList()
@@ -320,7 +319,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Home Science",
-                    ImageSource = "English.jpg",
+                    ImageSource = "HomeScience.jpg",
                     NumberSymbol = "16",
                     NumberWord = "Sixteen",
                     //Books = books.Where(b => b.Contains(BookType.HomeScience)).ToList()
@@ -328,15 +327,15 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Secondary  Kiswahili",
-                    ImageSource = "English.jpg",
+                    ImageSource = "KiswahiliSecondary.jpg",
                     NumberSymbol = "17",
                     NumberWord = "Seventeen",
                     //Books = books.Where(b => b.Contains(BookType.SecKiswahili)).ToList()
                 },
                 new Subject()
                 {
-                    Title = "Mathematics",
-                    ImageSource = "English.jpg",
+                    Title = "Seconadry Mathematics",
+                    ImageSource = "SecondaryEnglish.jpg",
                     NumberSymbol = "18",
                     NumberWord = "Eighteen",
                    // Books = books.Where(b => b.Contains(BookType.SecMathematics)).ToList()
@@ -344,7 +343,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Physics",
-                    ImageSource = "English.jpg",
+                    ImageSource = "Physics.jpg",
                     NumberSymbol = "19",
                     NumberWord = "Ninteen",
                    // Books =  books.Where(b => b.Contains(BookType.Physics)).ToList()
@@ -352,7 +351,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Secondary Religious Education",
-                    ImageSource = "English.jpg",
+                    ImageSource = "ReligiousEducationSecondary.png",
                     NumberSymbol = "20",
                     NumberWord = "Twenty",
                     //Books = books.Where(b => b.Contains(BookType.SecReligiousEducation)).ToList()
@@ -360,7 +359,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Set  Books",
-                    ImageSource = "English.jpg",
+                    ImageSource = "SetBooks.jpg",
                     NumberSymbol = "21",
                     NumberWord = "Twenty one",
                     //Books =  books.Where(b => b.Contains(BookType.SetBooks)).ToList()
@@ -368,17 +367,11 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Explore More",
-                    ImageSource = "English.jpg",
+                    ImageSource = "Explorer.png",
                     NumberSymbol = "22",
                     NumberWord = "Twenty two",
                    // Books =  books.Where(b => b.Contains(BookType.Others)).ToList()
                 }
-            };
-
-            TestStrings = new ObservableCollection<TestString>()
-            {
-                  new TestString(){Name = "Engineers", Email="Africa"},
-                  new TestString(){Name = "Doctors", Email = "New Africa"}
             };
         }        
         public async void BookSelected(string bookSelected)
@@ -409,10 +402,5 @@ namespace AfriLearn.ViewModels
             }
         }
         #endregion
-    }
-    public class TestString
-    {
-        public  string  Name { get; set; }
-        public  string  Email { get; set; }
-    }
+    }    
 }

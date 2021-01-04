@@ -60,32 +60,60 @@
                                                 <Label Text="{Binding NumberWord}" 
                                                        TextColor="#6670CC" 
                                                        FontSize="13" 
-                                                   HorizontalOptions="Center"
+                                                       HorizontalOptions="Center"
                                                        FontAttributes="Bold"/>
+                                                
                                                 <Label Text="{Binding NumberSymbol}"
                                                        TextColor="#FF5151"
                                                        FontSize="26" 
-                                                   HorizontalOptions="Center" Margin="0,-10,0,0" FontAttributes="Bold"/>
+                                                       HorizontalOptions="Center" 
+                                                       Margin="0,-10,0,0"
+                                                       FontAttributes="Bold"/>
+                                                
                                             </StackLayout>
-                                            <StackLayout Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" Margin="20">
-                                                <Label Text="{Binding Title}" TextColor="Black" FontSize="15"/>
-                                                <Label Text="{Binding Venue}" Opacity="0.85" TextColor="Black" FontSize="12" Margin="0,-5,0,0"/>
-                                                <Label Text="{Binding Duration}" Opacity="0.5" TextColor="Black" FontSize="12" Margin="0,-5,0,0"/>
+                                            <StackLayout Grid.Column="1"
+                                                         HorizontalOptions="Start" 
+                                                         VerticalOptions="Center" 
+                                                         Margin="20">
+                                                
+                                                <Label Text="{Binding Title}"
+                                                       TextColor="Black" 
+                                                       FontSize="15"/>
+                                                
                                             </StackLayout>
                                         </Grid>
                                     </Expander.Header>
-                                    <Grid RowSpacing="0" HorizontalOptions="FillAndExpand" HeightRequest="240">
+                                    <Grid RowSpacing="0"
+                                          HorizontalOptions="FillAndExpand" 
+                                          HeightRequest="240">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="2*"/>
                                             <RowDefinition Height="1.5*"/>
                                         </Grid.RowDefinitions>
-                                        <Grid x:Name="ImageView" IsVisible="False">
-                                            <Image Source="{Binding Image}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                        <Grid x:Name="ImageView"
+                                              IsVisible="False">
+                                            <Image Source="{Binding ImageSource}"
+                                                   Aspect="AspectFill" 
+                                                   HorizontalOptions="FillAndExpand" 
+                                                   VerticalOptions="FillAndExpand"/>
                                         </Grid>
-                                        <Grid x:Name="DetailsView" Grid.Row="1" BackgroundColor="White" Padding="20" IsVisible="False">
+                                        <Grid x:Name="DetailsView" 
+                                              Grid.Row="1" 
+                                              BackgroundColor="White"
+                                              Padding="20" 
+                                              IsVisible="False">
                                             <StackLayout>
-                                                <Label Text="Details" TextColor="Black" FontSize="12" FontAttributes="Bold" Opacity="0.85"/>
-                                                <Label Text="{Binding Description}" TextColor="Black" FontSize="12" Opacity="0.85"/>
+                                                <Label Text="Details" 
+                                                       TextColor="Black" 
+                                                       FontSize="12" 
+                                                       FontAttributes="Bold" 
+                                                       Opacity="0.85"/>
+                                                
+                                                <Label Text="{Binding Description}" 
+                                                       TextColor="Black" 
+                                                       FontSize="12"
+                                                       Opacity="0.85"/>
+                                                
                                             </StackLayout>
                                         </Grid>
                                     </Grid>
