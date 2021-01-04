@@ -29,8 +29,8 @@ namespace AfriLearn.ViewModels
         {
             // get the books once, assign them to AllAfriLearnBooks then filter 
             // by subject late to a assign to each subject list
-            GetBookNames();
-            GetSubjects();
+           Subjects = new ObservableCollection<Subject>();
+           GetBookNames();
         }
 
         #region properties
@@ -70,11 +70,13 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(MainContentVisibility));
             }
         }
+        public  ObservableCollection<Subject> Subjects { get; set; }
+        public  ObservableCollection<TestString> TestStrings { get; set; }
+        public  ObservableCollection<string>  BooksNames { get; set; }
         #endregion
 
         #region methods
-        public List<string> AllAfriLearnBooks { get;  set;}
-        public List<Subject> Subjects { get; set; }
+
 
         public async Task GetBook(string bookFormat)
         {
@@ -163,165 +165,222 @@ namespace AfriLearn.ViewModels
             IsBusy = false;
             MainContentVisibility = true;
         }
-        public async  void GetBookNames()
+      
+        public async void LoadBookNames()
         {
+            var books = new ObservableCollection<string>();
             try
-            {                
+            {
                 var allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
                 foreach (var book in allBooks)
                 {
-                    AllAfriLearnBooks.Add(book);
+
+                    // these two lines of code be done when downloading the books the first time
+                    //var  bookNameIndex = book.LastIndexOf('/');
+                    //var exactBookName =  book.Substring(bookNameIndex + 1);
+                    books.Add(book);
                 }
             }
             catch (Exception)
             {
                 var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
                 var httpClientService = new HttpClientService(appUser.AuthKey);
-                var books = await httpClientService.Get("Books/getallbooknames");
-                var booksList = JsonConvert.DeserializeObject<List<string>>(books);
-                
-                AllAfriLearnBooks = booksList;
-                await BlobCache.LocalMachine.InsertObject("allBookNames", booksList);
+                var booksResponse = await httpClientService.Get("Books/getallbooknames");
+                books = JsonConvert.DeserializeObject<ObservableCollection<string>>(booksResponse);
+                await BlobCache.LocalMachine.InsertObject("allBookNames", books);
             }
+
+            BooksNames = books;
+                
         }
-        public void GetSubjects()
-        {
-            Subjects = new List<Subject>()
+        public async  void GetBookNames()
+        {         
+            Subjects = new  ObservableCollection<Subject>()
             {
                 new Subject()
                 {
-                    Title = "Primary English", 
+                    Title = "Primary English",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.English)).ToList()
+                    NumberSymbol = "01",
+                    NumberWord = "One",
+                    //Books  = books.Where(b => b.Contains(BookType.English)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Primary  Kiswahili",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.Kiswahili)).ToList()
+                    NumberSymbol = "02",
+                    NumberWord = "Two",
+                    //Books = books.Where(b => b.Contains(BookType.Kiswahili)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Primary  Mathematics",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.Mathematics)).ToList()
-                },               
+                    NumberSymbol = "03",
+                    NumberWord = "Three",
+                   // Books =  books.Where(b => b.Contains(BookType.Mathematics)).ToList()
+                },
                 new Subject()
                 {
                     Title = "Physical  Education",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.PhysicalEducation)).ToList()
+                    NumberSymbol = "04",
+                    NumberWord = "Four",
+                    //Books =  books.Where(b => b.Contains(BookType.PhysicalEducation)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Primary  Religious Education",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.ReligiousEducation)).ToList()
+                    NumberSymbol = "05",
+                    NumberWord = "Five",
+                   // Books = books.Where(b => b.Contains(BookType.ReligiousEducation)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Science",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.Science)).ToList()
+                    NumberSymbol = "06",
+                    NumberWord = "Six",
+                    //Books = books.Where(b => b.Contains(BookType.Science)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Social Studies",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.SocialStudies)).ToList()
-                } ,
+                    NumberSymbol = "07",
+                    NumberWord = "Seven",
+                   // Books = books.Where(b => b.Contains(BookType.SocialStudies)).ToList()
+                },
                 new Subject()
                 {
                     Title = "Agriculture",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.Agriculture)).ToList()
+                    NumberSymbol = "08",
+                    NumberWord = "Eight",
+                    //Books = books.Where(b => b.Contains(BookType.Agriculture)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Biology",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.Biology)).ToList()
+                    NumberSymbol = "09",
+                    NumberWord = "Nine",
+                    //Books = books.Where(b => b.Contains(BookType.Biology)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Business Studies",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.BusinessStudies)).ToList()
+                    NumberSymbol = "10",
+                    NumberWord = "Ten",
+                    //Books = books.Where(b => b.Contains(BookType.BusinessStudies)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Chemistry",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.Chemistry)).ToList()
+                    NumberSymbol = "11",
+                    NumberWord = "Eleven",
+                   // Books = books.Where(b => b.Contains(BookType.Chemistry)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Computer Studies",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.ComputerStudies)).ToList()
-                },               
+                    NumberSymbol = "12",
+                    NumberWord = "Twelve",
+                    //Books = books.Where(b => b.Contains(BookType.ComputerStudies)).ToList()
+                },
                 new Subject()
                 {
                     Title = "Secondary English",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.SecEnglish)).ToList()
+                    NumberSymbol = "13",
+                    NumberWord = "Thirteen",
+                    //Books = books.Where(b => b.Contains(BookType.SecEnglish)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Geography",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.Geography)).ToList()
+                    NumberSymbol = "14",
+                    NumberWord = "Fourteen",
+                    //Books = books.Where(b => b.Contains(BookType.Geography)).ToList()
                 },
                 new Subject()
                 {
                     Title = "History",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.History)).ToList()
+                    NumberSymbol = "15",
+                    NumberWord = "Fifteen",
+                    //Books = books.Where(b => b.Contains(BookType.History)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Home Science",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.HomeScience)).ToList()
+                    NumberSymbol = "16",
+                    NumberWord = "Sixteen",
+                    //Books = books.Where(b => b.Contains(BookType.HomeScience)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Secondary  Kiswahili",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.SecKiswahili)).ToList()
+                    NumberSymbol = "17",
+                    NumberWord = "Seventeen",
+                    //Books = books.Where(b => b.Contains(BookType.SecKiswahili)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Mathematics",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.SecMathematics)).ToList()
+                    NumberSymbol = "18",
+                    NumberWord = "Eighteen",
+                   // Books = books.Where(b => b.Contains(BookType.SecMathematics)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Physics",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.Physics)).ToList()
+                    NumberSymbol = "19",
+                    NumberWord = "Ninteen",
+                   // Books =  books.Where(b => b.Contains(BookType.Physics)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Secondary Religious Education",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.SecReligiousEducation)).ToList()
+                    NumberSymbol = "20",
+                    NumberWord = "Twenty",
+                    //Books = books.Where(b => b.Contains(BookType.SecReligiousEducation)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Set  Books",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.SetBooks)).ToList()
+                    NumberSymbol = "21",
+                    NumberWord = "Twenty one",
+                    //Books =  books.Where(b => b.Contains(BookType.SetBooks)).ToList()
                 },
                 new Subject()
                 {
                     Title = "Explore More",
                     ImageSource = "English.jpg",
-                    Books = AllAfriLearnBooks.Where(b => b.Contains(BookType.Others)).ToList()
+                    NumberSymbol = "22",
+                    NumberWord = "Twenty two",
+                   // Books =  books.Where(b => b.Contains(BookType.Others)).ToList()
                 }
             };
-        }
+
+            TestStrings = new ObservableCollection<TestString>()
+            {
+                  new TestString(){Name = "Engineers", Email="Africa"},
+                  new TestString(){Name = "Doctors", Email = "New Africa"}
+            };
+        }        
         public async void BookSelected(string bookSelected)
         {
             if (bookSelected.Contains("MATHEMATICS"))
@@ -350,5 +409,10 @@ namespace AfriLearn.ViewModels
             }
         }
         #endregion
+    }
+    public class TestString
+    {
+        public  string  Name { get; set; }
+        public  string  Email { get; set; }
     }
 }
