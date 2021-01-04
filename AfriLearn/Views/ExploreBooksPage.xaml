@@ -30,10 +30,12 @@
                            FontSize="18" 
                            FontAttributes="Bold"/>
                 </CollectionView.Header>
+                
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" 
                                        ItemSpacing="20"/>
                 </CollectionView.ItemsLayout>
+                
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame HasShadow="True" 
@@ -53,8 +55,10 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="3*"/>
                                             </Grid.ColumnDefinitions>
+                                            
                                             <BoxView BackgroundColor="#A0A4C9"
                                                      Opacity="0.2"/>
+                                            
                                             <StackLayout HorizontalOptions="Center" 
                                                          VerticalOptions="Center">
                                                 <Label Text="{Binding NumberWord}" 
@@ -71,6 +75,7 @@
                                                        FontAttributes="Bold"/>
                                                 
                                             </StackLayout>
+                                            
                                             <StackLayout Grid.Column="1"
                                                          HorizontalOptions="Start" 
                                                          VerticalOptions="Center" 
@@ -84,11 +89,11 @@
                                         </Grid>
                                     </Expander.Header>
                                     <Grid RowSpacing="0"
-                                          HorizontalOptions="FillAndExpand" 
+                                          HorizontalOptions="FillAndExpand"
                                           HeightRequest="240">
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="2*"/>
-                                            <RowDefinition Height="1.5*"/>
+                                            <RowDefinition Height="2.5*"/>
+                                            <RowDefinition Height="1.35*"/>
                                         </Grid.RowDefinitions>
                                         <Grid x:Name="ImageView"
                                               IsVisible="False">
@@ -97,24 +102,13 @@
                                                    HorizontalOptions="FillAndExpand" 
                                                    VerticalOptions="FillAndExpand"/>
                                         </Grid>
+                                        
                                         <Grid x:Name="DetailsView" 
                                               Grid.Row="1" 
                                               BackgroundColor="White"
                                               Padding="20" 
                                               IsVisible="False">
-                                            <StackLayout>
-                                                <Label Text="Details" 
-                                                       TextColor="Black" 
-                                                       FontSize="12" 
-                                                       FontAttributes="Bold" 
-                                                       Opacity="0.85"/>
-                                                
-                                                <Label Text="{Binding Description}" 
-                                                       TextColor="Black" 
-                                                       FontSize="12"
-                                                       Opacity="0.85"/>
-                                                
-                                            </StackLayout>
+                                            <Button Text="See these Books"/>
                                         </Grid>
                                     </Grid>
                                 </Expander>

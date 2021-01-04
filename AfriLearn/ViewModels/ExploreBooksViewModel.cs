@@ -27,9 +27,9 @@ namespace AfriLearn.ViewModels
         #endregion
         public ExploreBooksViewModel()
         {
-            // get the books once, assign them to AllAfriLearnBooks then filter 
-            // by subject late to a assign to each subject list
-           Subjects = new ObservableCollection<Subject>();
+            BookNames = new ObservableCollection<string>();
+            Subjects = new ObservableCollection<Subject>();
+           // LoadBookNames();
            GetBookNames();
         }
 
@@ -71,7 +71,7 @@ namespace AfriLearn.ViewModels
             }
         }
         public  ObservableCollection<Subject> Subjects { get; set; }
-        public  ObservableCollection<string>  BooksNames { get; set; }
+        public  ObservableCollection<string>  BookNames { get; set; }
         #endregion
 
         #region methods
@@ -189,12 +189,7 @@ namespace AfriLearn.ViewModels
                 await BlobCache.LocalMachine.InsertObject("allBookNames", books);
             }
 
-            BooksNames = books;
-                
-        }
-        public async  void GetBookNames()
-        {         
-            Subjects = new  ObservableCollection<Subject>()
+            Subjects = new ObservableCollection<Subject>()
             {
                 new Subject()
                 {
@@ -202,7 +197,7 @@ namespace AfriLearn.ViewModels
                     ImageSource = "English.jpg",
                     NumberSymbol = "01",
                     NumberWord = "One",
-                    //Books  = books.Where(b => b.Contains(BookType.English)).ToList()
+                    Books  = books.Where(b => b.Contains(BookType.English)).ToList()
                 },
                 new Subject()
                 {
@@ -210,7 +205,7 @@ namespace AfriLearn.ViewModels
                     ImageSource = "Kiswahili.jpg",
                     NumberSymbol = "02",
                     NumberWord = "Two",
-                    //Books = books.Where(b => b.Contains(BookType.Kiswahili)).ToList()
+                    Books = books.Where(b => b.Contains(BookType.Kiswahili)).ToList()
                 },
                 new Subject()
                 {
@@ -335,7 +330,7 @@ namespace AfriLearn.ViewModels
                 new Subject()
                 {
                     Title = "Seconadry Mathematics",
-                    ImageSource = "SecondaryEnglish.jpg",
+                    ImageSource = "SecondaryMathematics.jpg",
                     NumberSymbol = "18",
                     NumberWord = "Eighteen",
                    // Books = books.Where(b => b.Contains(BookType.SecMathematics)).ToList()
@@ -371,6 +366,167 @@ namespace AfriLearn.ViewModels
                     NumberSymbol = "22",
                     NumberWord = "Twenty two",
                    // Books =  books.Where(b => b.Contains(BookType.Others)).ToList()
+                }
+            };
+
+        }
+        public void GetBookNames()
+        {
+            Subjects = new  ObservableCollection<Subject>()
+            {
+                new Subject()
+                {
+                    Title = "Primary English",
+                    ImageSource = "English.jpg",
+                    NumberSymbol = "01",
+                    NumberWord = "One"
+                },
+                new Subject()
+                {
+                    Title = "Primary  Kiswahili",
+                    ImageSource = "Kiswahili.jpg",
+                    NumberSymbol = "02",
+                    NumberWord = "Two"
+                },
+                new Subject()
+                {
+                    Title = "Primary  Mathematics",
+                    ImageSource = "Mathematics.png",
+                    NumberSymbol = "03",
+                    NumberWord = "Three"
+                },
+                new Subject()
+                {
+                    Title = "Physical  Education",
+                    ImageSource = "PhysicalEducation.jpg",
+                    NumberSymbol = "04",
+                    NumberWord = "Four"
+                },
+                new Subject()
+                {
+                    Title = "Primary  Religious Education",
+                    ImageSource = "ReligiousEducation.jpeg",
+                    NumberSymbol = "05",
+                    NumberWord = "Five"
+                },
+                new Subject()
+                {
+                    Title = "Science",
+                    ImageSource = "Science.png",
+                    NumberSymbol = "06",
+                    NumberWord = "Six"
+                },
+                new Subject()
+                {
+                    Title = "Social Studies",
+                    ImageSource = "SocialStudies.jpg",
+                    NumberSymbol = "07",
+                    NumberWord = "Seven"
+                },
+                new Subject()
+                {
+                    Title = "Agriculture",
+                    ImageSource = "Agriculture.jpg",
+                    NumberSymbol = "08",
+                    NumberWord = "Eight"
+                },
+                new Subject()
+                {
+                    Title = "Biology",
+                    ImageSource = "Biology.jpg",
+                    NumberSymbol = "09",
+                    NumberWord = "Nine"
+                },
+                new Subject()
+                {
+                    Title = "Business Studies",
+                    ImageSource = "BusinessStudies.png",
+                    NumberSymbol = "10",
+                    NumberWord = "Ten"
+                },
+                new Subject()
+                {
+                    Title = "Chemistry",
+                    ImageSource = "Chemistry.jpg",
+                    NumberSymbol = "11",
+                    NumberWord = "Eleven"
+                },
+                new Subject()
+                {
+                    Title = "Computer Studies",
+                    ImageSource = "ComputerStudies.png",
+                    NumberSymbol = "12",
+                    NumberWord = "Twelve"
+                },
+                new Subject()
+                {
+                    Title = "Secondary English",
+                    ImageSource = "SecondaryEnglish.jpg",
+                    NumberSymbol = "13",
+                    NumberWord = "Thirteen"
+                },
+                new Subject()
+                {
+                    Title = "Geography",
+                    ImageSource = "Geography.jpg",
+                    NumberSymbol = "14",
+                    NumberWord = "Fourteen"
+                },
+                new Subject()
+                {
+                    Title = "History",
+                    ImageSource = "History.png",
+                    NumberSymbol = "15",
+                    NumberWord = "Fifteen"
+                },
+                new Subject()
+                {
+                    Title = "Home Science",
+                    ImageSource = "HomeScience.jpg",
+                    NumberSymbol = "16",
+                    NumberWord = "Sixteen"
+                },
+                new Subject()
+                {
+                    Title = "Secondary  Kiswahili",
+                    ImageSource = "KiswahiliSecondary.jpg",
+                    NumberSymbol = "17",
+                    NumberWord = "Seventeen"
+                },
+                new Subject()
+                {
+                    Title = "Seconadry Mathematics",
+                    ImageSource = "SecondaryMathematics.jpg",
+                    NumberSymbol = "18",
+                    NumberWord = "Eighteen"
+                },
+                new Subject()
+                {
+                    Title = "Physics",
+                    ImageSource = "Physics.jpg",
+                    NumberSymbol = "19",
+                    NumberWord = "Ninteen"
+                },
+                new Subject()
+                {
+                    Title = "Secondary Religious Education",
+                    ImageSource = "ReligiousEducationSecondary.png",
+                    NumberSymbol = "20",
+                    NumberWord = "Twenty"
+                },
+                new Subject()
+                {
+                    Title = "Set  Books",
+                    ImageSource = "SetBooks.jpg",
+                    NumberSymbol = "21",
+                    NumberWord = "Twenty one"
+                },
+                new Subject()
+                {
+                    Title = "Explore More",
+                    ImageSource = "Explorer.png",
+                    NumberSymbol = "22",
+                    NumberWord = "Twenty two"
                 }
             };
         }        
