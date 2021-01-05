@@ -40,6 +40,9 @@
     <Compile Update="Views\AuthenticationPages\PasswordRequstCodePage.xaml.cs">
       <DependentUpon>PasswordRequstCodePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\SelectedSubjectPage.xaml.cs">
+      <DependentUpon>SelectedSubjectPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\WalkThroughPages\IntroPageOnePage.xaml.cs">
       <DependentUpon>IntroPageOnePage.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SelectedSubjectPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\WalkThroughPages\IntroPageOnePage.xaml">

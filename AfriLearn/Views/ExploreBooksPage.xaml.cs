@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AfriLearn.Services;
+using Akavache;
+using System;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,6 +15,7 @@ namespace AfriLearn.Views
         {
             InitializeComponent();
         }
+
         private async Task OpenAnimation(View view, uint length = 250)
         {
             view.RotationX = -90;
@@ -44,6 +48,13 @@ namespace AfriLearn.Views
                 await CloseAnimation(detailsView);
                 await CloseAnimation(imgView);
             }
+        }
+
+        private async void SelectBujectButton_Clicked(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            await BlobCache.LocalMachine.InsertObject("subject",  btn.Text.ToUpper());
+            NavigationService.PushAsync(new SelectedSubjectPage());
         }
     }
 }

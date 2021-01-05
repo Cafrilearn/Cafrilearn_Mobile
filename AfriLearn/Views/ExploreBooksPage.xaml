@@ -18,22 +18,26 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>           
-            <CollectionView Grid.Row="1" 
+            <CollectionView
+                            x:Name="SubjectsCollectionView"
+                            Grid.Row="1" 
                             Margin="30"
                             HorizontalOptions="FillAndExpand" 
                             VerticalOptions="FillAndExpand"
                             SelectionMode="None" 
-                            ItemsSource="{Binding  Subjects}">
+                            ItemsSource="{Binding Subjects}">
                 <CollectionView.Header>
                     <Label Text="Course Subjects" 
                            TextColor="Black" 
                            FontSize="18" 
                            FontAttributes="Bold"/>
+                    
                 </CollectionView.Header>
                 
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" 
                                        ItemSpacing="20"/>
+                    
                 </CollectionView.ItemsLayout>
                 
                 <CollectionView.ItemTemplate>
@@ -90,11 +94,12 @@
                                     </Expander.Header>
                                     <Grid RowSpacing="0"
                                           HorizontalOptions="FillAndExpand"
-                                          HeightRequest="240">
+                                          HeightRequest="320">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="2.5*"/>
                                             <RowDefinition Height="1.35*"/>
                                         </Grid.RowDefinitions>
+                                        
                                         <Grid x:Name="ImageView"
                                               IsVisible="False">
                                             <Image Source="{Binding ImageSource}"
@@ -108,7 +113,13 @@
                                               BackgroundColor="White"
                                               Padding="20" 
                                               IsVisible="False">
-                                            <Button Text="See these Books"/>
+                                            <StackLayout>
+                                                <Label Text="Click the button below to see more"/>
+
+                                                <Button Text="{Binding Title}"
+                                                    x:Name="SelectBujectButton"
+                                                    Clicked="SelectBujectButton_Clicked"/>
+                                            </StackLayout>                                          
                                         </Grid>
                                     </Grid>
                                 </Expander>

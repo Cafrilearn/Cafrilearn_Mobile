@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels" 
-             xmlns:LocalBehavior="clr-namespace:AfriLearn.Behaviours"
+             xmlns:LocalBehavior="clr-namespace:AfriLearn.Behaviors" 
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.LibraryPage">
     
@@ -36,7 +36,7 @@
                 </ListView.ItemTemplate>
                 
                 <ListView.Behaviors>
-                    <LocalBehavior:ExploreListViewBehavior/>
+                    <LocalBehavior:SubjectBooksListviewBehavior/>
                 </ListView.Behaviors>
             </ListView>
         </StackLayout>
