@@ -2,7 +2,7 @@
 using AfriLearn.Services;
 using Akavache;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Reactive.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -13,7 +13,6 @@ namespace AfriLearn.ViewModels
     {
         #region fields
         private bool headerTextVisibility = true;
-        private ObservableCollection<Book> savedBooks;
         #endregion
 
         public LibraryViewModel()
@@ -31,37 +30,22 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(HeaderTextVisibility));
             }
         }
-        public  ObservableCollection<Book>  SavedBooks
-        {
-            get { return savedBooks; }
-            set
-            {
-                savedBooks = value;
-                OnPropertyChanged(nameof(SavedBooks));
-            }
-        }
+        public List<string> SavedBooks { get; set; }
         #endregion
 
         public ICommand RemoveBookCommand => new Command(async() => 
         {
             var book = new Book();
-            SavedBooks.Remove(book);
+            SavedBooks.Remove(book.BookName);
             await BlobCache.LocalMachine.InsertObject("savedBooks", SavedBooks);
             NavigationService.DisplayAlert("Deleted", "Book deleted, but you can always find it in explore page again", "Okay");
         });
 
         public async void GetSavedBooks()
         {
-            try
-            {
-                var books = new ObservableCollection<Book>();
-                var savedBookS = await BlobCache.LocalMachine.GetObject<ObservableCollection<Book>>("savedBooks");
-                foreach (var book in  savedBookS)
-                {
-                    books.Add(book);
-                    HeaderTextVisibility = false;
-                }
-                SavedBooks = books;
+            try 
+            { 
+                SavedBooks = await BlobCache.LocalMachine.GetObject<List<string>>("savedBooks");
             }
             catch (Exception)
             {

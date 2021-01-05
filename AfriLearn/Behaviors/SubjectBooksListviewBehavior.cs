@@ -16,7 +16,7 @@ namespace AfriLearn.Behaviors
             var listView = (ListView)sender;
             var  bookName = listView.SelectedItem.ToString();
             var exploreVM = new SubjectsViewModel();
-            await  exploreVM.GetBook("", bookName);
+            await exploreVM.GetBook(bookName);
         }
 
         protected override void OnDetachingFrom(ListView bindable)

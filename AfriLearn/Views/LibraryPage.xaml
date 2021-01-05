@@ -25,11 +25,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding  BookName}"
+                            <Label Text="{Binding .}"
                                    VerticalTextAlignment="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding BookSelectedCommand}"/>
-                                </Label.GestureRecognizers>
                             </Label>
                         </ViewCell>
                     </DataTemplate>

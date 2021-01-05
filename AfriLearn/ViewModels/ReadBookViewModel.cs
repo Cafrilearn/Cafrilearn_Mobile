@@ -10,12 +10,12 @@ namespace AfriLearn.ViewModels
         {
             LoadCurrentBook();
         }
-        
+
         public async void LoadCurrentBook()
         {
             BookName = await BlobCache.LocalMachine.GetObject<string>("currentBook");
             var blobBytes = await BlobCache.LocalMachine.GetObject<byte[]>(BookName);
-            BookSource =  new MemoryStream(blobBytes);
+            BookSource = new MemoryStream(blobBytes);
         }
     }
 }

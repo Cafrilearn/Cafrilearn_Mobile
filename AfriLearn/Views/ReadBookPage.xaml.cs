@@ -9,6 +9,6 @@ namespace AfriLearn.Views
         public ReadBookPage()
         {
             InitializeComponent();
-        }
+        }       
     }
 }

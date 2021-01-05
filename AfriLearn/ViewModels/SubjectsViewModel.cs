@@ -1,10 +1,8 @@
-﻿using AfriLearn.Constants;
-using AfriLearn.Models;
+﻿using AfriLearn.Models;
 using AfriLearn.Services;
 using AfriLearn.Views;
 using AfriLearnMobile.Models;
 using Akavache;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -73,66 +71,52 @@ namespace AfriLearn.ViewModels
         #region methods
 
 
-        public async Task GetBook(string bookFormat, string bookName)
+        public async Task GetBook(string theBookName)
         {
             IsBusy = true;
             MainContentVisibility = false; // do this for selectedbook page.
-
+            BookName = theBookName;
             byte[] blobBytes = null;
-            List<string> books;
 
             var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
-            var httpClientService = new HttpClientService(appUser.AuthKey);
+            var httpClientService = new HttpClientService(appUser.AuthKey);          
+            var allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
+            var relativeBookFormat = allBooks.Where(b => b.Contains(bookName)).FirstOrDefault();
+            var bookFormatIndex = relativeBookFormat.LastIndexOf('/');
+            var bookFormat = relativeBookFormat.Substring(0, bookFormatIndex);
+
             var book = new Book()
             {
-                ContainerType = bookFormat
+                ContainerType = bookFormat,
+                BookName =  theBookName
             };
 
-            // come back to try and download the book after getting the book names
-            getbookagain:
+            // if the book was downloaded already, just get it from blobcache and display it
             try
             {
-                var allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
-                books = allBooks.Where(b => b.Contains(bookFormat)).ToList();
-                var relativeBookPath = books.Where(c => c.Contains(appUser.StudyLevel.ToUpper())).FirstOrDefault();
-                var absPathStart = relativeBookPath.LastIndexOf('/');
-                BookName = relativeBookPath.Substring(absPathStart + 1);
-
-                // if the book was downloaded already, just get it from blobcache and display it
-                try
-                {
-                    blobBytes = await BlobCache.LocalMachine.GetObject<byte[]>(BookName);
-                    BookBytes = blobBytes;
-                }
-
-                //download the book, if its the first time and store the book locally as stream
-                catch (Exception)
-                {
-                    book.BookName = BookName;
-                    blobBytes = await MediaService.GetBlobAsync(book);
-                    BookBytes = blobBytes;
-
-                    try
-                    {
-                        var savedBooks = await BlobCache.LocalMachine.GetObject<ObservableCollection<Book>>("savedBooks");
-                        savedBooks.Add(book);
-                        await BlobCache.LocalMachine.InsertObject("savedBooks", savedBooks);
-                    }
-                    catch (Exception)
-                    {
-                        var newBook = new List<Book>() { book };
-                        await BlobCache.LocalMachine.InsertObject("savedBooks", newBook);
-                    }
-
-                    await BlobCache.LocalMachine.InsertObject(BookName, blobBytes);
-                    await BlobCache.LocalMachine.InsertObject("currentBook", BookName);
-                }
+                blobBytes = await BlobCache.LocalMachine.GetObject<byte[]>(BookName);
+                BookBytes = blobBytes;
             }
-            // do this to download and store all book names locally
+
+            //download the book, if its the first time and store the book locally as stream
             catch (Exception)
             {
-               
-                goto getbookagain;
+                blobBytes = await MediaService.GetBlobAsync(book);
+                await BlobCache.LocalMachine.InsertObject(BookName, blobBytes);
+                BookBytes = blobBytes;
+
+                try
+                {
+                    var savedBooks = await BlobCache.LocalMachine.GetObject<List<string>>("savedBooks");
+                    savedBooks.Add(book.BookName);
+                    await BlobCache.LocalMachine.InsertObject("savedBooks", savedBooks);
+                }
+                catch (Exception)
+                {
+                    var newBook = new List<string>() { book.BookName };
+                    await BlobCache.LocalMachine.InsertObject("savedBooks", newBook);
+                }
+
             }
 
             var readshare = await Application.Current.MainPage.DisplayActionSheet("Select whether to read or share this book", "Cancel", "Okay", "Read", "Share");
@@ -143,6 +127,7 @@ namespace AfriLearn.ViewModels
                 NavigationService.PushAsync(new ReadBookPage());
             }
 
+            // check how this can be shared via bluetooth directly from the mobile app
             if (readshare.Equals("Share"))
             {             
                 var  bookToSend = "book.pdf";

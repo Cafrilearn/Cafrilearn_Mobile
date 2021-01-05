@@ -56,6 +56,7 @@ namespace AfriLearn.Views
                 var  shortName = selectedSubjectlongName.Substring(index + 1);
                 selectedSubjectShortNames.Add(shortName);
             }
+
             subjectNamesListView.ItemsSource = selectedSubjectShortNames;
         }
     }
