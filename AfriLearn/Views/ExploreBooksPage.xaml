@@ -6,7 +6,7 @@
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.BindingContext>
-        <ViewModel:ExploreBooksViewModel/>
+        <ViewModel:SubjectsViewModel/>
     </ContentPage.BindingContext>
     
     <ContentPage.Content>

@@ -4,7 +4,7 @@ using System.Reactive.Linq;
 
 namespace AfriLearn.ViewModels
 {
-    class ReadBookViewModel : ExploreBooksViewModel
+    class ReadBookViewModel : SubjectsViewModel
     {
         public ReadBookViewModel()
         {

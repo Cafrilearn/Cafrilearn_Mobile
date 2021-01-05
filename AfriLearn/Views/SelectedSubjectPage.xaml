@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AfriLearn.Views.SelectedSubjectPage"
+             xmlns:Behaviors="clr-namespace:AfriLearn.Behaviors"
              NavigationPage.HasBackButton="False"
              x:Name="selectedSubjectPage">    
     
     <ContentPage.Content>
         <StackLayout Margin="8">
-            <ListView x:Name="subjecNamesListView">
+            <ListView x:Name="subjectNamesListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -17,6 +18,9 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <Behaviors:SubjectBooksListviewBehavior/>
+                </ListView.Behaviors>
             </ListView>
         </StackLayout>
     </ContentPage.Content>

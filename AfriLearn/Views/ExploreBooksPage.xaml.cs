@@ -1,7 +1,5 @@
 ﻿using AfriLearn.Services;
-using Akavache;
 using System;
-using System.Reactive.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -50,11 +48,10 @@ namespace AfriLearn.Views
             }
         }
 
-        private async void SelectBujectButton_Clicked(object sender, EventArgs e)
+        private void SelectBujectButton_Clicked(object sender, EventArgs e)
         {
             var btn = sender as Button;
-            await BlobCache.LocalMachine.InsertObject("subject",  btn.Text.ToUpper());
-            NavigationService.PushAsync(new SelectedSubjectPage());
+            NavigationService.PushAsync(new SelectedSubjectPage(btn.Text.ToUpper()));
         }
     }
 }

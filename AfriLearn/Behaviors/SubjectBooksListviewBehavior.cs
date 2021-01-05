@@ -11,14 +11,12 @@ namespace AfriLearn.Behaviors
             bindable.ItemTapped += BindableItemTapped;
         }
 
-        private void BindableItemTapped(object sender, ItemTappedEventArgs e)
+        private async void BindableItemTapped(object sender, ItemTappedEventArgs e)
         {
             var listView = (ListView)sender;
-            var bookRelativePath = listView.SelectedItem.ToString();
-            var absPathStart = bookRelativePath.LastIndexOf('/');
-            var bookName = bookRelativePath.Substring(absPathStart + 1);
-            var exploreVM = new ExploreBooksViewModel();
-            exploreVM.BookSelected(bookName);
+            var  bookName = listView.SelectedItem.ToString();
+            var exploreVM = new SubjectsViewModel();
+            await  exploreVM.GetBook("", bookName);
         }
 
         protected override void OnDetachingFrom(ListView bindable)

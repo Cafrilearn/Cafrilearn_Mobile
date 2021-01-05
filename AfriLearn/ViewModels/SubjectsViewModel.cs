@@ -17,7 +17,7 @@ using Xamarin.Forms;
 
 namespace AfriLearn.ViewModels
 {
-    class ExploreBooksViewModel : BaseViewModel
+    class SubjectsViewModel : BaseViewModel
     {
         #region fields
         private Stream bookSource;
@@ -25,9 +25,8 @@ namespace AfriLearn.ViewModels
         private bool mainContentVisibility = true;
         private byte[] bookBytes;
         #endregion
-        public ExploreBooksViewModel()
+        public SubjectsViewModel()
         {
-           Subjects = new ObservableCollection<Subject>();
            GetBookNames();
         }
 
@@ -74,10 +73,10 @@ namespace AfriLearn.ViewModels
         #region methods
 
 
-        public async Task GetBook(string bookFormat)
+        public async Task GetBook(string bookFormat, string bookName)
         {
             IsBusy = true;
-            MainContentVisibility = false;
+            MainContentVisibility = false; // do this for selectedbook page.
 
             byte[] blobBytes = null;
             List<string> books;
@@ -132,9 +131,7 @@ namespace AfriLearn.ViewModels
             // do this to download and store all book names locally
             catch (Exception)
             {
-                var allBooksResponse = await httpClientService.Get("Books/getallbooknames");
-                var allBookNames = JsonConvert.DeserializeObject<List<string>>(allBooksResponse);
-                await BlobCache.LocalMachine.InsertObject("allBookNames", allBookNames);
+               
                 goto getbookagain;
             }
 
@@ -164,7 +161,7 @@ namespace AfriLearn.ViewModels
       
        
         public void GetBookNames()
-        {
+        {          
             Subjects = new  ObservableCollection<Subject>()
             {
                 new Subject()
@@ -323,33 +320,6 @@ namespace AfriLearn.ViewModels
                 }
             };
         }        
-        public async void BookSelected(string bookSelected)
-        {
-            if (bookSelected.Contains("MATHEMATICS"))
-            {
-               await GetBook(BookType.Mathematics);
-            }
-            else if (bookSelected.Contains("ENGLISH"))
-            {
-               await GetBook(BookType.English); 
-            }
-            else if (bookSelected.Contains("KISWAHILI"))
-            {
-               await GetBook(BookType.Kiswahili);
-            }
-            else if (bookSelected.Contains("SCIENCE"))
-            {
-               await GetBook(BookType.Science);
-            }
-            else if (bookSelected.Contains("SOCIAL"))
-            {
-               await GetBook(BookType.SocialStudies);
-            }
-            else if (bookSelected.Contains("CRE"))
-            {
-               await GetBook(BookType.ReligiousEducation);
-            }
-        }
         #endregion
     }    
 }
