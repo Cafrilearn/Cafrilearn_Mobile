@@ -47,7 +47,6 @@ namespace AfriLearn.Views
                 await CloseAnimation(imgView);
             }
         }
-
         private void SelectBujectButton_Clicked(object sender, EventArgs e)
         {
             var btn = sender as Button;

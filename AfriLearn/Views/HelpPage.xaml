@@ -14,7 +14,7 @@
         <StackLayout Margin="8"
                      VerticalOptions="CenterAndExpand">
 
-            <Label Text="Hello, if you have any genuine concern, you can talk to us. You can also advise us on how we can improve the experience of CMapp."
+            <Label Text="Hello, if you have any genuine concern, you can talk to us. You can also advise us on how we can improve the experience of Cafrilearn."
                    FontSize="16"
                    Margin="0,20"/>
 
