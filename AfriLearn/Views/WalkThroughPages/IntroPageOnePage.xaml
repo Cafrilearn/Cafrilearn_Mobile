@@ -43,11 +43,11 @@
             <Label Text="Welcome to Cafrilearn, Learn from anywhere on the Continent of Africa. We believe Learning should be accessible, affordable and free to everyone, everywhere."
                    VerticalOptions="CenterAndExpand"
                    FontSize="18"                  />
-            <sfBorder:SfBorder CornerRadius="14">
+            <sfBorder:SfBorder CornerRadius="14"                               
+                               Margin="0,20">
                 <Image Source="AfricTechImage1.jpg"
-                   Aspect="AspectFill"
-                   HeightRequest="280"
-                   />
+                       Aspect="AspectFill"
+                       HeightRequest="350"/>
             </sfBorder:SfBorder>
             
             <sfButton:SfButton Text="Next"

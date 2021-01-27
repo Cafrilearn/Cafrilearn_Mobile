@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:LocalViews="clr-namespace:AfriLearn.Views"
-             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels" 
+             xmlns:ProfilViewModel="clr-namespace:AfriLearn.Views.Profile"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.HomePage"
              NavigationPage.HasBackButton="False"
@@ -52,6 +53,6 @@
     <TabbedPage.Children>
         <LocalViews:LandingPage Title="Class" IconImageSource="Home.png"/>
         <LocalViews:LibraryPage Title="Library" IconImageSource="Bookshelf.png"/>
-        <LocalViews:ForumPage Title="Forum" IconImageSource="Message.png"/>
+        <ProfilViewModel:ContactProfilePage Title="Account" IconImageSource="Account.png"/>
     </TabbedPage.Children>
 </TabbedPage>

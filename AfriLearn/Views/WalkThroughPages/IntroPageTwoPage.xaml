@@ -42,12 +42,14 @@
             <Label Text="Register your level of study and read books for your class or unit, collaborate with other students online on information sharing, share your experiences and  even gauge yourself by doing online tests in your level."
                    VerticalOptions="CenterAndExpand"
                   FontSize="18"/>
-            
+
             <sfBorder:SfBorder
-                CornerRadius="14">
+                    CornerRadius="14"
+                    Margin="0,20">
                 <Image Source="SchoolPause.jpeg"
-                   Aspect="AspectFill"
-                   HeightRequest="256"/>
+                       Aspect="AspectFill"
+                       HeightRequest="350"
+                       />
             </sfBorder:SfBorder>
             
             <sfButton:SfButton Text="Next"

@@ -89,6 +89,56 @@
                             CornerRadius="15"
                             Margin="0,0,0,20">
                             <StackLayout>
+                                <Image Source="Message.png"
+                                       HeightRequest="80"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Discussion"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding  GoToDiscussionPage}"/>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+
+                        <yummy:PancakeView
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Padding="10"
+                            BackgroundColor="White"
+                            CornerRadius="15"
+                            Margin="0,0,0,20">
+                            <StackLayout>
+                                <Image Source="search.png"
+                                       HeightRequest="80"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    Text="Explore Books"
+                                    TextColor="Black"
+                                    VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+
+                            <yummy:PancakeView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding  GoToExploreBooksPage}"/>
+                            </yummy:PancakeView.GestureRecognizers>
+                        </yummy:PancakeView>
+
+                        <yummy:PancakeView
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Padding="10"
+                            BackgroundColor="White"
+                            CornerRadius="15"
+                            Margin="0,0,0,20">
+                            <StackLayout>
                                 <Image Source="ReviewsIcon.jpeg"
                                        HeightRequest="80"/>
                                 <Label
@@ -104,7 +154,7 @@
                             <yummy:PancakeView.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding GoToReviewsPage}"/>
                             </yummy:PancakeView.GestureRecognizers>
-                        </yummy:PancakeView>                       
+                        </yummy:PancakeView>
                     </Grid>
                 </Grid>
             </yummy:PancakeView>

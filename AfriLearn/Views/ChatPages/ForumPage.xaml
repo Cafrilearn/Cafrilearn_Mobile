@@ -4,7 +4,7 @@
              x:Class="AfriLearn.Views.ForumPage"
              xmlns:local="clr-namespace:CMapp_Mobile.Views.ChatPages"
              xmlns:sfEntry="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-             xmlns:ViewModel1="clr-namespace:AfriLearnMobile.ViewModels.ChatViewModels"
+             xmlns:ViewModel="clr-namespace:AfriLearnMobile.ViewModels.ChatViewModels"
              Title="Forum">
     
     <ContentPage.Resources>
@@ -14,7 +14,7 @@
     </ContentPage.Resources>
 
     <ContentPage.BindingContext>
-        <ViewModel1:ChatViewModel/>
+        <ViewModel:ChatViewModel/>
     </ContentPage.BindingContext>
 
     <Grid>

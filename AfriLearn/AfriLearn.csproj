@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ExploreBooksPage.xaml.cs">
+    <Compile Update="Views\ShareBookPages\ExploreBooksPage.xaml.cs">
       <DependentUpon>ExploreBooksPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\AuthenticationPages\PasswordRecoveryConfirmPage.xaml.cs">
@@ -40,7 +40,7 @@
     <Compile Update="Views\AuthenticationPages\PasswordRequstCodePage.xaml.cs">
       <DependentUpon>PasswordRequstCodePage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\SelectedSubjectPage.xaml.cs">
+    <Compile Update="Views\ShareBookPages\SelectedSubjectPage.xaml.cs">
       <DependentUpon>SelectedSubjectPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\WalkThroughPages\IntroPageOnePage.xaml.cs">
@@ -58,7 +58,7 @@
     <Compile Update="Views\SignUpPagee.xaml.cs">
       <DependentUpon>SignUpPagee.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\PrivacyPolicyPage.xaml.cs">
+    <Compile Update="Views\Settings\PrivacyPolicyPage.xaml.cs">
       <DependentUpon>PrivacyPolicyPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -70,22 +70,19 @@
     <EmbeddedResource Update="Themes\LightTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ExploreBooksPage.xaml">
+    <EmbeddedResource Update="Views\ShareBookPages\ExploreBooksPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FAQPages.xaml">
+    <EmbeddedResource Update="Views\Settings\FAQPages.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\HelpPage.xaml">
+    <EmbeddedResource Update="Views\Settings\HelpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LandingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AuthenticationPages\PasswordRecoveryConfirmPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\LoadPopUpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Profile\ContactProfilePage.xaml">
@@ -100,7 +97,7 @@
     <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SelectedSubjectPage.xaml">
+    <EmbeddedResource Update="Views\ShareBookPages\SelectedSubjectPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\WalkThroughPages\IntroPageOnePage.xaml">
@@ -115,7 +112,7 @@
     <EmbeddedResource Update="Views\LibraryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ReadBookPage.xaml">
+    <EmbeddedResource Update="Views\ShareBookPages\ReadBookPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AuthenticationPages\PasswordResetPage.xaml">
@@ -139,10 +136,10 @@
     <EmbeddedResource Update="Views\SignUpPageeTwo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TermsAndConditionsPage.xaml">
+    <EmbeddedResource Update="Views\Settings\TermsAndConditionsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PrivacyPolicyPage.xaml">
+    <EmbeddedResource Update="Views\Settings\PrivacyPolicyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
