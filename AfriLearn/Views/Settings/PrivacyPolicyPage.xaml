@@ -5,12 +5,8 @@
              Title="Privacy Policy">
     
     <ContentPage.Content>
-        <StackLayout Margin="8">
-            <ScrollView Orientation="Both">
-                <WebView x:Name="TermsWebView"
-                                 WidthRequest="1000"
-                                 HeightRequest="1000"/>
-            </ScrollView>
-        </StackLayout>
+        <Grid>
+            <WebView x:Name="privacyPolicyWebView"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

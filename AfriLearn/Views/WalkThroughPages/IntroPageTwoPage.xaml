@@ -48,12 +48,12 @@
                     Margin="0,20">
                 <Image Source="SchoolPause.jpeg"
                        Aspect="AspectFill"
-                       HeightRequest="350"
+                       HeightRequest="280"
                        />
             </sfBorder:SfBorder>
             
             <sfButton:SfButton Text="Next"
-                    HorizontalOptions="CenterAndExpand"
+                    HorizontalOptions="FillAndExpand"
                     VerticalOptions="EndAndExpand"
                     Command="{Binding NavigateToIntroPageThreeCommand}"/>
         </StackLayout>

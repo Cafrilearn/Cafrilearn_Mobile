@@ -1,12 +1,11 @@
 ﻿using AfriLearn.Services;
-using AfriLearn.Views;
 using AfriLearnMobile.Models;
 using Akavache;
 using System;
 using System.Reactive.Linq;
 using Xamarin.Forms;
 
-namespace AfriLearnMobile.Views
+namespace AfriLearn.Views.Helpers
 {
     public class StartPage : ContentPage
     {

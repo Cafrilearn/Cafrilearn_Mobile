@@ -1,4 +1,5 @@
-﻿using AfriLearn.Services;
+﻿using AfriLearn.Helpers;
+using AfriLearn.Services;
 using AfriLearn.Views;
 using AfriLearnMobile.Models;
 using Akavache;
@@ -11,12 +12,9 @@ namespace AfriLearn.ViewModels
 {
     class SignInViewModel :  SignUpViewModel
     {
-        public ICommand NavigateToSignUpPageCommand => new Command(() => 
+        public ICommand NavigateToSignUpPageCommand => new Command(() =>
         {
-            IsBusy = true;
             NavigationService.PushAsync(new SignUpPage());
-            IsBusy = false;
-
         });
 
         public ICommand NavigateToRequestPasswordRecoveryCodePage =>  new Command(() => NavigationService.PushAsync(new PasswordRequstCodePage()));
@@ -24,17 +22,17 @@ namespace AfriLearn.ViewModels
         
         private async void SignIn()
         {
-            if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Password))
+
+            if (!EmailValidatorHelper.ValidateEmail(Email))
             {
-                NavigationService.DisplayAlert("Error", "Email and Password must not be empty", "Okay");
                 return;
             }
 
-            if (!(Email.ToLower().Contains("@outlook.com") | Email.ToLower().Contains("@gmail.com")))
+            if (!PasswordValidator.ValidatePassword(Password, ConfirmPassword))
             {
-                NavigationService.DisplayAlert("Invalid Email format", "Email should contain @outlook.com or @gmail.com", "okay");
                 return;
             }
+
 
             if (!InternetService.Internet())
             {

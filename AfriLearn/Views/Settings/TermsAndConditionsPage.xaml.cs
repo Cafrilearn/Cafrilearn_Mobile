@@ -13,7 +13,7 @@ namespace AfriLearn.Views
             if (InternetService.Internet())
             {
                 termsConditionsWebView.Source = "https://reaiot.com/cafrilearn/legal/terms_conditions";
-            }
+            }           
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using AfriLearn.Models;
+﻿using AfriLearn.Helpers;
+using AfriLearn.Models;
 using AfriLearn.Services;
 using AfriLearn.Views;
 using AfriLearnMobile.Models;
@@ -133,37 +134,42 @@ namespace AfriLearn.ViewModels
         #endregion
 
         #region commands
-        public ICommand NavigateToTermsAndConditionsPageCommand => new Command(() => NavigationService.PushAsync(new TermsAndConditionsPage()));
+        public ICommand NavigateToTermsAndConditionsPageCommand => new Command(() =>
+        {
+           NavigationService.PushAsync(new TermsAndConditionsPage());
+        });
         public ICommand NavigateToSignInPageCommand => new Command(() => NavigationService.PushAsync(new SignInPage()));
-        public ICommand RegisterUserCommand => new Command(execute: async () =>
+        public ICommand RegisterUserCommand => new Command(async () =>
         {
             if (TermsAndConditions != true)
             {
                 NavigationService.DisplayAlert("Invalid", "Please Accept the Terms and Conditions first", "Okay");
                 return;
-            }           
-            if (!(Email.ToLower().Contains("@outlook.com") | Email.ToLower().Contains("@gmail.com")))
+            }
+
+            if (!EmailValidatorHelper.ValidateEmail(Email))
             {
-                NavigationService.DisplayAlert("Invalid Email format", "Email should contain @outlook.com or @gmail.com", "okay");
                 return;
             }
-            if (Password != ConfirmPassword)
+
+            if (!PasswordValidator.ValidatePassword(Password, ConfirmPassword))
             {
-                NavigationService.DisplayAlert("Error", "Password and Confirm Password must match", "Okay");
                 return;
             }
+
             if (!InternetService.Internet())
             {
                 await InternetService.NoInternet();
                 return;
             }
+
             IsBusy = true;
             AccountBlockVisibility = false;
             var user = new AppUser()
             {
                 UserName = UserName,
                 PasswordHash = Password,
-                Email = Email.ToLower(),
+                Email = Email,
                 StudyLevel = StudyLevel,
                 TermsAndConditionsChecked = TermsAndConditions,
                 Institution = Institution,
@@ -185,16 +191,8 @@ namespace AfriLearn.ViewModels
 
             IsBusy = false;
             AccountBlockVisibility = true;
-        }, canExecute : () => ValidateAppUser()
-        );
+        });
         #endregion
-        private bool ValidateAppUser()
-        {
-            if (string.IsNullOrWhiteSpace(Email) | string.IsNullOrWhiteSpace(Password) | string.IsNullOrWhiteSpace(StudyLevel))
-            {
-                return false;
-            }
-            return  true;
-        }
+       
     }
 }

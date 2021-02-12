@@ -20,7 +20,6 @@ namespace AfriLearn.ViewModels
         #region fields
         private Stream bookSource;
         private string bookName;
-        private bool mainContentVisibility = true;
         private byte[] bookBytes;
         #endregion
         public SubjectsViewModel()
@@ -55,16 +54,7 @@ namespace AfriLearn.ViewModels
                 bookName = value;
                 OnPropertyChanged(nameof(BookName));
             }
-        }
-        public bool MainContentVisibility
-        {
-            get { return mainContentVisibility; }
-            set
-            {
-                mainContentVisibility = value;
-                OnPropertyChanged(nameof(MainContentVisibility));
-            }
-        }
+        }       
         public  ObservableCollection<Subject> Subjects { get; set; }
         #endregion
 
@@ -72,9 +62,7 @@ namespace AfriLearn.ViewModels
 
 
         public async Task GetBook(string theBookName)
-        {
-            IsBusy = true;
-            MainContentVisibility = false; // do this for selectedbook page.
+        {           
             BookName = theBookName;
             byte[] blobBytes = null;
 
@@ -125,6 +113,8 @@ namespace AfriLearn.ViewModels
             {
                 await BlobCache.LocalMachine.InsertObject("currentBook", BookName);
                 NavigationService.PushAsync(new ReadBookPage());
+                IsBusy = false;
+                MainContentVisibility = true;
             }
 
             // check how this can be shared via bluetooth directly from the mobile app
@@ -138,10 +128,9 @@ namespace AfriLearn.ViewModels
                     Title = Title,
                     File = new ShareFile(bookFile)
                 });
+                IsBusy = false;
+                MainContentVisibility = true;
             }
-
-            IsBusy = false;
-            MainContentVisibility = true;
         }
       
        

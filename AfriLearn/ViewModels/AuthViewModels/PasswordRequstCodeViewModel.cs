@@ -3,10 +3,10 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using Akavache;
 using System.Reactive.Linq;
-using AfriLearn.ViewModels;
 using AfriLearn.Services;
 using AfriLearn.Dtos;
 using AfriLearn.Views;
+using AfriLearn.Helpers;
 
 namespace AfriLearn.ViewModels
 {
@@ -15,15 +15,8 @@ namespace AfriLearn.ViewModels
         public ICommand RequestCodeCommand => new Command(async () => await RequestPasswordRecoveryCode());
         private async Task RequestPasswordRecoveryCode()
         {
-            if (string.IsNullOrWhiteSpace(Email))
+            if (!EmailValidatorHelper.ValidateEmail(Email))
             {
-                NavigationService.DisplayAlert("Error", "Email must must not be empty", "Okay");
-                return;
-            }
-
-            if (!(Email.Contains("@outlook.com") | Email.Contains("@gmail.com")))
-            {
-                NavigationService.DisplayAlert("Error", "Email must contain @gmail.com or @outlook.com", "Okay");
                 return;
             }
 

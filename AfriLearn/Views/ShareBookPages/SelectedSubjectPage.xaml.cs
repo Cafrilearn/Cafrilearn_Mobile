@@ -1,4 +1,5 @@
 ﻿using AfriLearn.Services;
+using AfriLearn.ViewModels;
 using AfriLearnMobile.Models;
 using Akavache;
 using Newtonsoft.Json;
@@ -58,6 +59,10 @@ namespace AfriLearn.Views
             }
 
             subjectNamesListView.ItemsSource = selectedSubjectShortNames;
+
+            var vm = new BaseViewModel();
+            subjectNamesListView.IsVisible = vm.MainContentVisibility;
+            loadingActivityIndicator.IsVisible = vm.IsBusy;
         }
     }
 }

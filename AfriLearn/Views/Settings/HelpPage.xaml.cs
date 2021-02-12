@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using AfriLearn.Services;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace AfriLearn.Views
@@ -9,6 +10,10 @@ namespace AfriLearn.Views
         public HelpPage()
         {
             InitializeComponent();
+            if (InternetService.Internet())
+            {
+                helpWebView.Source = "https://reaiot.com/contact";
+            }
         }
     }
 }

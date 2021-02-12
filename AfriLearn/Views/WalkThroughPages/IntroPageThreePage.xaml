@@ -40,11 +40,11 @@
                                Margin="0,20">
                 <Image Source="ChangeTheWorld.jpg"
                        Aspect="AspectFill"
-                       HeightRequest="350"/>
+                       HeightRequest="280"/>
             </sfBorder:SfBorder>
             
             <sfButton:SfButton Text="Register Account"
-                    HorizontalOptions="CenterAndExpand"
+                    HorizontalOptions="FillAndExpand"
                     VerticalOptions="EndAndExpand"
                     Margin="0,5"
                     Command="{Binding NavigateSignUpPageCommand}"/>

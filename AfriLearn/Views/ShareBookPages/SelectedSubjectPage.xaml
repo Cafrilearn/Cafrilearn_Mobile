@@ -8,6 +8,9 @@
     
     <ContentPage.Content>
         <StackLayout Margin="8">
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               VerticalOptions="CenterAndExpand"
+                                x:Name="loadingActivityIndicator"/>
             <ListView x:Name="subjectNamesListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>

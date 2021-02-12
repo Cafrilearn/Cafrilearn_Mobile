@@ -3050,6 +3050,7 @@ namespace AfriLearn.Droid
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.input_layout_drop_down_icon = global::AfriLearn.Droid.Resource.Drawable.input_layout_drop_down_icon;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglecollapseicon = global::AfriLearn.Droid.Resource.Drawable.inputlayout_togglecollapseicon;
 			global::Syncfusion.XForms.Android.Core.Resource.Drawable.inputlayout_togglevisibleicon = global::AfriLearn.Droid.Resource.Drawable.inputlayout_togglevisibleicon;
+			global::Syncfusion.XForms.Android.Core.Resource.Drawable.clear_button_icon = global::AfriLearn.Droid.Resource.Drawable.clear_button_icon;
 			global::Com.Syncfusion.Sfbusyindicator.Resource.Attribute.busyIndicatorAnimationTypes = global::AfriLearn.Droid.Resource.Attribute.busyIndicatorAnimationTypes;
 			global::Com.Syncfusion.Sfbusyindicator.Resource.Attribute.busyIndicatorIsBusy = global::AfriLearn.Droid.Resource.Attribute.busyIndicatorIsBusy;
 			global::Com.Syncfusion.Sfbusyindicator.Resource.Attribute.busyIndicatorSecondaryColor = global::AfriLearn.Droid.Resource.Attribute.busyIndicatorSecondaryColor;
@@ -14625,244 +14626,247 @@ namespace AfriLearn.Droid
 			public const int ClassRoomImageIcon = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int ComputerStudies = 2131165332;
+			public const int clear_button_icon = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int design_bottom_navigation_item_background = 2131165333;
+			public const int ComputerStudies = 2131165333;
 			
 			// aapt resource value: 0x7F070096
-			public const int design_fab_background = 2131165334;
+			public const int design_bottom_navigation_item_background = 2131165334;
 			
 			// aapt resource value: 0x7F070097
-			public const int design_ic_visibility = 2131165335;
+			public const int design_fab_background = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int design_ic_visibility_off = 2131165336;
+			public const int design_ic_visibility = 2131165336;
 			
 			// aapt resource value: 0x7F070099
-			public const int design_password_eye = 2131165337;
+			public const int design_ic_visibility_off = 2131165337;
 			
 			// aapt resource value: 0x7F07009A
-			public const int design_snackbar_background = 2131165338;
+			public const int design_password_eye = 2131165338;
 			
 			// aapt resource value: 0x7F07009B
-			public const int DiscusssionForumIcon = 2131165339;
+			public const int design_snackbar_background = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
-			public const int editTextPageCount = 2131165340;
+			public const int DiscusssionForumIcon = 2131165340;
 			
 			// aapt resource value: 0x7F07009D
-			public const int Educacion = 2131165341;
+			public const int editTextPageCount = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int English = 2131165342;
+			public const int Educacion = 2131165342;
 			
 			// aapt resource value: 0x7F07009F
-			public const int EnglishSecondary = 2131165343;
+			public const int English = 2131165343;
 			
 			// aapt resource value: 0x7F0700A0
-			public const int Explorer = 2131165344;
+			public const int EnglishSecondary = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int FormFieldCheckbox = 2131165345;
+			public const int Explorer = 2131165345;
 			
 			// aapt resource value: 0x7F0700A2
-			public const int FormFieldCheckbox_Checked = 2131165346;
+			public const int FormFieldCheckbox = 2131165346;
 			
 			// aapt resource value: 0x7F0700A3
-			public const int FormFieldCheckbox_UnChecked = 2131165347;
+			public const int FormFieldCheckbox_Checked = 2131165347;
 			
 			// aapt resource value: 0x7F0700A4
-			public const int formfieldradiobuttonstyle = 2131165348;
+			public const int FormFieldCheckbox_UnChecked = 2131165348;
 			
 			// aapt resource value: 0x7F0700A5
-			public const int formfieldtextboxcursorcolor = 2131165349;
+			public const int formfieldradiobuttonstyle = 2131165349;
 			
 			// aapt resource value: 0x7F0700A6
-			public const int Geography = 2131165350;
+			public const int formfieldtextboxcursorcolor = 2131165350;
 			
 			// aapt resource value: 0x7F0700A7
-			public const int GoToSchool = 2131165351;
+			public const int Geography = 2131165351;
 			
 			// aapt resource value: 0x7F0700A8
-			public const int History = 2131165352;
+			public const int GoToSchool = 2131165352;
 			
 			// aapt resource value: 0x7F0700A9
-			public const int Home = 2131165353;
+			public const int History = 2131165353;
 			
 			// aapt resource value: 0x7F0700AA
-			public const int HomeScience = 2131165354;
+			public const int Home = 2131165354;
 			
 			// aapt resource value: 0x7F0700AB
-			public const int ic_mtrl_chip_checked_black = 2131165355;
+			public const int HomeScience = 2131165355;
 			
 			// aapt resource value: 0x7F0700AC
-			public const int ic_mtrl_chip_checked_circle = 2131165356;
+			public const int ic_mtrl_chip_checked_black = 2131165356;
 			
 			// aapt resource value: 0x7F0700AD
-			public const int ic_mtrl_chip_close_circle = 2131165357;
-			
-			// aapt resource value: 0x7F0700AF
-			public const int inputlayout_togglecollapseicon = 2131165359;
-			
-			// aapt resource value: 0x7F0700B0
-			public const int inputlayout_togglevisibleicon = 2131165360;
+			public const int ic_mtrl_chip_checked_circle = 2131165357;
 			
 			// aapt resource value: 0x7F0700AE
-			public const int input_layout_drop_down_icon = 2131165358;
+			public const int ic_mtrl_chip_close_circle = 2131165358;
+			
+			// aapt resource value: 0x7F0700B0
+			public const int inputlayout_togglecollapseicon = 2131165360;
 			
 			// aapt resource value: 0x7F0700B1
-			public const int Kiswahili = 2131165361;
+			public const int inputlayout_togglevisibleicon = 2131165361;
+			
+			// aapt resource value: 0x7F0700AF
+			public const int input_layout_drop_down_icon = 2131165359;
 			
 			// aapt resource value: 0x7F0700B2
-			public const int KiswahiliSecondary = 2131165362;
+			public const int Kiswahili = 2131165362;
 			
 			// aapt resource value: 0x7F0700B3
-			public const int LandingPageBackGround = 2131165363;
+			public const int KiswahiliSecondary = 2131165363;
 			
 			// aapt resource value: 0x7F0700B4
-			public const int LifeSkills = 2131165364;
+			public const int LandingPageBackGround = 2131165364;
 			
 			// aapt resource value: 0x7F0700B5
-			public const int Mathematics = 2131165365;
+			public const int LifeSkills = 2131165365;
 			
 			// aapt resource value: 0x7F0700B6
-			public const int menu = 2131165366;
+			public const int Mathematics = 2131165366;
 			
 			// aapt resource value: 0x7F0700B7
-			public const int Message = 2131165367;
+			public const int menu = 2131165367;
 			
 			// aapt resource value: 0x7F0700B8
-			public const int More = 2131165368;
+			public const int Message = 2131165368;
 			
 			// aapt resource value: 0x7F0700B9
-			public const int mtrl_snackbar_background = 2131165369;
+			public const int More = 2131165369;
 			
 			// aapt resource value: 0x7F0700BA
-			public const int mtrl_tabs_default_indicator = 2131165370;
+			public const int mtrl_snackbar_background = 2131165370;
 			
 			// aapt resource value: 0x7F0700BB
-			public const int navigation_empty_icon = 2131165371;
+			public const int mtrl_tabs_default_indicator = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int notification_action_background = 2131165372;
+			public const int navigation_empty_icon = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int notification_bg = 2131165373;
+			public const int notification_action_background = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int notification_bg_low = 2131165374;
+			public const int notification_bg = 2131165374;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int notification_bg_low_normal = 2131165375;
+			public const int notification_bg_low = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int notification_bg_low_pressed = 2131165376;
+			public const int notification_bg_low_normal = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int notification_bg_normal = 2131165377;
+			public const int notification_bg_low_pressed = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int notification_bg_normal_pressed = 2131165378;
+			public const int notification_bg_normal = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int notification_icon_background = 2131165379;
+			public const int notification_bg_normal_pressed = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int notification_template_icon_bg = 2131165380;
+			public const int notification_icon_background = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int notification_template_icon_low_bg = 2131165381;
+			public const int notification_template_icon_bg = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int notification_tile_bg = 2131165382;
+			public const int notification_template_icon_low_bg = 2131165382;
 			
 			// aapt resource value: 0x7F0700C7
-			public const int notify_panel_notification_icon_bg = 2131165383;
+			public const int notification_tile_bg = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int PasswordAlertDialogBottomLine = 2131165384;
+			public const int notify_panel_notification_icon_bg = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int PasswordAlertDialogCursorStyle = 2131165385;
+			public const int PasswordAlertDialogBottomLine = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int PhysicalEducation = 2131165386;
+			public const int PasswordAlertDialogCursorStyle = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int Physics = 2131165387;
+			public const int PhysicalEducation = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int ProfileDemoImage = 2131165388;
+			public const int Physics = 2131165388;
 			
 			// aapt resource value: 0x7F0700CD
-			public const int ReadBook2Icon = 2131165389;
+			public const int ProfileDemoImage = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int ReligiousEducation = 2131165390;
+			public const int ReadBook2Icon = 2131165390;
 			
 			// aapt resource value: 0x7F0700CF
-			public const int ReligiousEducationSecondary = 2131165391;
+			public const int ReligiousEducation = 2131165391;
 			
 			// aapt resource value: 0x7F0700D0
-			public const int ReviewsIcon = 2131165392;
+			public const int ReligiousEducationSecondary = 2131165392;
 			
 			// aapt resource value: 0x7F0700D1
-			public const int SchoolPause = 2131165393;
+			public const int ReviewsIcon = 2131165393;
 			
 			// aapt resource value: 0x7F0700D2
-			public const int Science = 2131165394;
+			public const int SchoolPause = 2131165394;
 			
 			// aapt resource value: 0x7F0700D3
-			public const int search = 2131165395;
+			public const int Science = 2131165395;
 			
 			// aapt resource value: 0x7F0700D4
-			public const int SecondaryEnglish = 2131165396;
+			public const int search = 2131165396;
 			
 			// aapt resource value: 0x7F0700D5
-			public const int SecondaryMathematics = 2131165397;
+			public const int SecondaryEnglish = 2131165397;
 			
 			// aapt resource value: 0x7F0700D6
-			public const int SetBooks = 2131165398;
+			public const int SecondaryMathematics = 2131165398;
 			
 			// aapt resource value: 0x7F0700D7
-			public const int sfprogressbar_determinate_linear = 2131165399;
+			public const int SetBooks = 2131165399;
 			
 			// aapt resource value: 0x7F0700D8
-			public const int sfprogressbar_indeterminate_circular = 2131165400;
+			public const int sfprogressbar_determinate_linear = 2131165400;
 			
 			// aapt resource value: 0x7F0700D9
-			public const int sfprogressbar_indeterminate_linear = 2131165401;
+			public const int sfprogressbar_indeterminate_circular = 2131165401;
 			
 			// aapt resource value: 0x7F0700DA
-			public const int SignaturePadBottomCorner = 2131165402;
+			public const int sfprogressbar_indeterminate_linear = 2131165402;
 			
 			// aapt resource value: 0x7F0700DB
-			public const int SignaturepadRoundedCorners = 2131165403;
+			public const int SignaturePadBottomCorner = 2131165403;
 			
 			// aapt resource value: 0x7F0700DC
-			public const int SignaturePadTopCorner = 2131165404;
+			public const int SignaturepadRoundedCorners = 2131165404;
 			
 			// aapt resource value: 0x7F0700DD
-			public const int SocialStudies = 2131165405;
+			public const int SignaturePadTopCorner = 2131165405;
 			
 			// aapt resource value: 0x7F0700DE
-			public const int splashlayout = 2131165406;
+			public const int SocialStudies = 2131165406;
 			
 			// aapt resource value: 0x7F0700DF
-			public const int tab_about = 2131165407;
+			public const int splashlayout = 2131165407;
 			
 			// aapt resource value: 0x7F0700E0
-			public const int tab_feed = 2131165408;
+			public const int tab_about = 2131165408;
 			
 			// aapt resource value: 0x7F0700E1
-			public const int tooltip_frame_dark = 2131165409;
+			public const int tab_feed = 2131165409;
 			
 			// aapt resource value: 0x7F0700E2
-			public const int tooltip_frame_light = 2131165410;
+			public const int tooltip_frame_dark = 2131165410;
 			
 			// aapt resource value: 0x7F0700E3
-			public const int Viewmode = 2131165411;
+			public const int tooltip_frame_light = 2131165411;
+			
+			// aapt resource value: 0x7F0700E4
+			public const int Viewmode = 2131165412;
 			
 			static Drawable()
 			{

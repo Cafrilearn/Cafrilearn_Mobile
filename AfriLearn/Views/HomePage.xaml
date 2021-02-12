@@ -41,7 +41,7 @@
         <ToolbarItem Order="Secondary"
                      Priority="3"
                      Text="Share App"
-                     Command="{Binding NavigateToProfilePageCommand}"/>
+                     Command="{Binding NavigateToShareAppCommand}"/>
 
         <ToolbarItem Order="Secondary"
                      Priority="4"

@@ -13,10 +13,15 @@ namespace AfriLearn.Behaviors
 
         private async void BindableItemTapped(object sender, ItemTappedEventArgs e)
         {
+            var vm = new BaseViewModel();
+            vm.IsBusy = true;
+            vm.MainContentVisibility = false;
             var listView = (ListView)sender;
             var  bookName = listView.SelectedItem.ToString();
             var exploreVM = new SubjectsViewModel();
             await exploreVM.GetBook(bookName);
+            vm.IsBusy = false;
+            vm.MainContentVisibility = true;
         }
 
         protected override void OnDetachingFrom(ListView bindable)

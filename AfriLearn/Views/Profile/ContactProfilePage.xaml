@@ -187,9 +187,12 @@
 
                 <BoxView Style="{StaticResource SeparatorStyle}"/>
                 
-                <button:SfButton Text="Edit Profile"
+                <button:SfButton 
+                                 x:Name="EditButton"
+                                 Text="Edit Profile"
                                  Margin="5,20"
-                                 VerticalOptions="Center">
+                                 VerticalOptions="Center"
+                                 Clicked="EditButton_Clicked">
                     
                 </button:SfButton>
             </StackLayout>
