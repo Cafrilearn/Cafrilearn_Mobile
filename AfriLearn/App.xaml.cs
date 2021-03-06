@@ -15,7 +15,7 @@ namespace AfriLearn
             Registrations.Start("AfriLernMobile");
             var page = new NavigationPage(new StartPage())
             {
-                 BarBackgroundColor = Color.FromHex("#193566")                 
+                 BarBackgroundColor = Color.FromHex("#4E270A")                 
             };
             MainPage = page;
         }

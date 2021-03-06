@@ -4,7 +4,7 @@
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
              x:Class="AfriLearn.Views.LandingPage"
-             BackgroundColor="#193566">
+             BackgroundColor="#4E270A">
 
     <ContentPage.BindingContext>
         <ViewModel:LandingPageViewModel/>
@@ -18,8 +18,7 @@
             </Grid.RowDefinitions>
 
             <Image Aspect="AspectFit"
-                   Source="LandingPageBackGround.png">
-                
+                   Source="LandingPageBackGround.png">                
             </Image>
             
             <yummy:PancakeView
@@ -40,7 +39,7 @@
                         HorizontalOptions="CenterAndExpand"
                         HorizontalTextAlignment="Center"
                         Text="How to get started?"
-                        TextColor="#193566"
+                        TextColor="#4E270A"
                         VerticalOptions="Center" />
                     
                     <Grid Margin="5"
@@ -64,7 +63,7 @@
                             CornerRadius="15"
                             Margin="0,0,0,20">
                             <StackLayout>
-                                <Image Source="BluetoothIcon.png"
+                                <Image Source="Bluetooth.png"
                                         HeightRequest="80"/>
                                 <Label
                                     FontAttributes="Bold"
@@ -85,11 +84,10 @@
                             Grid.Row="0"
                             Grid.Column="1"
                             Padding="10"
-                            BackgroundColor="White"
                             CornerRadius="15"
                             Margin="0,0,0,20">
                             <StackLayout>
-                                <Image Source="Message.png"
+                                <Image Source="Chat.png"
                                        HeightRequest="80"/>
                                 <Label
                                     FontAttributes="Bold"
@@ -114,7 +112,7 @@
                             CornerRadius="15"
                             Margin="0,0,0,20">
                             <StackLayout>
-                                <Image Source="search.png"
+                                <Image Source="Search.png"
                                        HeightRequest="80"/>
                                 <Label
                                     FontAttributes="Bold"
@@ -139,7 +137,7 @@
                             CornerRadius="15"
                             Margin="0,0,0,20">
                             <StackLayout>
-                                <Image Source="ReviewsIcon.jpeg"
+                                <Image Source="Star.png"
                                        HeightRequest="80"/>
                                 <Label
                                     FontAttributes="Bold"
