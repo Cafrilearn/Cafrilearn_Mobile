@@ -9,7 +9,7 @@
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.HomePage"
              NavigationPage.HasBackButton="False"
-             BarBackgroundColor="#193566"
+             BarBackgroundColor="#4E270A"
              BarTextColor="White">
     
     <TabbedPage.BindingContext>

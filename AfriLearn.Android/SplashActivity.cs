@@ -1,6 +1,7 @@
 ﻿using AfriLearn.Droid;
 using Android.App;
 using Android.OS;
+using System.Threading;
 
 namespace StuSurvey.Droid
 {
@@ -10,7 +11,7 @@ namespace StuSurvey.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            System.Threading.Thread.Sleep(1500);
+            Thread.Sleep(1500);
             StartActivity(typeof(MainActivity));
         }
     }

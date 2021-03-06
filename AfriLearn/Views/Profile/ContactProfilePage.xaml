@@ -121,7 +121,7 @@
                                     FontSize="12"
                                     HorizontalTextAlignment="Start"
                                     Style="{StaticResource CommonProfileLabelStyle}"
-                                    Text="Available" />
+                                    Text="Available"/>
 
                                 <Label
                                     Grid.RowSpan="2"
@@ -190,8 +190,6 @@
                 <button:SfButton 
                                  x:Name="EditButton"
                                  Text="Edit Profile"
-                                 Margin="5,20"
-                                 VerticalOptions="Center"
                                  Clicked="EditButton_Clicked">
                     
                 </button:SfButton>
