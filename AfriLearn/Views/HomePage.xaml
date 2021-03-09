@@ -10,7 +10,8 @@
              x:Class="AfriLearn.Views.HomePage"
              NavigationPage.HasBackButton="False"
              BarBackgroundColor="#4E270A"
-             BarTextColor="White">
+             BarTextColor="White"
+             SelectedTabColor="White">
     
     <TabbedPage.BindingContext>
         <ViewModel:HomeViewModel/>
