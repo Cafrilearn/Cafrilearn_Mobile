@@ -16,46 +16,48 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout Margin="8"
+        <ScrollView>
+            <StackLayout Margin="8"
                      VerticalOptions="CenterAndExpand">
-            <StackLayout Orientation="Horizontal">
-                <StackLayout HorizontalOptions="StartAndExpand">
-                    <Label Text="Cafrilearn"
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="StartAndExpand">
+                        <Label Text="Cafrilearn"
                            FontSize="24"
                            HorizontalOptions="CenterAndExpand"
                            TextColor="Magenta"/>
-                    <Label Text="Create Account with Cafrilearn"
+                        <Label Text="Create Account with Cafrilearn"
                            HorizontalOptions="CenterAndExpand"/>
-                </StackLayout>
-                
-                <Label Text="Skip"
+                    </StackLayout>
+
+                    <Label Text="Skip"
                        TextColor="Blue"
                        FontSize="Large"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="EndAndExpand">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding SkipIntroCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
-            </StackLayout>
-            
-            <Label Text="Register your level of study and read books for your class or unit, collaborate with other students online on information sharing, share your experiences and  even gauge yourself by doing online tests in your level."
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SkipIntroCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <Label Text="Register your level of study and read books for your class or unit, collaborate with other students online on information sharing, share your experiences and  even gauge yourself by doing online tests in your level."
                    VerticalOptions="CenterAndExpand"
                   FontSize="18"/>
 
-            <sfBorder:SfBorder
+                <sfBorder:SfBorder
                     CornerRadius="14"
                     Margin="0,20">
-                <Image Source="SchoolPause.jpeg"
+                    <Image Source="SchoolPause.jpeg"
                        Aspect="AspectFill"
                        HeightRequest="280"
                        />
-            </sfBorder:SfBorder>
-            
-            <sfButton:SfButton Text="Next"
+                </sfBorder:SfBorder>
+
+                <sfButton:SfButton Text="Next"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="EndAndExpand"
                     Command="{Binding NavigateToIntroPageThreeCommand}"/>
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

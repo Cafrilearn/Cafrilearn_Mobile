@@ -28,12 +28,6 @@ namespace AfriLearn.ViewModels
                 return;
             }
 
-            if (!PasswordValidator.ValidatePassword(Password, ConfirmPassword))
-            {
-                return;
-            }
-
-
             if (!InternetService.Internet())
             {
                 await InternetService.NoInternet();

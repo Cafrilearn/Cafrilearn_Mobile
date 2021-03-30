@@ -5,6 +5,7 @@ using Syncfusion.XForms.Border;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using AfriLearn.Services;
+using AfriLearn.Views.Profile;
 
 namespace AfriLearn.ViewModels.Profile
 {
@@ -33,11 +34,8 @@ namespace AfriLearn.ViewModels.Profile
             {
                 this.ProfileInfo.Add(new Model { ImagePath = "ProfileImage1" + i + ".png" });
             }
-
-            this.ProfileNameCommand = new Command(this.ProfileNameClicked);
-            this.EditCommand = new Command(this.EditButtonClicked);
-            this.ViewAllCommand = new Command(this.ViewAllButtonClicked);
-            this.MediaImageCommand = new Command(this.MediaImageClicked);
+            
+            this.EditProfileCommand = new Command(this.EditProfile);
         }
 
         #endregion
@@ -73,18 +71,9 @@ namespace AfriLearn.ViewModels.Profile
         /// <summary>
         /// Gets or sets the command that is executed when the edit button is clicked.
         /// </summary>
-        public Command EditCommand { get; set; }
+        public Command EditProfileCommand { get; set; }
 
-        /// <summary>
-        /// Gets or sets the command that is executed when the view all button is clicked.
-        /// </summary>
-        public Command ViewAllCommand { get; set; }
-
-        /// <summary>
-        /// Gets or sets the command that is executed when the media image is clicked.
-        /// </summary>
-        public Command MediaImageCommand { get; set; }
-
+       
         #endregion
 
         #region Methods
@@ -107,30 +96,10 @@ namespace AfriLearn.ViewModels.Profile
         /// Invoked when the edit button is clicked.
         /// </summary>
         /// <param name="obj">The object</param>
-        private void EditButtonClicked(object obj)
+        public void EditProfile(object obj)
         {
-            // Do something
-            NavigationService.DisplayAlert("Hello", "This page will be implemented later", "Okay");
-        }
-
-        /// <summary>
-        /// Invoked when the view all button is clicked.
-        /// </summary>
-        /// <param name="obj">The object</param>
-        private void ViewAllButtonClicked(object obj)
-        {
-            // Do something
-            NavigationService.DisplayAlert("Hello", "This page will be implemented later", "Okay");
-        }
-
-        /// <summary>
-        /// Invoked when the media image is clicked.
-        /// </summary>
-        private void MediaImageClicked(object obj)
-        {
-            // Do something
-            NavigationService.DisplayAlert("Hello", "This page will be implemented later", "Okay");
-        }
+            NavigationService.PushAsync(new EditProfilePage());
+        }      
 
         #endregion
     }

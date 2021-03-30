@@ -41,23 +41,7 @@
                                                 Phone=330}"
                         Source="ProfileDemoImage"/>
                     
-                    <!--  Edit  -->
-                    <button:SfButton
-                        Grid.Row="0"
-                        Grid.Column="2"
-                        Margin="10"
-                        Padding="0"
-                        BackgroundColor="Transparent"
-                        Command="{Binding EditCommand}"
-                        CornerRadius="4"
-                        FontFamily="{StaticResource FontIcons}"
-                        FontSize="18"
-                        HorizontalOptions="End"
-                        Text="{StaticResource Edit}"
-                        TextColor="{DynamicResource Gray-White}"
-                        VerticalOptions="Start"
-                        WidthRequest="40" />
-                    
+                
                     <!--  Profile name and status with border  -->
                     <border:SfBorder
                         x:Name="ProfileNameLabel"
@@ -190,7 +174,7 @@
                 <button:SfButton 
                                  x:Name="EditButton"
                                  Text="Edit Profile"
-                                 Clicked="EditButton_Clicked">
+                                 Command="{Binding EditProfileCommand}">
                     
                 </button:SfButton>
             </StackLayout>
