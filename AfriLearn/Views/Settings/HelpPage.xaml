@@ -2,14 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AfriLearn.Views.HelpPage"
-             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
-             xmlns:sfEntry="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-             Title="Help">
-
-    <ContentPage.BindingContext>
-        <ViewModel:HelpPageViewModel/>
-    </ContentPage.BindingContext>
-    
+             NavigationPage.HasNavigationBar="False">
+   
     <ContentPage.Content>
         <Grid>
             <WebView x:Name="helpWebView"/>
