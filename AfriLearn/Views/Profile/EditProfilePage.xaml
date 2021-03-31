@@ -1,15 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sfEntry="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              x:Class="AfriLearn.Views.Profile.EditProfilePage"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels.Profile"
              Title="Edit Profile">
+
+    <ContentPage.BindingContext>
+        <ViewModel:ContactProfileViewModel/>
+    </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        
-        <StackLayout>
-            <Label Text="This page will be used to edit the user data!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="8"
+                     VerticalOptions="CenterAndExpand">
+            <Grid>
+                <Image WidthRequest="200"
+                   Source="{Binding  TakenImage}"/>
+                <Label Text="Edit"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       FontSize="18"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding PickProfileImageCommand}"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+
+            <sfEntry:SfTextInputLayout Hint="Name"
+                                       Grid.Row="1"
+                                       Margin="0,5">
+                <Entry Text="{Binding UserName}"
+                           Keyboard="Text"
+                           ReturnType="Next"
+                           VerticalOptions="CenterAndExpand"/>
+            </sfEntry:SfTextInputLayout>
+
+            <sfEntry:SfTextInputLayout Hint="Email"                                       
+                                               Grid.Row="2">
+                <Entry Text="{Binding  Email}"
+                           ReturnType="Next"
+                           Keyboard="Email"
+                          Margin="0,5"/>
+            </sfEntry:SfTextInputLayout>
+
+            <sfEntry:SfTextInputLayout     Hint="Town"
+                                           Grid.Row="1">
+                <Entry Text="{Binding  Institution}"
+                       ReturnType="Next"/>
+            </sfEntry:SfTextInputLayout>
+
+            <Button Text="Save changes"
+                    Command="{Binding SaveChangesCommand}"/>
+
+            <StackLayout Margin="0,8"
+                                 IsVisible="{Binding IsBusy}"
+                                 Grid.Row="5">
+                <ActivityIndicator IsVisible="true"
+                                       IsRunning="True"/>
+                <Label Text="Saving changes ..."
+                           TextColor="Black"
+                           HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

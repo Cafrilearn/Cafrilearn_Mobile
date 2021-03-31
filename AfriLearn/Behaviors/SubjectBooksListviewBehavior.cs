@@ -1,4 +1,6 @@
-﻿using AfriLearn.ViewModels;
+﻿using AfriLearn.Services;
+using AfriLearn.ViewModels;
+using AfriLearn.Views;
 using Xamarin.Forms;
 
 namespace AfriLearn.Behaviors
@@ -11,17 +13,13 @@ namespace AfriLearn.Behaviors
             bindable.ItemTapped += BindableItemTapped;
         }
 
-        private async void BindableItemTapped(object sender, ItemTappedEventArgs e)
+        private void BindableItemTapped(object sender, ItemTappedEventArgs e)
         {
             var vm = new BaseViewModel();
             vm.IsBusy = true;
-            vm.MainContentVisibility = false;
             var listView = (ListView)sender;
-            var  bookName = listView.SelectedItem.ToString();
-            var exploreVM = new SubjectsViewModel();
-            await exploreVM.GetBook(bookName);
-            vm.IsBusy = false;
-            vm.MainContentVisibility = true;
+            var bookName = listView.SelectedItem.ToString();
+            NavigationService.PushAsync(new LoadingPage(bookName));
         }
 
         protected override void OnDetachingFrom(ListView bindable)

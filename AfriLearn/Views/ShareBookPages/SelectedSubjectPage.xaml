@@ -4,14 +4,21 @@
              x:Class="AfriLearn.Views.SelectedSubjectPage"
              xmlns:Behaviors="clr-namespace:AfriLearn.Behaviors"
              NavigationPage.HasBackButton="False"
-             x:Name="selectedSubjectPage">    
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
+             x:Name="selectedSubjectPage">
+
+    <ContentPage.BindingContext>
+        <ViewModel:BaseViewModel/>
+    </ContentPage.BindingContext>
     
     <ContentPage.Content>
         <StackLayout Margin="8">
             <ActivityIndicator IsVisible="{Binding IsBusy}"
-                               VerticalOptions="CenterAndExpand"
-                                x:Name="loadingActivityIndicator"/>
-            <ListView x:Name="subjectNamesListView">
+                               IsRunning="{Binding IsBusy}"
+                               VerticalOptions="CenterAndExpand"/>
+            
+            <ListView x:Name="subjectNamesListView"
+                      IsVisible="{Binding MainContentVisibility}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -21,6 +28,7 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                
                 <ListView.Behaviors>
                     <Behaviors:SubjectBooksListviewBehavior/>
                 </ListView.Behaviors>

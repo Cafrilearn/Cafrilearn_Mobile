@@ -113,14 +113,12 @@ namespace AfriLearn.ViewModels
             {
                 await BlobCache.LocalMachine.InsertObject("currentBook", BookName);
                 NavigationService.PushAsync(new ReadBookPage());
-                IsBusy = false;
-                MainContentVisibility = true;
             }
 
             // check how this can be shared via bluetooth directly from the mobile app
             if (readshare.Equals("Share"))
             {             
-                var  bookToSend = "book.pdf";
+                var  bookToSend = theBookName + ".pdf";
                 var bookFile = Path.Combine(FileSystem.CacheDirectory, bookToSend);
                 File.WriteAllBytes(bookFile,  blobBytes);
                 await Share.RequestAsync(new ShareFileRequest
@@ -128,9 +126,8 @@ namespace AfriLearn.ViewModels
                     Title = Title,
                     File = new ShareFile(bookFile)
                 });
-                IsBusy = false;
-                MainContentVisibility = true;
             }
+            NavigationService.PopAsync();
         }
       
        

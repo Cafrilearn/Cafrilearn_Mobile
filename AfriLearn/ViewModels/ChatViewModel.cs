@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.SignalR.Client;
 using AfriLearn.Constants;
 using AfriLearn.Services;
 using Akavache;
-using AfriLearn.Dtos;
 using System.Reactive.Linq;
 using AfriLearnMobile.Models;
 
@@ -137,17 +136,19 @@ namespace AfriLearnMobile.ViewModels.ChatViewModels
                 var authHttpClient = new HttpClientService(appUser.AuthKey);
 
                 var serverMessage = await authHttpClient.Get("Messages/get");
-                var messages = JsonConvert.DeserializeObject<ObservableRangeCollection<Message>>(serverMessage);
-
-                foreach (var message in messages)
+                if (serverMessage != "")
                 {
-                    Messages.Add(new Message()
+                    var messages = JsonConvert.DeserializeObject<ObservableRangeCollection<Message>>(serverMessage);
+                    foreach (var message in messages)
                     {
-                        DateAndTime = message.DateAndTime,
-                        IsMine = message.IsMine,
-                        Sender = message.Sender,
-                        Text = message.Text
-                    });
+                        Messages.Add(new Message()
+                        {
+                            DateAndTime = message.DateAndTime,
+                            IsMine = message.IsMine,
+                            Sender = message.Sender,
+                            Text = message.Text
+                        });
+                    }
                 }
             }
             IsBusy = false;

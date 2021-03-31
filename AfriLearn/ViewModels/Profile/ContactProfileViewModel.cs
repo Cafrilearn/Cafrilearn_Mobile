@@ -1,19 +1,19 @@
 ﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using Model = AfriLearn.Models.Profile;
-using Syncfusion.XForms.Border;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using AfriLearn.Services;
 using AfriLearn.Views.Profile;
+using System.Windows.Input;
+using Akavache;
+using System.Reactive.Linq;
+using AfriLearnMobile.Models;
+using System;
 
 namespace AfriLearn.ViewModels.Profile
 {
-    /// <summary>
-    /// ViewModel for Individual profile page
-    /// </summary>
     [Preserve(AllMembers = true)]
-    public class ContactProfileViewModel : BaseViewModel
+     class ContactProfileViewModel : MediaService
     {
         #region Field
 
@@ -22,29 +22,15 @@ namespace AfriLearn.ViewModels.Profile
         #endregion
 
         #region Constructor
-
-        /// <summary>
-        /// Initializes a new instance for the <see cref="ContactProfileViewModel" /> class.
-        /// </summary>
         public ContactProfileViewModel()
         {
-            this.ProfileInfo = new ObservableCollection<Model>();
-
-            for (var i = 0; i < 6; i++)
-            {
-                this.ProfileInfo.Add(new Model { ImagePath = "ProfileImage1" + i + ".png" });
-            }
-            
+            LoadUserInfor();            
             this.EditProfileCommand = new Command(this.EditProfile);
         }
 
         #endregion
 
         #region Public Property
-
-        /// <summary>
-        /// Gets or sets a collection of profile info.
-        /// </summary>
         public ObservableCollection<Model> ProfileInfo
         {
             get
@@ -62,44 +48,63 @@ namespace AfriLearn.ViewModels.Profile
         #endregion
 
         #region Command
-
-        /// <summary>
-        /// Gets or sets the command that is executed when the profile name is clicked.
-        /// </summary>
         public Command ProfileNameCommand { get; set; }
-
-        /// <summary>
-        /// Gets or sets the command that is executed when the edit button is clicked.
-        /// </summary>
         public Command EditProfileCommand { get; set; }
-
-       
+        public ICommand PickProfileImageCommand => new Command(async () => await PickUploadImage());
+        public ICommand SaveChangesCommand => new Command(() => SaveChanges());
         #endregion
 
         #region Methods
-
-        /// <summary>
-        /// Invoked when the profile name is clicked.
-        /// </summary>
-        /// <param name="obj">The object</param>
-        private async void ProfileNameClicked(object obj)
-        {
-            Application.Current.Resources.TryGetValue("Gray-100", out var retVal);
-            (obj as SfBorder).BackgroundColor = (Color)retVal;
-            await Task.Delay(100);
-
-            Application.Current.Resources.TryGetValue("Gray-White", out var oldVal);
-            (obj as SfBorder).BackgroundColor = (Color)oldVal;
-        }
-
-        /// <summary>
-        /// Invoked when the edit button is clicked.
-        /// </summary>
-        /// <param name="obj">The object</param>
+        
         public void EditProfile(object obj)
         {
             NavigationService.PushAsync(new EditProfilePage());
-        }      
+        }
+
+        public async void LoadUserInfor()
+        {
+            var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
+            UserName = appUser.UserName;
+            Email = appUser.Email;
+            Institution = appUser.Institution;
+
+            if (appUser.ProfilePhotoPath != null)
+            {
+                TakenImage = new Uri(appUser.ProfilePhotoPath);
+            }
+            else
+            {
+                TakenImage = "ProfileImage.png";
+            }
+        }
+        public async void SaveChanges()
+        {
+            if (!InternetService.Internet())
+            {
+                await InternetService.NoInternet();
+                return;
+            }
+
+            IsBusy = true;
+
+            var user = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
+            user.UserName = this.UserName;
+            user.Email = this.Email;
+            user.Institution = this.Institution;
+            user.ProfilePhotoPath = this.ImageFullUri;
+
+            await BlobCache.UserAccount.InsertObject("appUser", user);
+
+            var httpClient = new HttpClientService(user.AuthKey);
+            await httpClient.UpDate(user, "User/update");
+
+            IsBusy = false;
+            var response = await NavigationService.DisplayAlert("User data saved successfully", "Continue making changes?", "No, it's now okay", "yes");
+            if (response)
+            {
+                NavigationService.PopAsync();
+            }
+        }
 
         #endregion
     }
