@@ -13,12 +13,13 @@
         <Grid BackgroundColor="LightGray" 
               RowSpacing="0" 
               HorizontalOptions="FillAndExpand" 
-              VerticalOptions="FillAndExpand"
-              IsVisible="{Binding MainContentVisibility}">
+              VerticalOptions="FillAndExpand">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            
             <CollectionView
                             x:Name="SubjectsCollectionView"
                             Grid.Row="1" 
@@ -89,8 +90,8 @@
                                                 <Label Text="{Binding Title}"
                                                        TextColor="Black" 
                                                        FontSize="15"/>
-
                                             </StackLayout>
+                                            
                                         </Grid>
                                     </Expander.Header>
                                     <Grid RowSpacing="0"

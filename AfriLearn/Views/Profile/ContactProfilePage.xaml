@@ -39,25 +39,9 @@
                         BackgroundColor="{DynamicResource Gray-200}"
                         HeightRequest="{OnIdiom Default=480,
                                                 Phone=330}"
-                        Source="ProfileDemoImage"/>
+                        Source="{Binding TakenImage}"/>
                     
-                    <!--  Edit  -->
-                    <button:SfButton
-                        Grid.Row="0"
-                        Grid.Column="2"
-                        Margin="10"
-                        Padding="0"
-                        BackgroundColor="Transparent"
-                        Command="{Binding EditCommand}"
-                        CornerRadius="4"
-                        FontFamily="{StaticResource FontIcons}"
-                        FontSize="18"
-                        HorizontalOptions="End"
-                        Text="{StaticResource Edit}"
-                        TextColor="{DynamicResource Gray-White}"
-                        VerticalOptions="Start"
-                        WidthRequest="40" />
-                    
+                
                     <!--  Profile name and status with border  -->
                     <border:SfBorder
                         x:Name="ProfileNameLabel"
@@ -107,7 +91,7 @@
                                     HorizontalTextAlignment="Start"
                                     LineHeight="{OnPlatform Android=1.5,
                                                             Default=-1}"
-                                    Text="Your Name"
+                                    Text="{Binding    UserName}"
                                     TextColor="{DynamicResource Gray-900}"
                                     VerticalOptions="Center"
                                     VerticalTextAlignment="Center" />
@@ -158,7 +142,7 @@
                         Grid.Column="1"
                         FontFamily="{StaticResource Montserrat-Medium}"
                         Style="{StaticResource CommonProfileLabelStyle}"
-                        Text="youremail@mail.com" />
+                        Text="{Binding Email}" />
 
                 </Grid>
 
@@ -181,7 +165,7 @@
                         Grid.Column="1"
                         FontFamily="{StaticResource Montserrat-Medium}"
                         Style="{StaticResource CommonProfileLabelStyle}"
-                        Text="+1-202-555-0101" />
+                        Text="{Binding  Institution}" />
 
                 </Grid>
 
@@ -190,7 +174,7 @@
                 <button:SfButton 
                                  x:Name="EditButton"
                                  Text="Edit Profile"
-                                 Clicked="EditButton_Clicked">
+                                 Command="{Binding EditProfileCommand}">
                     
                 </button:SfButton>
             </StackLayout>

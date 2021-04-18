@@ -3,7 +3,7 @@ using AfriLearn.Views.Settings;
 using AfriLearn.Views.Profile;
 using System.Windows.Input;
 using Xamarin.Forms;
-using AfriLearn.Views;
+using Xamarin.Essentials;
 
 namespace AfriLearn.ViewModels
 {
@@ -11,8 +11,15 @@ namespace AfriLearn.ViewModels
     {					
 		public ICommand NavigateToSettingsPageCommand => new Command(() =>	NavigationService.PushAsync(new  SettingPage()));
 		public ICommand NavigateToProfilePageCommand => new Command(() => NavigationService.PushAsync(new  ContactProfilePage()));
-		public ICommand NavigateToShareAppCommand => new Command(() =>
-		 NavigationService.DisplayAlert("Hello, this is Cafrilearn.", "The app is still in tests, you will find all the information you are looking for in the complete version", "Thank you"));
+		public ICommand NavigateToShareAppCommand => new Command(async () =>
+		 {
+             await Share.RequestAsync(new  ShareTextRequest
+             {
+                 Title =  "Cafrilearn App",
+                 Text = "https://play.google.com/store/apps/details?id=com.reaiot.cafrilearn"
+              });
+
+         });
 		public ICommand LogOutCommand => new Command(() => SignOutService.SignOut());
 	}
 }

@@ -7,6 +7,7 @@ using AfriLearn.Services;
 using AfriLearn.Dtos;
 using AfriLearn.Views;
 using AfriLearn.Helpers;
+using AfriLearnMobile.Models;
 
 namespace AfriLearn.ViewModels
 {
@@ -27,8 +28,10 @@ namespace AfriLearn.ViewModels
 
             IsBusy = true;
 
+           var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
+
             var email = new ChangePassword() { Email = Email };
-            var client = new HttpClientService();
+            var client = new HttpClientService(appUser.AuthKey);
             var response = await client.Post(email, "Services/ResetPassword");
 
             if (response == "")

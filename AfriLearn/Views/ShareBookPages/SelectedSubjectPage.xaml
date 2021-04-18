@@ -2,28 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AfriLearn.Views.SelectedSubjectPage"
-             xmlns:Behaviors="clr-namespace:AfriLearn.Behaviors"
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"             
              NavigationPage.HasBackButton="False"
-             x:Name="selectedSubjectPage">    
+             x:Name="selectedSubjectPage">
+
+    <ContentPage.BindingContext>
+        <ViewModel:BaseViewModel/>
+    </ContentPage.BindingContext>
     
     <ContentPage.Content>
         <StackLayout Margin="8">
-            <ActivityIndicator IsVisible="{Binding IsBusy}"
-                               VerticalOptions="CenterAndExpand"
-                                x:Name="loadingActivityIndicator"/>
+            <ActivityIndicator x:Name="activityIndicator"
+                               VerticalOptions="CenterAndExpand"/>
+            
             <ListView x:Name="subjectNamesListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout VerticalOptions="Center">
-                                <Label Text="{Binding .}"/>
+                                <Label Text="{Binding .}"
+                                       x:Name="bookNameLabel">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="BookNameLabel_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                <ListView.Behaviors>
-                    <Behaviors:SubjectBooksListviewBehavior/>
-                </ListView.Behaviors>
             </ListView>
         </StackLayout>
     </ContentPage.Content>

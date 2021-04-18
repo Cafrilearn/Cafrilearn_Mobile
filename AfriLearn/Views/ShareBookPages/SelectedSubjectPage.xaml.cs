@@ -41,6 +41,12 @@ namespace AfriLearn.Views
             }
             catch (Exception)
             {
+                if (!InternetService.Internet())
+                {
+                   await InternetService.NoInternet();
+                    return;
+                }
+
                 var allBooksResponse = await httpClientService.Get("Books/getallbooknames");
                 allBooks = JsonConvert.DeserializeObject<List<string>>(allBooksResponse);
                 await BlobCache.LocalMachine.InsertObject("allBookNames", allBooks);
@@ -59,10 +65,21 @@ namespace AfriLearn.Views
             }
 
             subjectNamesListView.ItemsSource = selectedSubjectShortNames;
+        }
 
-            var vm = new BaseViewModel();
-            subjectNamesListView.IsVisible = vm.MainContentVisibility;
-            loadingActivityIndicator.IsVisible = vm.IsBusy;
+        private async void BookNameLabel_Tapped(object sender, EventArgs e)
+        {
+            activityIndicator.IsRunning = true;
+            activityIndicator.IsVisible = true;
+            subjectNamesListView.IsVisible = false;
+
+            var label = sender as Label;
+            var exploreVM = new SubjectsViewModel();
+            await exploreVM.GetBook(label.Text);
+
+            activityIndicator.IsRunning = false;
+            activityIndicator.IsVisible = false;
+            subjectNamesListView.IsVisible = true;
         }
     }
 }

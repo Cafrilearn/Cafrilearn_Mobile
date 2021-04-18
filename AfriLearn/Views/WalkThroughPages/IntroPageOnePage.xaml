@@ -15,46 +15,48 @@
         <ViewModel:IntroductionViewModel/>
     </ContentPage.BindingContext>
     
-    <ContentPage.Content>        
-        <StackLayout Margin="8"
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="8"
                      VerticalOptions="CenterAndExpand">
-            
-            <StackLayout Orientation="Horizontal">
-                <StackLayout HorizontalOptions="StartAndExpand">
-                    <Label Text="Cafrilearn"
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="StartAndExpand">
+                        <Label Text="Cafrilearn"
                            FontSize="24"
                            HorizontalOptions="CenterAndExpand"
                            TextColor="Magenta"/>
-                    <Label Text="Create Account with Cafrilearn"
+                        <Label Text="Create Account with Cafrilearn"
                            HorizontalOptions="CenterAndExpand"/>
-                </StackLayout>   
-                
-                <Label Text="Skip"
+                    </StackLayout>
+
+                    <Label Text="Skip"
                        TextColor="Blue"
                        FontSize="Large"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="EndAndExpand">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding SkipIntroCommand}"/>
-                    </Label.GestureRecognizers>
-                </Label>
-            </StackLayout>
-            
-            <Label Text="Welcome to Cafrilearn, learn from anywhere on the Continent of Africa. We believe Learning should be accessible, affordable and free to everyone, everywhere."
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SkipIntroCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <Label Text="Welcome to Cafrilearn, learn from anywhere on the Continent of Africa. We believe Learning should be accessible, affordable and free to everyone, everywhere."
                    VerticalOptions="CenterAndExpand"
                    FontSize="18"                  />
-            <sfBorder:SfBorder CornerRadius="14"                               
+                <sfBorder:SfBorder CornerRadius="14"                               
                                Margin="0,20">
-                <Image Source="AfricTechImage1.jpg"
+                    <Image Source="AfricTechImage1.jpg"
                        Aspect="AspectFill"
                        HeightRequest="280"/>
-            </sfBorder:SfBorder>
-            
-            <sfButton:SfButton Text="Next"
+                </sfBorder:SfBorder>
+
+                <sfButton:SfButton Text="Next"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="EndAndExpand"
                     Margin="0,5"
                     Command="{Binding NavigateToIntroPageTwoCommand}"/>
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
