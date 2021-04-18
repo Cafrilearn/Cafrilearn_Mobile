@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels" 
-             xmlns:LocalBehavior="clr-namespace:AfriLearn.Behaviors" 
+             xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.LibraryPage">
     
@@ -19,22 +18,25 @@
                 Text="Your saved notes will be displayed here"
                 FontSize="16"
                 TextColor="Magenta"/>
+
+            <ActivityIndicator x:Name="activityIndicator"/>
             
-            <ListView ItemsSource="{Binding SavedBooks}"
+            <ListView x:Name="booksListViw"
+                      ItemsSource="{Binding SavedBooks}"
                       IsPullToRefreshEnabled="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding .}"
+                            <Label x:Name="bookNameLabel"
+                                   Text="{Binding .}"
                                    VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="BookNameLabel_Tapped"/>
+                                </Label.GestureRecognizers>
                             </Label>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-                
-                <ListView.Behaviors>
-                    <LocalBehavior:SubjectBooksListviewBehavior/>
-                </ListView.Behaviors>
             </ListView>
         </StackLayout>
     </ContentPage.Content>
