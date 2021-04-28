@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 namespace AfriLearn.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LibraryPage : ContentPage
+    public partial class HistoryPage : ContentPage
     {
-        public LibraryPage()
+        public HistoryPage()
         {
             InitializeComponent();
         }
@@ -21,6 +21,10 @@ namespace AfriLearn.Views
             var label = sender as Label;
             var vm = new SubjectsViewModel();
             await vm.GetBook(label.Text);
+
+            activityIndicator.IsVisible = false;
+            activityIndicator.IsRunning = false;
+            booksListViw.IsVisible = true;
         }
     }
 }

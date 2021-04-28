@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ViewModel="clr-namespace:AfriLearn.ViewModels"
              mc:Ignorable="d"
-             x:Class="AfriLearn.Views.LibraryPage">
+             x:Class="AfriLearn.Views.HistoryPage">
     
     <ContentPage.BindingContext>
-        <ViewModel:LibraryViewModel/>
+        <ViewModel:HistoryViewModel/>
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
@@ -19,16 +19,18 @@
                 FontSize="16"
                 TextColor="Magenta"/>
 
-            <ActivityIndicator x:Name="activityIndicator"/>
+            <ActivityIndicator x:Name="activityIndicator"
+                               VerticalOptions="CenterAndExpand"/>
             
             <ListView x:Name="booksListViw"
                       ItemsSource="{Binding SavedBooks}"
-                      IsPullToRefreshEnabled="True">
+                      IsPullToRefreshEnabled="True"
+                      SelectedItem="{Binding BookName}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Label x:Name="bookNameLabel"
-                                   Text="{Binding .}"
+                                   Text="{Binding BookName}"
                                    VerticalTextAlignment="Center">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="BookNameLabel_Tapped"/>

@@ -37,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ShareBookPages\ExploreBooksPage.xaml.cs">
       <DependentUpon>ExploreBooksPage.xaml</DependentUpon>
     </Compile>
@@ -121,7 +124,7 @@
     <EmbeddedResource Update="Views\WalkThroughPages\IntroPageTwoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\LibraryPage.xaml">
+    <EmbeddedResource Update="Views\HistoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ShareBookPages\ReadBookPage.xaml">

@@ -9,18 +9,21 @@ using Xamarin.Forms;
 
 namespace AfriLearn.ViewModels
 {
-    class LibraryViewModel :  BaseViewModel
+    class HistoryViewModel :  BaseViewModel
     {
         #region fields
         private bool headerTextVisibility = true;
+        private string bookName;
         #endregion
 
-        public LibraryViewModel()
+        public HistoryViewModel()
         {
             GetSavedBooks();
+            SavedBooks = new List<Book>();
         }
-       
+
         #region properties
+        public List<Book> SavedBooks { get; set; }
         public bool HeaderTextVisibility
         {
             get { return headerTextVisibility; }
@@ -30,13 +33,23 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(HeaderTextVisibility));
             }
         }
-        public List<string> SavedBooks { get; set; }
+        public string  BookName
+        {
+            get { return  bookName; }
+            set 
+            {  
+                bookName = value;
+                OnPropertyChanged(nameof(BookName));
+            }
+        }
         #endregion
 
         public ICommand RemoveBookCommand => new Command(async() => 
         {
             var book = new Book();
-            SavedBooks.Remove(book.BookName);
+            book.BookName = BookName;
+            SavedBooks.Remove(book);
+            await BlobCache.LocalMachine.Invalidate(BookName);
             await BlobCache.LocalMachine.InsertObject("savedBooks", SavedBooks);
             NavigationService.DisplayAlert("Deleted", "Book deleted, but you can always find it in explore page again", "Okay");
         });
@@ -45,7 +58,13 @@ namespace AfriLearn.ViewModels
         {
             try 
             { 
-                SavedBooks = await BlobCache.LocalMachine.GetObject<List<string>>("savedBooks");
+                var books = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
+                foreach (var  book in  books)
+                {
+                    SavedBooks.Add(book);
+                }
+                SavedBooks.Reverse();
+                HeaderTextVisibility = false;
             }
             catch (Exception)
             {

@@ -21,17 +21,18 @@
                      VerticalOptions="CenterAndExpand">
 
                 <StackLayout Orientation="Horizontal">
-                    <StackLayout HorizontalOptions="StartAndExpand">
+                    <StackLayout HorizontalOptions="CenterAndExpand">
                         <Label Text="Cafrilearn"
                            FontSize="24"
                            HorizontalOptions="CenterAndExpand"
-                           TextColor="Magenta"/>
+                           TextColor="#0391CE"/>
+                        
                         <Label Text="Create Account with Cafrilearn"
-                           HorizontalOptions="CenterAndExpand"/>
+                               HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
 
                     <Label Text="Skip"
-                       TextColor="Blue"
+                       TextColor="#0391CE"
                        FontSize="Large"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="EndAndExpand">
@@ -41,11 +42,11 @@
                     </Label>
                 </StackLayout>
 
-                <Label Text="Welcome to Cafrilearn, learn from anywhere on the Continent of Africa. We believe Learning should be accessible, affordable and free to everyone, everywhere."
+                <Label Text="Welcome to Cafrilearn, learn from anywhere. We believe learning should be accessible, affordable and free to everyone, everywhere."
                    VerticalOptions="CenterAndExpand"
                    FontSize="18"                  />
                 <sfBorder:SfBorder CornerRadius="14"                               
-                               Margin="0,20">
+                               Margin="0,6">
                     <Image Source="AfricTechImage1.jpg"
                        Aspect="AspectFill"
                        HeightRequest="280"/>

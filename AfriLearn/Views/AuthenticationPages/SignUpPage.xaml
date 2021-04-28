@@ -8,8 +8,7 @@
              xmlns:sfEntry="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              mc:Ignorable="d"
              x:Class="AfriLearn.Views.SignUpPage"
-             NavigationPage.HasNavigationBar="False"
-             Title="Sign Up">
+             NavigationPage.HasNavigationBar="False">
     
     <ContentPage.BindingContext>
         <ViewModel:SignUpViewModel/>
@@ -32,7 +31,7 @@
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
                            FontSize="24"
-                           TextColor="Magenta"/>
+                           TextColor="#0391CE"/>
                 
                 <Label Text="Create Account with Cafrilearn"
                        HorizontalOptions="CenterAndExpand"/>

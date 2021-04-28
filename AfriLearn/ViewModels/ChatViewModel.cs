@@ -65,7 +65,6 @@ namespace AfriLearnMobile.ViewModels.ChatViewModels
                 OnPropertyChanged(nameof(ContentVisibility));
             }
         }
-
         #endregion
 
         public ICommand SendMessageCommand => new Command(async () =>
@@ -130,6 +129,7 @@ namespace AfriLearnMobile.ViewModels.ChatViewModels
                         DateAndTime = DateTime.Now.AddMinutes(-23).ToString()
                     },
                 });
+
             if (InternetService.Internet())
             {
                 var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
@@ -151,6 +151,7 @@ namespace AfriLearnMobile.ViewModels.ChatViewModels
                     }
                 }
             }
+
             IsBusy = false;
             ContentVisibility = true;
         }

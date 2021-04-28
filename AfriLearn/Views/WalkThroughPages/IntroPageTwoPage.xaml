@@ -20,17 +20,17 @@
             <StackLayout Margin="8"
                      VerticalOptions="CenterAndExpand">
                 <StackLayout Orientation="Horizontal">
-                    <StackLayout HorizontalOptions="StartAndExpand">
+                    <StackLayout HorizontalOptions="CenterAndExpand">
                         <Label Text="Cafrilearn"
                            FontSize="24"
                            HorizontalOptions="CenterAndExpand"
-                           TextColor="Magenta"/>
+                           TextColor="#0391CE"/>
                         <Label Text="Create Account with Cafrilearn"
                            HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
 
                     <Label Text="Skip"
-                       TextColor="Blue"
+                       TextColor="#0391CE"
                        FontSize="Large"
                        VerticalOptions="StartAndExpand"
                        HorizontalOptions="EndAndExpand">
@@ -46,7 +46,7 @@
 
                 <sfBorder:SfBorder
                     CornerRadius="14"
-                    Margin="0,20">
+                    Margin="0,6">
                     <Image Source="SchoolPause.jpeg"
                        Aspect="AspectFill"
                        HeightRequest="280"

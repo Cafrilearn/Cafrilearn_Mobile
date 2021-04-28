@@ -256,23 +256,23 @@ namespace AfriLearn.ViewModels
 
                 try
                 {
-                    var savedBooks = await BlobCache.LocalMachine.GetObject<List<string>>("savedBooks");
-                    savedBooks.Add(book.BookName);
+                    var savedBooks = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
+                    savedBooks.Add(book);
                     await BlobCache.LocalMachine.InsertObject("savedBooks", savedBooks);
                 }
                 catch (Exception)
                 {
-                    var newBook = new List<string>() { book.BookName };
+                    var newBook = new List<Book>() { book };
                     await BlobCache.LocalMachine.InsertObject("savedBooks", newBook);
                 }
 
             }
 
             var readshare = await Application.Current.MainPage.DisplayActionSheet("Select whether to read or share this book", "Cancel", "Okay", "Read", "Share");
-
+            await BlobCache.LocalMachine.InsertObject("currentBook", BookName);
+          
             if (readshare.Equals("Read"))
             {
-                await BlobCache.LocalMachine.InsertObject("currentBook", BookName);
                 NavigationService.PushAsync(new ReadBookPage());
             }
 

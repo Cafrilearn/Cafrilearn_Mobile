@@ -33,19 +33,14 @@
                      Priority="1"
                      Text="Settings"
                      Command="{Binding NavigateToSettingsPageCommand}"/>
-
-        <ToolbarItem Order="Secondary"
-                     Priority="2"
-                     Text="Profile"
-                     Command="{Binding NavigateToProfilePageCommand}"/>
         
         <ToolbarItem Order="Secondary"
-                     Priority="3"
+                     Priority="2"
                      Text="Share App"
                      Command="{Binding NavigateToShareAppCommand}"/>
 
         <ToolbarItem Order="Secondary"
-                     Priority="4"
+                     Priority="3"
                      Text="Log Out"
                      Command="{Binding  LogOutCommand}"/>
         
@@ -53,7 +48,7 @@
 
     <TabbedPage.Children>
         <LocalViews:LandingPage Title="Class" IconImageSource="Home.png"/>
-        <LocalViews:LibraryPage Title="Library" IconImageSource="Bookshelf.png"/>
+        <LocalViews:HistoryPage Title="History" IconImageSource="Bookshelf.png"/>
         <ProfilViewModel:ContactProfilePage Title="Account" IconImageSource="Account.png"/>
     </TabbedPage.Children>
 </TabbedPage>

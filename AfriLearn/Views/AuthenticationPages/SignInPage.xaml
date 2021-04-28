@@ -29,7 +29,7 @@
                     <Label Text="Cafrilearn"
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
-                           TextColor="Magenta"
+                           TextColor="#0391CE"
                            FontSize="24"/>
                     
                     <Label Text="Sign into your Cafrilearn Account"

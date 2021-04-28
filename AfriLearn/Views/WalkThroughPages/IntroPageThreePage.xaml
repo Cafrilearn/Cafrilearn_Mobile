@@ -24,7 +24,7 @@
                            VerticalOptions="Start"
                            HorizontalOptions="CenterAndExpand"
                            FontSize="Large"
-                           TextColor="Magenta"/>
+                           TextColor="#0391CE"/>
                     <Label Text="Create Account with Cafrilearn"
                            HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
