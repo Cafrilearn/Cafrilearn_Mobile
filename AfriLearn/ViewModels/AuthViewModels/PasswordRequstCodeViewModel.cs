@@ -28,10 +28,8 @@ namespace AfriLearn.ViewModels
 
             IsBusy = true;
 
-           var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
-
             var email = new ChangePassword() { Email = Email };
-            var client = new HttpClientService(appUser.AuthKey);
+            var client = new HttpClientService();
             var response = await client.Post(email, "Services/ResetPassword");
 
             if (response == "")
