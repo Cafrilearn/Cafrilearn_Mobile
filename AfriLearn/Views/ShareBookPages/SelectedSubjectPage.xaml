@@ -13,7 +13,8 @@
     <ContentPage.Content>
         <StackLayout Margin="8">
             <ActivityIndicator x:Name="activityIndicator"
-                               VerticalOptions="CenterAndExpand"/>
+                               VerticalOptions="CenterAndExpand"
+                               IsVisible="false"/>
             
             <ListView x:Name="subjectNamesListView">
                 <ListView.ItemTemplate>

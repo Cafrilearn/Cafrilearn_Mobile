@@ -20,6 +20,7 @@ namespace  AfriLearn.Views
                 MessagesListView.ScrollTo(target, ScrollToPosition.End, true);
             };
         }
+        
         void MyListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             MessagesListView.SelectedItem = null;

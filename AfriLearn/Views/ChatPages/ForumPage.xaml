@@ -39,17 +39,17 @@
 
             <!--Messages in Row 0 -->
             <ListView 
-			x:Name="MessagesListView" 
-			ItemTemplate="{StaticResource MessageTemplateSelector}" 
-			ItemsSource="{Binding Messages}" 
-			HasUnevenRows="True" 
-			SeparatorVisibility="None" />
+			    x:Name="MessagesListView" 
+			    ItemTemplate="{StaticResource MessageTemplateSelector}" 
+			    ItemsSource="{Binding Messages}" 
+			    HasUnevenRows="True" 
+			    SeparatorVisibility="None" />
 
             <!-- Entry and Send button in Row 1 -->
             <Frame CornerRadius="8"
-                Grid.Row="1" 
-                Padding="10" 
-                BackgroundColor="#EFEFEF">
+                    Grid.Row="1" 
+                    Padding="10" 
+                    BackgroundColor="#EFEFEF">
                 <StackLayout Orientation="Horizontal">
                     <sfEntry:SfTextInputLayout Grid.Row="1"
                                        HeightRequest="50"
@@ -61,10 +61,10 @@
                     </sfEntry:SfTextInputLayout>
 
                     <Button 
-				Text="Send" 
-				Command="{Binding  SendMessageCommand}"
-                CommandParameter="{Binding  OutGoingText}"
-                HorizontalOptions="EndAndExpand"/>
+				        Text="Send" 
+				        Command="{Binding  SendMessageCommand}"
+                        CommandParameter="{Binding  OutGoingText}"
+                        HorizontalOptions="EndAndExpand"/>
                 </StackLayout>
             </Frame>
         </Grid>

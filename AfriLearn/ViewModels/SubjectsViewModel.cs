@@ -75,28 +75,28 @@ namespace AfriLearn.ViewModels
                 },
                 new Subject()
                 {
-                    Title = "Primary  Kiswahili",
+                    Title = "Primary Kiswahili",
                     ImageSource = "Kiswahili.jpg",
                     NumberSymbol = "02",
                     NumberWord = "Two"
                 },
                 new Subject()
                 {
-                    Title = "Primary  Mathematics",
+                    Title = "Primary Mathematics",
                     ImageSource = "Mathematics.png",
                     NumberSymbol = "03",
                     NumberWord = "Three"
                 },
                 new Subject()
                 {
-                    Title = "Physical  Education",
+                    Title = "PE Education",
                     ImageSource = "PhysicalEducation.jpg",
                     NumberSymbol = "04",
                     NumberWord = "Four"
                 },
                 new Subject()
                 {
-                    Title = "Primary  Religious Education",
+                    Title = "Primary Religious Education",
                     ImageSource = "ReligiousEducation.jpeg",
                     NumberSymbol = "05",
                     NumberWord = "Five"
@@ -180,7 +180,7 @@ namespace AfriLearn.ViewModels
                 },
                 new Subject()
                 {
-                    Title = "Secondary  Kiswahili",
+                    Title = "Secondary Kiswahili",
                     ImageSource = "KiswahiliSecondary.jpg",
                     NumberSymbol = "17",
                     NumberWord = "Seventeen"
@@ -208,7 +208,7 @@ namespace AfriLearn.ViewModels
                 },
                 new Subject()
                 {
-                    Title = "Set  Books",
+                    Title = "Set Books",
                     ImageSource = "SetBooks.jpg",
                     NumberSymbol = "21",
                     NumberWord = "Twenty one"

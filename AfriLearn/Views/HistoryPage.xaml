@@ -16,15 +16,17 @@
             <Label 
                 IsVisible="{Binding HeaderTextVisibility}"
                 Text="Your saved notes will be displayed here"
-                FontSize="16"
-                TextColor="Magenta"/>
+                FontSize="16"/>
 
             <ActivityIndicator x:Name="activityIndicator"
-                               VerticalOptions="CenterAndExpand"/>
+                               VerticalOptions="CenterAndExpand"
+                               IsVisible="false"/>
             
             <ListView x:Name="booksListViw"
                       ItemsSource="{Binding SavedBooks}"
                       IsPullToRefreshEnabled="True"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      RefreshCommand="{Binding RefreshListCommand}"
                       SelectedItem="{Binding BookName}">
                 <ListView.ItemTemplate>
                     <DataTemplate>

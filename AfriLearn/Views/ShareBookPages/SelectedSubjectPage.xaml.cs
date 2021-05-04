@@ -31,6 +31,10 @@ namespace AfriLearn.Views
         {
             base.OnAppearing();
 
+            activityIndicator.IsRunning = true;
+            activityIndicator.IsVisible = true;
+            subjectNamesListView.IsVisible = false;
+
             var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
             var httpClientService = new HttpClientService(appUser.AuthKey);
             List<string> allBooks;
@@ -65,6 +69,10 @@ namespace AfriLearn.Views
             }
 
             subjectNamesListView.ItemsSource = selectedSubjectShortNames;
+
+            activityIndicator.IsRunning = false;
+            activityIndicator.IsVisible = false;
+            subjectNamesListView.IsVisible = true;
         }
 
         private async void BookNameLabel_Tapped(object sender, EventArgs e)

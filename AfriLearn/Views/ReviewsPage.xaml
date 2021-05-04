@@ -15,8 +15,7 @@
             <Label Text="Reviews will be displayed here from the Users for the Makini Device"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand"
-                   FontSize="16"
-                   TextColor="Magenta"/>
+                   FontSize="16"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -5,6 +5,7 @@ namespace AfriLearn.ViewModels
     public class BaseViewModel : ContentPage
     {
         private bool mainContentVisibility = true;
+        private bool isRefreshing;
         public BaseViewModel()
         {            
         }      
@@ -18,5 +19,16 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(MainContentVisibility));
             }
         }
+
+        public bool  IsRefreshing
+        {
+            get { return  isRefreshing; }
+            set 
+            {
+                isRefreshing = value;
+                OnPropertyChanged(nameof(IsRefreshing));
+            }
+        }
+
     }
 }

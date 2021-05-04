@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace AfriLearn.ViewModels
 {
-    class HistoryViewModel :  BaseViewModel
+    class HistoryViewModel : BaseViewModel
     {
         #region fields
         private bool headerTextVisibility = true;
@@ -33,18 +33,18 @@ namespace AfriLearn.ViewModels
                 OnPropertyChanged(nameof(HeaderTextVisibility));
             }
         }
-        public string  BookName
+        public string BookName
         {
-            get { return  bookName; }
-            set 
-            {  
+            get { return bookName; }
+            set
+            {
                 bookName = value;
                 OnPropertyChanged(nameof(BookName));
             }
         }
         #endregion
 
-        public ICommand RemoveBookCommand => new Command(async() => 
+        public ICommand RemoveBookCommand => new Command(async () =>
         {
             var book = new Book();
             book.BookName = BookName;
@@ -54,6 +54,12 @@ namespace AfriLearn.ViewModels
             NavigationService.DisplayAlert("Deleted", "Book deleted, but you can always find it in explore page again", "Okay");
         });
 
+        public ICommand RefreshListCommand => new Command(() =>
+        {
+            IsRefreshing = true;
+            GetSavedBooks();
+            IsRefreshing = false;
+        });
         public async void GetSavedBooks()
         {
             try 
