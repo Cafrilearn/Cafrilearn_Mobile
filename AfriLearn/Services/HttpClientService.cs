@@ -16,6 +16,7 @@ namespace AfriLearn.Services
             _handler = new HttpClientHandler();
             _handler.AllowAutoRedirect = false;
             _handler.Credentials = default;
+           // _handler.ClientCertificateOptions =  ClientCertificateOption.Automatic;            
             _httpClient = new HttpClient(_handler);
             _httpClient.BaseAddress = new Uri(HttpClientServiceConstants.BaseUri);
         }

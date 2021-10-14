@@ -25,15 +25,15 @@
                            HorizontalOptions="CenterAndExpand"
                            FontSize="Large"
                            TextColor="#0391CE"/>
-                    <Label Text="Create Account with Cafrilearn"
+                    <Label Text="After being educated, remember to think for yourslef, and take action. You will know what to do"
                            HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
 
-                <Label Text="We are thrillied to have you join us and thousands of other students using our platform. Enjoy your Learning."
+                <Label Text="You are about to make the right decision by preparing yourself for what is coming"
                   FontSize="18" 
                   Margin="0, 10, 0, 0"/>
 
-                <Label Text="We are here to make sure that you are educated."
+                <Label Text="We are here to make sure that you are educated, you are the future"
                    FontSize="16"
                    Margin="0, 0, 0, 6"/>
 

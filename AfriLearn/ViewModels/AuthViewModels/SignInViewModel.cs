@@ -49,7 +49,7 @@ namespace AfriLearn.ViewModels
 
             if (response == "Username or Passsword not correct" || response == "")
             {
-                var wrongPassword = await NavigationService.DisplayAlert("Error", "Wrong Password or Email", "Try Again", "Reset Password");
+                var wrongPassword = await NavigationService.DisplayAlert("Error", "Invalid Email or Password", "Try Again", "Reset Password");
                 if (!wrongPassword)
                 {
                     NavigationService.PushAsync(new PasswordRequstCodePage());
