@@ -26,16 +26,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout   Margin="8"
-                           VerticalOptions="CenterAndExpand">
-                <Label     Text="Cafrilearn"
-                           VerticalOptions="Start"
-                           HorizontalOptions="CenterAndExpand"
-                           FontSize="24"
-                           TextColor="#0391CE"/>
-                
-                <Label Text="Create Account with Cafrilearn"
-                       HorizontalOptions="CenterAndExpand"/>
-                
+                           VerticalOptions="CenterAndExpand">                
                 <sfEntry:SfTextInputLayout>
                     <Entry Text="{Binding UserName}"
                            Placeholder="Name"
@@ -128,8 +119,7 @@
                     
                     <Label Text="Creating Account ..."
                            HorizontalOptions="CenterAndExpand"/>
-                </StackLayout>
-                
+                </StackLayout>                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

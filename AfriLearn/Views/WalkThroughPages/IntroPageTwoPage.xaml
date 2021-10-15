@@ -25,7 +25,7 @@
                            FontSize="24"
                            HorizontalOptions="CenterAndExpand"
                            TextColor="#0391CE"/>
-                        <Label Text="Create Account with Cafrilearn"
+                        <Label Text="Education, a powerful tool to change the world"
                            HorizontalOptions="CenterAndExpand"/>
                     </StackLayout>
 
@@ -40,14 +40,14 @@
                     </Label>
                 </StackLayout>
 
-                <Label Text="Register your level of study and read books for your class or unit, collaborate with other students online on information sharing, share your experiences and  even gauge yourself by doing online tests in your level."
+                <Label Text="Register and start learning now! You can ask questions too and discuss with other students on class content"
                    VerticalOptions="CenterAndExpand"
                   FontSize="18"/>
 
                 <sfBorder:SfBorder
                     CornerRadius="14"
                     Margin="0,6">
-                    <Image Source="SchoolPause.jpeg"
+                    <Image Source="AfricTechImage1.jpg"
                        Aspect="AspectFill"
                        HeightRequest="280"
                        />

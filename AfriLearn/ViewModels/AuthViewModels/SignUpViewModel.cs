@@ -143,7 +143,7 @@ namespace AfriLearn.ViewModels
         {
             if (TermsAndConditions != true)
             {
-                NavigationService.DisplayAlert("Invalid", "Please Accept the Terms and Conditions first", "Okay");
+                NavigationService.DisplayAlert("Invalid", "Please Read and Accept the Terms and Conditions first", "Okay");
                 return;
             }
 
@@ -169,7 +169,7 @@ namespace AfriLearn.ViewModels
             {
                 UserName = UserName,
                 PasswordHash = Password,
-                Email = Email,
+                Email = Email.ToLower(),
                 StudyLevel = StudyLevel,
                 TermsAndConditionsChecked = TermsAndConditions,
                 Institution = Institution,
@@ -177,9 +177,8 @@ namespace AfriLearn.ViewModels
                 Role = "Student",
                 Setting = new Setting()
                 {
-                    AppNotificationsOn = true,
-                    MarkettingNotificationsOn = true,
-                    NightModeOn = false                    
+                    IsAppNotificationsOn = true, 
+                    IsNightModeOn = false                    
                 }
             };
 
