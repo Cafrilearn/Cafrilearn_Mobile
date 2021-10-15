@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -13,17 +14,19 @@ namespace AfriLearn.Services
         private protected HttpClientHandler _handler;
         public HttpClientService()
         {
-            _handler = new HttpClientHandler();
+            _handler = new HttpClientHandler() ;
             _handler.AllowAutoRedirect = false;
             _handler.Credentials = default;
+            _handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
             _httpClient = new HttpClient(_handler);
-            _httpClient.BaseAddress = new Uri(HttpClientServiceConstants.BaseUri);
+            _httpClient.BaseAddress = new Uri(HttpClientServiceConstants.BaseUri);          
         }
         public HttpClientService(string token)
         {
             _handler = new HttpClientHandler();
             _handler.AllowAutoRedirect = false;
-            _handler.Credentials = default;
+            _handler.Credentials = default; 
+            _handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
             _httpClient = new HttpClient(_handler);
             _httpClient.BaseAddress = new Uri(HttpClientServiceConstants.BaseUri);
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
