@@ -13,7 +13,7 @@ namespace AfriLearn
             InitializeComponent();
             SyncfusionLicenseProvider.RegisterLicense(SyncfusionConstants.SyncKey);
             Registrations.Start("AfriLernMobile");
-            var page = new NavigationPage(new StartPage())
+            var page = new NavigationPage(new  StartPage())
             {
                  BarBackgroundColor = Color.FromHex("#0391CE")                 
             };
