@@ -47,7 +47,7 @@ namespace AfriLearn.Views
                 await CloseAnimation(imgView);
             }
         }
-        private void SelectBujectButton_Clicked(object sender, EventArgs e)
+        private void SelectSubjectButton_Clicked(object sender, EventArgs e)
         {
             var btn = sender as Button;
             NavigationService.PushAsync(new SelectedSubjectPage(btn.Text.ToUpper()));

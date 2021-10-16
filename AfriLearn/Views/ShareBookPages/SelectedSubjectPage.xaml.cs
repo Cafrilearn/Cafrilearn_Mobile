@@ -51,6 +51,8 @@ namespace AfriLearn.Views
                     return;
                 }
 
+                // instead of getting all books and saving them, lets get the selected books,
+                // there might be thousands of books and its memory inefficient pulling them all by name
                 var allBooksResponse = await httpClientService.Get("Books/getallbooknames");
                 allBooks = JsonConvert.DeserializeObject<List<string>>(allBooksResponse);
                 await BlobCache.LocalMachine.InsertObject("allBookNames", allBooks);

@@ -116,11 +116,11 @@
                                               Padding="20" 
                                               IsVisible="False">
                                             <StackLayout>
-                                                <Label Text="Click the button below to see more"/>
+                                                <Label Text="Click the button below to see more."/>
 
                                                 <Button Text="{Binding Title}"
-                                                    x:Name="SelectBujectButton"
-                                                    Clicked="SelectBujectButton_Clicked"/>
+                                                    x:Name="SelectSubjectButton"
+                                                    Clicked="SelectSubjectButton_Clicked"/>
                                             </StackLayout>
                                         </Grid>
                                     </Grid>

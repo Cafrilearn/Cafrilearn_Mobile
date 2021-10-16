@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -26,8 +26,7 @@
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.39" />
     <PackageReference Include="Syncfusion.Xamarin.Cards" Version="18.4.0.39" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.4.0.39" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.4.0.39" />
-    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.4.0.39" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPdfViewer" Version="18.2.0.44" />
     <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
