@@ -24,7 +24,7 @@ namespace AfriLearn.ViewModels.Profile
         #region Constructor
         public ContactProfileViewModel()
         {
-            LoadUserInfor();            
+            //LoadUserInfor();            
             this.EditProfileCommand = new Command(this.EditProfile);
         }
 

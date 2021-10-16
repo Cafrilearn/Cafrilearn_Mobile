@@ -18,7 +18,7 @@ namespace AfriLearn.ViewModels
 
         public HistoryViewModel()
         {
-            GetSavedBooks();
+            //GetSavedBooks();
             SavedBooks = new List<Book>();
         }
 

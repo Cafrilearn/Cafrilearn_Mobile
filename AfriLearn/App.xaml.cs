@@ -3,6 +3,7 @@ using Syncfusion.Licensing;
 using Xamarin.Forms;
 using Akavache;
 using AfriLearn.Views.Helpers;
+using AfriLearn.Views;
 
 namespace AfriLearn
 {
@@ -13,7 +14,7 @@ namespace AfriLearn
             InitializeComponent();
             SyncfusionLicenseProvider.RegisterLicense(SyncfusionConstants.SyncKey);
             Registrations.Start("AfriLernMobile");
-            var page = new NavigationPage(new StartPage())
+            var page = new NavigationPage(new HomePage())
             {
                  BarBackgroundColor = Color.FromHex("#0391CE")                 
             };

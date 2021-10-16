@@ -61,7 +61,7 @@ namespace AfriLearn.ViewModels
 
             var appUserAccount = JsonConvert.DeserializeObject<AppUser>(response);
             appUserAccount.IsSignedIn = true;
-            await BlobCache.UserAccount.InsertObject("appUser", appUserAccount);
+            await BlobCache.LocalMachine.InsertObject("appUser", appUserAccount);
             NavigationService.PushAsync(new HomePage());
 
             IsBusy = false;
