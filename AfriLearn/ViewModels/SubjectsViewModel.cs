@@ -1,7 +1,6 @@
 ﻿using AfriLearn.Models;
 using AfriLearn.Services;
 using AfriLearn.Views;
-using AfriLearnMobile.Models;
 using Akavache;
 using System;
 using System.Collections.Generic;
@@ -62,7 +61,7 @@ namespace AfriLearn.ViewModels
        
         public void GetBookNames()
         { 
-            // Have these information stored in cloud and retrieved when the user needs it,
+            // Have these information stored in cloud as text and retrieved when the user needs it,
             // makes the app seem smaller, and also can be modified in the backend or admin
             Subjects = new  ObservableCollection<Subject>()
             {
@@ -89,63 +88,63 @@ namespace AfriLearn.ViewModels
                 },
                 new Subject()
                 {
-                    Title = "PE Education",
+                    Title = "Primary 	Physical-Education",
                     ImageSource = "PhysicalEducation.jpg",
                     NumberSymbol = "04",
                     NumberWord = "Four"
                 },
                 new Subject()
                 {
-                    Title = "Primary Religious Education",
+                    Title = "Primary Religious-Education",
                     ImageSource = "ReligiousEducation.jpeg",
                     NumberSymbol = "05",
                     NumberWord = "Five"
                 },
                 new Subject()
                 {
-                    Title = "Science",
+                    Title = "Primary Science",
                     ImageSource = "Science.png",
                     NumberSymbol = "06",
                     NumberWord = "Six"
                 },
                 new Subject()
                 {
-                    Title = "Social Studies",
+                    Title = "Primary Social-Studies",
                     ImageSource = "SocialStudies.jpg",
                     NumberSymbol = "07",
                     NumberWord = "Seven"
                 },
                 new Subject()
                 {
-                    Title = "Agriculture",
+                    Title = "Secondary Agriculture",
                     ImageSource = "Agriculture.jpg",
                     NumberSymbol = "08",
                     NumberWord = "Eight"
                 },
                 new Subject()
                 {
-                    Title = "Biology",
+                    Title = "Secondary Biology",
                     ImageSource = "Biology.jpg",
                     NumberSymbol = "09",
                     NumberWord = "Nine"
                 },
                 new Subject()
                 {
-                    Title = "Business Studies",
+                    Title = "Secondary Business-Studies",
                     ImageSource = "BusinessStudies.png",
                     NumberSymbol = "10",
                     NumberWord = "Ten"
                 },
                 new Subject()
                 {
-                    Title = "Chemistry",
+                    Title = "Secondary Chemistry",
                     ImageSource = "Chemistry.jpg",
                     NumberSymbol = "11",
                     NumberWord = "Eleven"
                 },
                 new Subject()
                 {
-                    Title = "Computer Studies",
+                    Title = "Secondary Computer-Studies",
                     ImageSource = "ComputerStudies.png",
                     NumberSymbol = "12",
                     NumberWord = "Twelve"
@@ -159,21 +158,21 @@ namespace AfriLearn.ViewModels
                 },
                 new Subject()
                 {
-                    Title = "Geography",
+                    Title = "Secondary Geography",
                     ImageSource = "Geography.jpg",
                     NumberSymbol = "14",
                     NumberWord = "Fourteen"
                 },
                 new Subject()
                 {
-                    Title = "History",
+                    Title = "Secondary History",
                     ImageSource = "History.png",
                     NumberSymbol = "15",
                     NumberWord = "Fifteen"
                 },
                 new Subject()
                 {
-                    Title = "Home Science",
+                    Title = "Secondary Home-Science",
                     ImageSource = "HomeScience.jpg",
                     NumberSymbol = "16",
                     NumberWord = "Sixteen"
@@ -194,21 +193,21 @@ namespace AfriLearn.ViewModels
                 },
                 new Subject()
                 {
-                    Title = "Physics",
+                    Title = "Secondary Physics",
                     ImageSource = "Physics.jpg",
                     NumberSymbol = "19",
                     NumberWord = "Ninteen"
                 },
                 new Subject()
                 {
-                    Title = "Secondary Religious Education",
+                    Title = "Secondary Religious-Education",
                     ImageSource = "ReligiousEducationSecondary.png",
                     NumberSymbol = "20",
                     NumberWord = "Twenty"
                 },
                 new Subject()
                 {
-                    Title = "Set Books",
+                    Title = "Secondary SetBooks",
                     ImageSource = "SetBooks.jpg",
                     NumberSymbol = "21",
                     NumberWord = "Twenty one"
@@ -226,9 +225,6 @@ namespace AfriLearn.ViewModels
         {
             BookName = theBookName;
             byte[] blobBytes = null;
-
-            var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
-            var httpClientService = new HttpClientService(appUser.AuthKey);
             var allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
             var relativeBookFormat = allBooks.Where(b => b.Contains(bookName)).FirstOrDefault();
             var bookFormatIndex = relativeBookFormat.LastIndexOf('/');

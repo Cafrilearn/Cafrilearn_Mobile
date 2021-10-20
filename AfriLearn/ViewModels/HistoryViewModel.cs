@@ -15,13 +15,11 @@ namespace AfriLearn.ViewModels
         private bool headerTextVisibility = true;
         private string bookName;
         #endregion
-
         public HistoryViewModel()
         {
             GetSavedBooks();
             SavedBooks = new List<Book>();
         }
-
         #region properties
         public List<Book> SavedBooks { get; set; }
         public bool HeaderTextVisibility
@@ -43,7 +41,6 @@ namespace AfriLearn.ViewModels
             }
         }
         #endregion
-
         public ICommand RemoveBookCommand => new Command(async () =>
         {
             var book = new Book();
@@ -53,7 +50,6 @@ namespace AfriLearn.ViewModels
             await BlobCache.LocalMachine.InsertObject("savedBooks", SavedBooks);
             NavigationService.DisplayAlert("Deleted", "Book deleted, but you can always find it in explore page again", "Okay");
         });
-
         public ICommand RefreshListCommand => new Command(() =>
         {
             IsRefreshing = true;
@@ -65,7 +61,7 @@ namespace AfriLearn.ViewModels
             try 
             { 
                 var books = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
-                foreach (var  book in  books)
+                foreach (var book in books)
                 {
                     SavedBooks.Add(book);
                 }

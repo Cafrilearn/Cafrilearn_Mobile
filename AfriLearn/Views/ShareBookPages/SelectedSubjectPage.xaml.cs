@@ -1,11 +1,9 @@
-﻿using AfriLearn.Services;
+﻿using AfriLearn.Constants;
+using AfriLearn.Services;
 using AfriLearn.ViewModels;
-using AfriLearnMobile.Models;
 using Akavache;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -35,13 +33,15 @@ namespace AfriLearn.Views
             activityIndicator.IsVisible = true;
             subjectNamesListView.IsVisible = false;
 
-            var appUser = await BlobCache.UserAccount.GetObject<AppUser>("appUser");
-            var httpClientService = new HttpClientService(appUser.AuthKey);
-            List<string> allBooks;
+            var httpClientService = new HttpClientService();
+
+            List<string> selectedBooks;
+
+            var selecteBookName = SubjectName.Replace(' ', '/').ToLower();
 
             try
             {
-                 allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
+                selectedBooks = await BlobCache.LocalMachine.GetObject<List<string>>(selecteBookName);
             }
             catch (Exception)
             {
@@ -53,17 +53,22 @@ namespace AfriLearn.Views
 
                 // instead of getting all books and saving them, lets get the selected books,
                 // there might be thousands of books and its memory inefficient pulling them all by name
-                var allBooksResponse = await httpClientService.Get("Books/getallbooknames");
-                allBooks = JsonConvert.DeserializeObject<List<string>>(allBooksResponse);
-                await BlobCache.LocalMachine.InsertObject("allBookNames", allBooks);
+                var selecteBookNameResponse = await httpClientService.Get(HttpClientServiceConstants.RootUri + "courses/books/" + selecteBookName);
+                string[] selectedBookString = selecteBookNameResponse.Split(new char[] { ':' }, 2);
+                selectedBooks = new List<string>(selectedBookString[1]
+                                .Replace("[",string.Empty)
+                                .Replace("]","")
+                                .Replace("}","")
+                                .Replace("\"","")
+                                .Split(','));
+                await BlobCache.LocalMachine.InsertObject(selecteBookName, selectedBooks);
             }
-            
-            var selectedSubjectLongNames = allBooks.Where(s => s.Contains(SubjectName)).ToList();
-           
+
+
             // these pieces of code will be removed once the names for different subjects are changed
             // and become unique
             var selectedSubjectShortNames = new List<string>();
-            foreach (var selectedSubjectlongName in  selectedSubjectLongNames)
+            foreach (var selectedSubjectlongName in selectedBooks)
             {
                 var index = selectedSubjectlongName.LastIndexOf('/');
                 var  shortName = selectedSubjectlongName.Substring(index + 1);
@@ -76,7 +81,6 @@ namespace AfriLearn.Views
             activityIndicator.IsVisible = false;
             subjectNamesListView.IsVisible = true;
         }
-
         private async void BookNameLabel_Tapped(object sender, EventArgs e)
         {
             activityIndicator.IsRunning = true;

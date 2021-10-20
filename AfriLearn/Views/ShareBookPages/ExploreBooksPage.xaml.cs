@@ -13,7 +13,6 @@ namespace AfriLearn.Views
         {
             InitializeComponent();
         }
-
         private async Task OpenAnimation(View view, uint length = 250)
         {
             view.RotationX = -90;
@@ -22,14 +21,12 @@ namespace AfriLearn.Views
             _ = view.FadeTo(1, length);
             await view.RotateXTo(0, length);
         }
-
         private async Task CloseAnimation(View view, uint length = 250)
         {
             _ = view.FadeTo(0, length);
             await view.RotateXTo(-90, length);
             view.IsVisible = false;
         }
-
         private async void MainExpander_Tapped(object sender, EventArgs e)
         {
             var expander = sender as Expander;
