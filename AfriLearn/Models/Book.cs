@@ -9,4 +9,8 @@
         public  string  Author { get; set; }
         public  string CoverImagePhotoUri { get; set; }
     }
+    public class BookInfo
+    {
+        public  string  book_bytes { get; set; }
+    }
 }

@@ -1,13 +1,15 @@
-﻿using AfriLearn.Models;
+﻿using AfriLearn.Constants;
+using AfriLearn.Models;
 using AfriLearn.Services;
 using AfriLearn.Views;
 using Akavache;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Reactive.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -221,54 +223,44 @@ namespace AfriLearn.ViewModels
                 }
             };
         }
-        public async Task GetBook(string theBookName)
-        {
-            BookName = theBookName;
-            byte[] blobBytes = null;
-            var allBooks = await BlobCache.LocalMachine.GetObject<List<string>>("allBookNames");
-            var relativeBookFormat = allBooks.Where(b => b.Contains(bookName)).FirstOrDefault();
-            var bookFormatIndex = relativeBookFormat.LastIndexOf('/');
-            var bookFormat = relativeBookFormat.Substring(0, bookFormatIndex);
-
-            var book = new Book()
-            {
-                ContainerType = bookFormat,
-                BookName = theBookName
-            };
+        public async Task GetBook(string theBookName, string level="", string subject="")
+        { 
+            byte[] blobBytes = null;           
 
             // if the book was downloaded already, just get it from blobcache and display it
             try
             {
-                blobBytes = await BlobCache.LocalMachine.GetObject<byte[]>(BookName);
-                BookBytes = blobBytes;
+                blobBytes = await BlobCache.LocalMachine.GetObject<byte[]>(theBookName);
             }
 
             //download the book, if its the first time and store the book locally as stream
             catch (Exception)
             {
-                blobBytes = await MediaService.GetBlobAsync(book);
-                await BlobCache.LocalMachine.InsertObject(BookName, blobBytes);
-                BookBytes = blobBytes;
+                var httpClient = new HttpClientService();
+                var bookBytes = await httpClient.Get(HttpClientServiceConstants.RootUri+"courses/book/"+level+"/"+subject+"/"+ theBookName);
+                var bookInfo = JsonConvert.DeserializeObject<BookInfo>(bookBytes);
+              //  var blobBytesString = bookInfo.book_bytes.Substring(1, bookInfo.book_bytes.Length - 2);
+                blobBytes = Encoding.ASCII.GetBytes(bookInfo.book_bytes);
+                await BlobCache.LocalMachine.InsertObject(theBookName, blobBytes);
 
                 try
                 {
                     var savedBooks = await BlobCache.LocalMachine.GetObject<List<Book>>("savedBooks");
-                    savedBooks.Add(book);
+                    savedBooks.Add(new Book { BookName = theBookName });
                     await BlobCache.LocalMachine.InsertObject("savedBooks", savedBooks);
                 }
                 catch (Exception)
                 {
-                    var newBook = new List<Book>() { book };
-                    await BlobCache.LocalMachine.InsertObject("savedBooks", newBook);
+                    await BlobCache.LocalMachine.InsertObject("savedBooks",  new List<Book>() { new Book {BookName = theBookName } });
                 }
 
             }
 
-            var readshare = await Application.Current.MainPage.DisplayActionSheet("Select whether to read or share this book", "Cancel", "Okay", "Read", "Share");
-            await BlobCache.LocalMachine.InsertObject("currentBook", BookName);
+            var readshare = await Application.Current.MainPage.DisplayActionSheet("Select whether to read or share this book", "Cancel", "Okay", "Read", "Share");        
           
             if (readshare.Equals("Read"))
             {
+                await BlobCache.LocalMachine.InsertObject("currentBook", theBookName);
                 NavigationService.PushAsync(new ReadBookPage());
             }
 

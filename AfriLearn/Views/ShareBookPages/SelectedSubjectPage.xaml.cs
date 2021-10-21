@@ -4,6 +4,7 @@ using AfriLearn.ViewModels;
 using Akavache;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reactive.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -89,7 +90,10 @@ namespace AfriLearn.Views
 
             var label = sender as Label;
             var exploreVM = new SubjectsViewModel();
-            await exploreVM.GetBook(label.Text);
+            var bookInfor = SubjectName.Replace("\"", "").ToLower().Split(' ').ToList();
+            var level = bookInfor[0];
+            var subject = bookInfor[1];
+            await exploreVM.GetBook(label.Text, level, subject);
 
             activityIndicator.IsRunning = false;
             activityIndicator.IsVisible = false;

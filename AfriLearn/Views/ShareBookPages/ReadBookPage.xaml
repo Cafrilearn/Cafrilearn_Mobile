@@ -15,7 +15,7 @@
     
     <ContentPage.Content>
         <StackLayout>          
-            <pdfView:SfPdfViewer InputFileStream="{Binding BookSource}">
+            <pdfView:SfPdfViewer IsPasswordViewEnabled="False" InputFileStream="{Binding BookSource}">
             </pdfView:SfPdfViewer>
         </StackLayout>
     </ContentPage.Content>
